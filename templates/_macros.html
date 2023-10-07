@@ -1,0 +1,60 @@
+{% macro ext(url) %}{% if url.startswith("http") %} target="_blank" rel="noopener"{% endif %}{% endmacro %}
+{% macro asset(name) %}/assets/{{ name }}{% endmacro %}
+
+{% macro contacts(links) %}
+<div class="socials">
+  {% for c in links %}
+  <a class="btn icon-only" href="{{ c.url }}"{{ ext(c.url) }} aria-label="{{ c.label }}" title="{{ c.label }}"><span class="ico ico-{{ c.icon }}"></span></a>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro card(c, index) %}
+{% set many = c.compact or c.images|length > 4 %}
+{% set thumbs %}
+{% for i in c.images %}
+{% if i.startswith("youtube:") %}
+{% set video_id = i.removeprefix("youtube:") %}
+<button class="video" data-video="{{ video_id }}" aria-label="{{ t.video }}"><img loading="lazy" src="https://i.ytimg.com/vi/{{ video_id }}/maxresdefault.jpg" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" alt="" /></button>
+{% else %}
+<button data-full="{{ asset(i) }}"{{ size_attrs(i) }} aria-label="{{ t.screenshot }}">{{ picture(thumb_url(i), hires=i.endswith(".gif")) }}</button>
+{% endif %}
+{% endfor %}
+{% endset %}
+<article id="{{ c.id }}" class="card reveal{% if c.compact %} compact{% endif %}{% if index is odd %} from-right{% endif %}">
+  <div class="frame"></div>
+  {% if not c.compact %}<div class="media">
+    {% if c.sticker %}<span class="sticker">{{ c.sticker }}</span>{% endif %}
+    <button class="cover" data-full="{{ asset(c.cover) }}"{{ size_attrs(c.cover) }} aria-label="{{ t.open }} {{ c.title }}">{{ picture(thumb_url(c.cover), c.title, hires=True) }}</button>
+    {% if c.images and not many %}<div class="thumbs">{{ thumbs }}</div>{% endif %}
+  </div>{% endif %}
+  <div class="body">
+    {# last word is kept together with the anchor icon so the icon never wraps alone #}
+    {% set head, _, last = c.title.rpartition(" ") %}
+    {# titles with a long word (e.g. "Прототипировал") get a smaller font so the word fits #}
+    <h3{% if c.title.split()|map("length")|max > 10 %} class="long"{% endif %}><a href="#{{ c.id }}">{% if head %}{{ head }} {% endif %}<span class="last">{{ last }}</span></a></h3>
+    {% if c.genre %}<div class="genre">{{ c.genre }}</div>{% endif %}
+    {% if c.date %}<p class="date">{{ c.date }}</p>{% endif %}
+    {% if c.notes %}
+    <ul class="notes">
+      {% for n in c.notes %}<li>{{ n }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if c.tags %}
+    <ul class="tags">
+      {% for t in c.tags %}
+      <li>{% if t.url %}<a href="{{ t.url }}"{{ ext(t.url) }}>{{ t.label }}</a>{% else %}<span>{{ t.label }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if c.actions %}
+    <div class="actions">
+      {% for a in c.actions %}
+      {% if a.url == "-" %}<span class="btn accent soon">{{ a.label }}</span>{% else %}<a class="btn accent" href="{{ a.url }}"{{ ext(a.url) }}>{{ a.label }}</a>{% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% if many %}<div class="thumbs grid">{{ thumbs }}</div>{% endif %}
+</article>
+{% endmacro %}

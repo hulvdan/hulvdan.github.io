@@ -1,0 +1,69 @@
+# Hooks are run by prek (https://prek.j178.dev): `uv run prek install`
+#
+# Everything is local and goes through `uv --offline run`, so nothing gets cloned or resolved
+# on commit. Hooks with the same `priority` run in parallel; lower runs first.
+default_install_hook_types:
+  - pre-commit
+
+repos:
+  - repo: local
+    hooks:
+      - id: nocheckin
+        name: 'Prohibited: "nocheckin"'
+        entry: "nocheckin"
+        language: pygrep
+        files: ^(?!.pre-commit-config).*\.(h|c|hpp|cpp|json|jsonc|yaml|yml|txt|py|md|toml|cfg|gd)$
+        exclude: ^addons/.*$
+        priority: 0
+
+      # Formatters touch files, so they go before everything else.
+      - id: ruff-format
+        name: ruff format
+        entry: uv --offline run ruff format
+        language: system
+        files: \.py$
+        priority: 1
+      - id: tombi-format
+        name: tombi format
+        entry: uv --offline run tombi format --offline
+        language: system
+        files: \.toml$
+        priority: 1
+      # Regenerates `[[[cog]]]` blocks in every page (index lists the articles).
+      - id: cog
+        name: cog
+        entry: uv --offline run python main.py cog
+        language: system
+        pass_filenames: false
+        files: ^(pages/.*\.md|docs/assets/.*)$
+        priority: 1
+
+      - id: ruff-check
+        name: ruff check
+        entry: uv --offline run ruff check --output-format=concise
+        language: system
+        files: \.py$
+        priority: 2
+      - id: ty-check
+        name: ty check
+        entry: uv --offline run ty check --output-format=concise --no-progress
+        language: system
+        pass_filenames: false
+        files: \.py$
+        priority: 2
+      - id: build
+        name: build
+        entry: uv --offline run python main.py build
+        language: system
+        pass_filenames: false
+        files: ^(pages/|templates/|docs/assets/|main\.py$|site\.(css|js)$|pygments\.css$)
+        priority: 2
+
+      # Every image has an up-to-date WebP that is added to git.
+      - id: check-images
+        name: check images
+        entry: uv --offline run python main.py check-images
+        language: system
+        pass_filenames: false
+        files: ^(docs/assets/|main\.py$)
+        priority: 3

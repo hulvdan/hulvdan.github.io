@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — Hulvdan{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ hashed["pygments.css"] }}" />
+{% endblock %}
+
+{% block body %}
+    <nav class="topbar"><a class="btn" href="/"><span class="tri left"></span>Hulvdan</a></nav>
+    <main class="article">
+      {{ content }}
+    </main>
+{% endblock %}

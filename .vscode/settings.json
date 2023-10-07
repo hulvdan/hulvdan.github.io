@@ -1,0 +1,76 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "docs": true
+  },
+  "runOnSave.commands": [
+    {
+      "match": ".(json|css)$",
+      "command": "prettier -w ${file}",
+      "clearOutput": true
+    },
+    {
+      "match": "^(?!.*settings\\.json$).*",
+      "command": "uv run cog -n utf-8 -U -r -P --markers=\"[[[cog cog]]] [[[end]]]\" ${file} && uv run python main.py build",
+      "clearOutput": true
+    },
+    {
+      "match": ".pyi?$",
+      "command": "uv run ruff format ${file} && uv run ruff check --select I ${file} --fix",
+      "clearOutput": true
+    }
+  ],
+  "launches": {
+    "run_f5": "build"
+  },
+  "cSpell.words": [
+    "foldfix",
+    "gaems",
+    "gdir",
+    "gdisable",
+    "gexit",
+    "gprefix",
+    "maek"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#a89552",
+    "activityBar.activeBorder": "#15202b",
+    "activityBar.background": "#a89552",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#346b5f",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "activityBarTop.activeBackground": "#a89552",
+    "activityBarTop.activeBorder": "#15202b",
+    "activityBarTop.background": "#a89552",
+    "activityBarTop.foreground": "#15202b",
+    "activityBarTop.inactiveForeground": "#15202b99",
+    "commandCenter.border": "#e7e7e799",
+    "commandCenter.foreground": "#e7e7e7",
+    "editorGroup.border": "#a89552",
+    "panel.border": "#a89552",
+    "sash.hoverBorder": "#a89552",
+    "sideBar.border": "#a89552",
+    "statusBar.background": "#867741",
+    "statusBar.border": "#867741",
+    "statusBar.debuggingBackground": "#867741",
+    "statusBar.debuggingForeground": "#e7e7e7",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBar.inactiveBackground": "#867741",
+    "statusBarItem.hoverBackground": "#a89552",
+    "statusBarItem.remoteBackground": "#7ec1b2",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "tab.activeBackground": "#a89552",
+    "tab.activeBorder": "#a89552",
+    "titleBar.activeBackground": "#867741",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.border": "#867741",
+    "titleBar.inactiveBackground": "#86774199",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "window.activeBorder": "#a89552",
+    "window.inactiveBorder": "#a89552"
+  },
+  "peacock.color": "#867741"
+}

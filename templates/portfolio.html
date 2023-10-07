@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% from "_macros.html" import ext, asset, contacts, card with context %}
+
+{% block title %}{{ hero.name }}{% endblock %}
+
+{% block head %}
+    {% for code, _, url in langs %}
+    <link rel="alternate" hreflang="{{ code }}" href="{{ url }}" />
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+    <details class="lang-menu">
+      <summary class="btn" aria-label="{{ t.switch_lang }}" title="{{ t.switch_lang }}"><span class="ico ico-lang"></span><span class="more">{{ lang|upper }}<span class="caret"></span></span></summary>
+      <ul>
+        {% for code, name, url in langs %}
+        <li><a href="{{ url }}" hreflang="{{ code }}" lang="{{ code }}"{% if code == lang %} aria-current="true"{% endif %}>{{ name }}</a></li>
+        {% endfor %}
+      </ul>
+    </details>
+    <div class="wipe" aria-hidden="true"><span>LOADING</span></div>
+
+    <header class="hero">
+      <div>
+        <h1 class="ransom" aria-label="{{ hero.name }}">
+          {% for char, style in ransom_letters(hero.name) %}<b aria-hidden="true" style="{{ style }}">{{ char }}</b>{% endfor %}
+        </h1>
+        <div class="tagline"><span>{{ hero.tagline }}</span></div>
+        <div class="intro">{{ hero.intro }}</div>
+        {{ contacts(hero.contacts) }}
+      </div>
+    </header>
+
+    {% for s in sections %}
+    <section id="{{ s.id }}">
+      <div class="sec-head reveal"><h2><a href="#{{ s.id }}">{{ s.title }}</a></h2><a class="anchor" href="#{{ s.id }}" aria-label="{{ t.section_link }}"></a></div>
+      {% if s.cards %}
+      <div class="cards">
+        {% for c in s.cards %}{{ card(c, loop.index0) }}{% endfor %}
+      </div>
+      {% elif s.images %}
+      <div class="gifs">
+        {% for i in s.images %}
+        <button class="reveal" data-full="{{ asset(i) }}"{{ size_attrs(i) }} aria-label="{{ t.open }}">{{ picture(thumb_url(i), hires=True) }}</button>
+        {% endfor %}
+      </div>
+      {% elif s.links %}
+      <ol class="requests">
+        {% for l in s.links %}
+        <li class="reveal{% if l.badge %} best{% endif %}"><a href="{{ l.url }}"{{ ext(l.url) }}><span>{{ l.label }}</span>{% if l.badge %}<em>{{ l.badge }}</em>{% endif %}</a></li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      {{ s.body }}
+      {% endif %}
+    </section>
+    {% endfor %}
+
+    <div class="outro reveal">{{ contacts(hero.contacts) }}</div>
+{% endblock %}
