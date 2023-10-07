@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "live",
+      "type": "shell",
+      "command": "start http://localhost:8000 && uv run livereload --host localhost --port 8000 docs",
+      "icon": {
+        "id": "run"
+      },
+      "hide": true,
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "1_gitf",
+      "type": "shell",
+      "command": "uv run python main.py gitf",
+      "icon": {
+        "id": "run"
+      },
+      "presentation": {
+        "reveal": "silent",
+        "clear": true
+      }
+    }
+  ]
+}

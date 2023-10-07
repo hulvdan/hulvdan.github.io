@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hulvdan</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/pygments-80b5b744.css" />
+    <link rel="stylesheet" href="/style-13648417.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <div id="content">
+        <h1>Сокрытие кода. Folding. VSCode Расширение Explicit Folding</h1>
+
+<hr>
+
+<h2>Показываю</h2>
+
+<!-- [[[cog
+from pathlib import Path
+print()
+for x in Path("docs/assets").glob("useful_03_*.png"):
+  print("![](/{})".format(x.as_posix()))
+  print("<br>")
+  print("<br>")
+print()
+cog]]] -->
+
+<p><img src="/assets/useful_03_2.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_3.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-22_22.22.44.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-22_22.22.51.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-27_09.03.20.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-27_09.03.24.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-27_09.03.29.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-27_09.03.40.png" alt="" />
+<br>
+<br></p>
+
+<!-- [[[end]]] -->
+
+<p>Мне так намного проще бегать по коду</p>
+
+<hr>
+
+<h2>Зачем использовать folding / скрывать блоки кода</h2>
+
+<ol>
+<li><p>Проще удерживать важные куски кода в голове</p></li>
+<li><p>Отображать только важное, а неважное — не отображать <em>(= забрать у всякой чуши в коде возможность отвлекать / тратить энергию на распознавание того, что она делает)</em></p></li>
+<li><p>Повысить лимит размера файла перед тем, как сочтем, что его пора разбивать на более мелкие, специализированные</p></li>
+<li><p>Сократить количество функций, что вызываются лишь 1 раз <em>(вместо функции ➜ inline-им её там, где вызывается ➜ оборачиваем в fold регион)</em></p></li>
+</ol>
+
+<hr>
+
+<h2>Обычные fold-ы</h2>
+
+<p>❌ Не позволяют задать область сокрытия кастомной области кода</p>
+
+<p>❌ Команды «Fold level 1» скрывают все на 1-ом уровне. Но есть более сложные функции, которым я бы хотел описать области сокрытия + задать им summary того, что они делают</p>
+
+<hr>
+
+<h2>Пары <code>#region</code> / <code>#endregion</code></h2>
+
+<p>❌ Слишком много букв</p>
+
+<hr>
+
+<h2>Big Brain Giga Chad VSCode Расширение <a href="https://marketplace.visualstudio.com/items?itemName=zokugun.explicit-folding">Explicit Folding</a></h2>
+
+<p>✅ Позволяют задать кастомные области сокрытия кода</p>
+
+<p>✅ Можно прописать им человеческий summary</p>
+
+<p>✅ Можно скрывать все кастомные fold-ы keyboard shortcut-ом <em>(я по-умолчанию гоняю с скрытыми fold-ами)</em></p>
+
+<hr>
+
+<h2>Мои настройки VSCode</h2>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1">// VSCode Preferences: Open User Settings (JSON)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;editor.defaultFoldingRangeProvider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zokugun.explicit-folding&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;explicitFolding.rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;*&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;[python]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;explicitFolding.rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cog}}}&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{{end}}}&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;[proto]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;explicitFolding.rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;}&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cog}}}&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{{end}}}&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p class="page-number">для cog тут заменил [[[]]] на {{{}}}, чтобы у меня кодогенерация не отрабатывал</p>
+
+<hr>
+
+<h2>Настроил с <a href="https://aka.ms/vscodevim">vscodevim</a></h2>
+
+<p>Биндю</p>
+
+<ol>
+<li><p>Space+0 для сокрытия этих кастомных fold-ов</p></li>
+<li><p><code>j</code> — на <code>gj,</code> <code>k</code> — на <code>gk</code> <em>(при нажатии вверх/вниз я fold перескакиваю, а не раскрываю его)</em></p></li>
+<li><p><code>ctrl+d</code> — на <code>12j</code>, <code>ctrl+u</code> + на <code>12k</code> <em>(чтобы тоже перескакивали fold-ы)</em></p></li>
+<li><p><code>l</code> — <code>l+editor.unfold</code>, <code>0</code> — <code>0+editor.unfold</code>, <code>^</code> — <code>^+editor.unfold</code>, <code>$</code> — <code>$+editor.unfold</code></p></li>
+</ol>
+
+<p>см <a href="https://github.com/hulvdan/.dotfiles/blob/62c0fe4c4886e3bea10903934ddf53913c348f12/vscode/settings.json#L115-L147">settings.json</a></p>
+
+<hr>
+
+<h2>На подумать</h2>
+
+<ul>
+<li><p>Вкину пару мыслей:</p>
+
+<p>— Jonathan Blow как-то отмечал что-то вроде: <em>«Когда ты extract-ишь функцию из другой, ты не упрощаешь код»</em></p>
+
+<p>— Кармак отмечал: <em>«If a function is only called from a single place, consider inlining it»</em> (<a href="http://number-none.com/blow/blog/programming/2014/09/26/carmack-on-inlined-code.html">John Carmack on Inlined Code</a>)</p></li>
+<li><p>Это я решил затестить подход с разработкой в преимущественно одном файле, о котором говорили Shawn McGrath и Sean Barrett то ли в <a href="https://www.youtube.com/watch?v=lCtALewoFjc">On Game Programming #001</a>, то ли в <a href="https://www.youtube.com/watch?v=s4-wS9VRuvk">#002</a></p></li>
+<li><p><strong>Безумие moment.</strong> Ходят легенды, что я в одном файле писал геймплей + рендер клона Brotato. <a href="https://github.com/hulvdan/cookier/blob/492ed2d9269ccdd93f0c746df97852e737c98e1f/src/game/bf_game.cpp">14к+ строк</a>. И довел игру до конца. Хочу этим сказать, что у меня сложилось впечатление, что с помощью удобных fold-ов в голове удерживать более обширную картину кода становится проще</p></li>
+</ul>
+
+<hr>
+
+<h2><center><a href="/">Hulvdan</a></center></h2>
+
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "runOnSave.commands": [
+    {
+      "match": ".(json|css)$",
+      "command": "prettier -w ${file}",
+      "clearOutput": true
+    },
+    {
+      "match": "^(?!.*settings\\.json$).*",
+      "command": "uv run cog -n utf-8 -U -r -P --markers=\"[[[cog cog]]] [[[end]]]\" ${file} && uv run python main.py build",
+      "clearOutput": true
+    },
+    {
+      "match": ".pyi?$",
+      "command": "uv run ruff format ${file} && uv run ruff check --select I ${file} --fix",
+      "clearOutput": true
+    }
+  ],
+  "launches": {
+    "run_f5": "build"
+  },
+  "cSpell.words": [
+    "foldfix",
+    "gaems",
+    "gdir",
+    "gdisable",
+    "gexit",
+    "gprefix",
+    "maek"
+  ]
+}

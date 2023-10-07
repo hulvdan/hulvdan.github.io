@@ -1,0 +1,179 @@
+# Исполнение команд при сохранении файлов в редакторах кода
+
+<hr>
+
+Зачем? - Для экономии времени за счёт:
+
+- Автоформатирования кода *(GDScript, C#, C++, Python, JSON, YAML, Markdown, lua, и любого другого, для которого есть форматтер)*
+- Автоисправления простых ошибок в файлах *(к примеру, (1) python-овый linter «ruff» может исправлять ошибки/рекомендации, если ему дать аргумент `--fix`, (2) «prettier» может убирать лишние запятые из json-ов)*
+- Автозапуска тестов *(см. [Тесты + Запуск тестов при сохранении файлов](/useful/05.html))*
+- Автозапуска кодогенерации *(позже опишу)*
+- Автозапуска билда
+- И автоматизации пр. рутинных действий
+
+<hr>
+
+В VSCode есть встроенный функционал **Format on Save**, что прогоняет форматтер
+
+Но то, что я опишу далее, позволяет прогонять **набор команд, не обязательно связанных с форматированием**
+
+<hr>
+
+## VSCode Расширение [Run on Save](https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save)
+
+Простой пример:
+
+```json
+// .vscode/settings.json
+{
+  // ...
+  "runOnSave.commands": [
+    {
+      "match": ".json$",
+      "command": "prettier -w ${file}"
+    }
+  ]
+  // ...
+}
+```
+
+При сохранении файлов, название которых оканчивается на `.json` *(это regex matching)*, будет прогоняться по ним `prettier -w`
+
+<hr>
+
+Этого можно было бы добиться и с помощью **Format on Save**. Но что-то посложнее - нет
+
+Например:
+
+```json
+{
+  "runOnSave.commands": [
+    {
+      "match": ".pyi?$",
+      "command": "uv run cog -n utf-8 -U -r -P --markers=\"{{{cog cog}}} {{{end}}}\" ${file} && uv run ruff format ${file} && uv run ruff check --select I ${file} --fix"
+    }
+  ]
+}
+```
+
+<br>
+
+В этом случае при сохранении python файла последовательно бы отрабатывали **3 экономящие моё время команды**:
+
+- `uv run cog -n utf-8 -U -r -P --markers="{{{cog cog}}} {{{end}}}" ${file}` *(для кодогенерации внутри файла через использование python cogapp)*
+- `uv run ruff format ${file}` *(для форматирования)*
+- `uv run ruff check --select I ${file} --fix` *(для сортировки импортов)*
+
+<br>
+
+!PAGE На самом деле в cog я использую не {{{, а [[[. Заменил в примере, чтобы он не прогонялся
+
+<hr>
+
+## Godot GDScript разработягам, что используют VSCode
+
+Среди форматтеров я остановился на [gdscript-formatter](https://github.com/GDQuest/GDScript-formatter)
+
+```json
+{
+  "runOnSave.commands": [
+    {
+      "match": ".gd$",
+      // Если не нравится, можно убрать `--reorder-code`
+      "command": "uv run gdscript-formatter --reorder-code ${file}"
+    },
+  ]
+}
+```
+
+<hr>
+
+## Unity C# разработягам, что используют VSCode
+
+Можно было бы установить [CSharpier](https://csharpier.com/) и навесить его на сохранение файлов
+
+<hr>
+
+## Практичный Пример 1 - Protobuf + [proto-renumber](https://github.com/mariomakdis/proto-renumber) + [buf format](https://buf.build/docs/reference/cli/buf/format/) - Big Brain Giga Chad Комбинация
+
+Пока я прототипирую protobuf схемы данных, у меня номера полей идут вразнобой, т.к. я постоянно их перетаскиваю / дополняю
+
+```proto
+message Lib {
+  repeated GRoom a = 4;
+  float b = 2;
+  float c = 8;
+  float d = 7;
+}
+```
+
+<br>
+
+Рандомная последовательность слегка триггерит у меня желание их последовательно пронумеровать
+
+Но больше всего моя ж*па взрывается, когда я, не заметив, добавляю поле с ранее забитым номером и падаю с ошибкой:
+
+```proto
+message Lib {
+  float e = 2; // Ошибка!
+  repeated GRoom a = 4;
+  float b = 2; // <- уже есть поле с номером 2
+  float c = 8;
+  float d = 7;
+}
+```
+
+<br>
+
+Это не просто так в protobuf сделано.
+
+Но когда я использую protobuf для, в сущности, просто типизации json-ов, мне не нужно опираться на сохранение последовательности номеров полей в proto файлах игровых данных
+
+И однажды я нашёл [proto-renumber](https://github.com/mariomakdis/proto-renumber). Он автоматом везде последовательно пронумеровывает поля
+
+```proto
+message Lib {
+  float e = 1;
+  repeated GRoom a = 2;
+  float b = 3;
+  float c = 4;
+  float d = 5;
+}
+```
+
+Кукуха сохранена. Я больше ни секунды не трачу на бесполезные думы о нумерации полей + изменения номеров
+
+```json
+{
+  "runOnSave.commands": [
+    {
+      "match": ".proto$",
+      "command": "proto-renumber -replace ${file} && buf format -w ${file}"
+    }
+  ]
+}
+```
+
+<hr>
+
+## Практичный Пример 2 - Автозапуск билда
+
+В репе моего github.io сайта *(= этого сайта)* я [настроил автозапуск билда при изменении любого файла](https://github.com/hulvdan/hulvdan.github.io/blob/e4255d328fd3c31b7372463b6c01761186dafb60/.vscode/settings.json#L8-L12)
+
+Навешиваю на это livereload *(локальный сервер с hot-reload-ом html-ок)* и получаю удобный и быстрый flow работы без необходимости нажимать какие-либо кнопки
+
+<hr>
+
+## Ссылки
+
+- [Пример моих команд при сохранении файлов](https://github.com/hulvdan/game3/blob/7b53a673c5a7e32aa0cb80deccb0a207a1679455/.vscode/settings.json#L27-L71)
+
+- Расширение для VSCode - [Run on Save by pucelle](https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save)
+
+- В IDE от JetBrains альтернативой «Run on Save» будут [File Watchers](https://www.jetbrains.com/help/idea/using-file-watchers.html#ws_file_watchers_before_you_start)
+
+- Раньше я использовал Neovim и прописывал ряд обработчиков с помощью плагина [conform](https://github.com/stevearc/conform.nvim)
+
+<hr>
+
+## <center>[Hulvdan](/)</center>

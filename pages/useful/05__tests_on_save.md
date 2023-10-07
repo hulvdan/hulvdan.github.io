@@ -1,0 +1,120 @@
+# Тесты. Запуск тестов при сохранении файлов. TDD
+
+<hr>
+
+## Что автотесты кода потенциально дадут
+
+- Ускорят разработку
+
+- Гарантия работоспособности частей кода
+
+- Радикально уменьшат количество «Поменял что-то в одном месте -> где-то другое отломалось»
+
+- TDD. Откроют новый подход к разработке «Делаю, пока не заработает» *(Люблю иногда в TDD, пока делаю utility функции; Настраиваю автозапуск при сохранении файла; Я против радикальных форм TDD)*
+
+- Меньше документации *(набор test-case-ов вместо бОльшей части комментов)*
+
+- Документация бы чаще оставалась актуальной *(за счет того, что тесты сами бы были документацией)*
+
+<hr>
+
+## Показываю. VSCode запуск тестов при сохранении Python файла с использованием [Run on Save](https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save)
+
+Мой типичный flow работы при написании utility функций:
+
+!YOUTUBE_rM5HWySg_YA
+
+<br>
+
+Настройки
+
+```json
+// .vscode/settings.json
+{
+  // ...
+  "runOnSave.commands": [
+    // ...
+    {
+      "match": "(bf_lib|bf_game)\\.py$",
+      "command": "testing.runCurrentFile",
+      "runIn": "vscode"
+    },
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+}
+```
+
+В данном случае при сохранении `bf_lib.py` или `bf_game.py` у меня бы прогонялись тесты внутри этих файлов
+
+Это запускается VSCode команда `testing.runCurrentFile` *(это не команда, что в терминале вызывается, а то, что отрабатывало при запуске «Test: Run tests in current file» из списка команд VSCode)*. Кодовые названия команд VSCode можно доставать через ПКМ по ним в окне **Keyboard Shortcuts**
+
+<hr>
+
+## Запуск тестов при сохранении GDScript файла
+
+Я использую Godot [GUT](https://github.com/bitwes/Gut)
+
+```json
+// .vscode/settings.json
+{
+  // ...
+  "runOnSave.commands": [
+    // ...
+    {
+      "match": "\\.gd$",
+      "command": "godot --no-header --headless -s addons/gut/gut_cmdln.gd -gdir src/tests -gexit -gprefix test -gdisable_colors",
+      "async": false
+    },
+  ],
+}
+```
+
+Тесты лежат в `src/tests/`. [См. репу](https://github.com/hulvdan/game3/tree/4a3ef9d232f9ac46317534623c78fe33f44a3bbc)
+
+<hr>
+
+## Показываю. Как тесты убирают необходимость в документации комментами
+
+```python
+def iter_neighbors(
+    seq: t.Iterable[T],
+) \-\> t.Generator[
+    tuple[int, T | None, int, T | None], None, None
+]: ...
+
+
+def _test_neighbor_iter():
+    assert list(iter_neighbors([])) == [
+        (-1, None, 0, None),
+    ]
+    assert list(iter_neighbors([10])) == [
+        (-1, None, 0, 10),
+        (0, 10, 1, None),
+    ]
+    assert list(iter_neighbors([10, 20, 30])) == [
+        (-1, None, 0, 10),
+        (0, 10, 1, 20),
+        (1, 20, 2, 30),
+        (2, 30, 3, None),
+    ]
+```
+
+<br>
+
+Тут есть:
+
+- «как использовать»
+- «что получается в результате»
+- гарантия работоспособности этой «документации»
+- *Не затрачено времени на тщетные попытки написать, что это за итератор такой. Тесты мне о нём говорят сразу всё, что мне нужно. Никакого AI slope для доки в репе не заюзано*
+
+<hr>
+
+## Ссылки
+
+- [Исполнение команд при сохранении файлов в редакторах кода](/useful/02.html)
+
+<hr>
+
+## <center>[Hulvdan](/)</center>
