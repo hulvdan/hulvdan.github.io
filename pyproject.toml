@@ -1,24 +1,15 @@
-[tool.poetry]
+[project]
 name = "hulvdan-github-io"
 version = "0.1.0"
-description = ""
-authors = ["Aleksei Chistov <aleksey.chistov@gmail.com>"]
-readme = "README.md"
-packages = [{ include = "hulvdan" }]
+requires-python = ">=3.11.3"
+dependencies = [
+    "livereload>=2.7.1",
+    "markdown2>=2.5.5",
+    "pillow>=12.1.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-markdown2 = "^2.5.3"
-livereload = "^2.7.1"
-pillow = "^11.2.1"
-
-[tool.poetry.group.dev.dependencies]
-black = "^24.3.0"
-isort = "^5.13.2"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.uv.build-backend]
+module-root = ""
 
 [tool.black]
 line-length = 90

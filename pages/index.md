@@ -1,32 +1,51 @@
 # Hulvdan
 
+<center>i maek gaems</center>
+
 <br>
 
-## UFO Cloudy Sorting - [yandex.com](https://yandex.com/games/app/464161?lang=en) (01/2026)
+## Щя работаю (02/2026 - current)
+
+- Перешел с C++ на Godot *(т.к. у Unity / Unreal время компиляции длиннее, а на C++ я не хочу вручную писать хороший рендеринг*
+
+- Делаю упор на программирование боевой системы, что позволит просто добавлять мувсеты и разные фишки из Nioh / Lies of P / Genshin / Monster Hunter и пр.
+
+<br>
+
+
+## НЛО Заоблачная Сортировка - [yandex.ru](https://yandex.ru/games/app/464161?lang=ru) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png
 
-✅ 23 dev days until sending to moderation, 28 until publishing
+✅ Делал 23 дня до отправки на модерацию. 28 - до публикации
 
-✅ Put a twist onto an already popular game
+✅ Добавил фишку в уже популярную игру *(клонил сортировку по полочкам Яна Байнами)*
 
-✅ Learnt about ASO. Used keywords that similar games are using
+✅ Узнал про ASO. Использовал ключевые слова, которые применяют похожие игры
 
-❔ (gathering data... analyzing results...)
+❌ Результат - дно
+
+❌ Понял, что сейчас на Яндексе намного сложнее взлететь, нежели 2 года назад (хоть и возможно)
 
 <br>
 
-## Milker! Survival Arena - [yandex.com](https://yandex.com/games/app/483687?lang=en) (09/2025 - 12/2025)
+-> 1. Вероятно, мне нужно делать что-то, в чём мои сильные стороны будут реализованы в полной мере
+
+-> 2. На C++ недостаточно низкие стоит перейти на движок, у которого время итераций будет еще меньше
+
+<br>
+
+## Milker! Survival Arena - [yandex.ru](https://yandex.com/games/app/483687?lang=ru) (09/2025 - 12/2025)
 
 IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
 
-✅ First game released with a commercial intent
+✅ Первая игра, выпущенная с прицелом на коммерцию
 
-✅ Learnt Reaper for working with the game audio
+✅ Изучил и наладил pipeline работы с Reaper для работы с аудио
 
-❌ 108 days of dev time is still a lot -> I need to further improve dev speed
+❌ 108 дней разработки многовато -> 1. Мне стоит ещё больше ускорить процесс
 
-❌ It's not popular -> I need to make a game that uses keywords that people are already searching for
+❌ Не взлетела -> Стоит сделать игру с ключевыми словами, которые люди уже ищут
 
 <br>
 
@@ -38,11 +57,11 @@ FLEX_START
 
 FLEX_END
 
-✅ Made template repository to improve dev speed
+✅ Создал шаблонный репозиторий для ускорения разработки
 
-✅ Learnt to draw
+✅ Научился рисовать
 
-❌ Couldn't pass yandex publish moderation -> I need to make a game that would pass it 100%
+❌ Не смог пройти модерацию яндекса -> Мне нужно сделать игру, которая точно её пройдет
 
 <br>
 
@@ -52,35 +71,29 @@ YOUTUBE_2JGHfKlFlb0
 
 IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
-✅ First steam game page
+✅ Первая страница игры в Steam
 
-✅ First steps in marketing: made 2 short videos on TikTok
+✅ Первые шаги в маркетинге: сделал 2 коротких видео для TikTok
 
-I realised that this game:
+Я понял, что эта игра:
 
-❌ looks bad -> I need to improve visuals *(e.g. learn to draw)*
+❌ Выглядит плохо -> мне нежен хороший визуал
 
-❌ is not marketable -> I need to learn how professionals deal with marketing on various platforms
+❌ Не маркетингуема -> мне нужно изучить, как профессионалы продвигают игры на разных платформах
 
-❌ takes tons of effort to develop *(Open World RPG moment :/)* -> I need to make lots of small games while empowering my toolbox on the way *(e.g. keep enriching one-big-file library, make template repository)*
+❌ Требует огромных усилий на разработку (Open World RPG moment :/) -> мне нужно делать много маленьких игр, одновременно улучшая инструментарий (например, продолжать развивать библиотеку в одном большом файле + создать шаблонный репозиторий для быстрого старта последующих игр с уже необходимым мне кодом, который я и так везде таскаю)
 
 <br>
 
-## Demo of actions recording and DLL reload in C++
+## Демо записи действий и перезагрузки DLL в C++
 
 YOUTUBE_5jdQKfxns-4
 
-<br>
-<br>
-<br>
-
-*~07/2022. A moment in time I took gamedev seriously. I want to earn my living by making games*
+*HotReload C++* и *проигрывание действий игрока с предыдущего включения игры* сильно ускоряют отладку
 
 <br>
-<br>
-<br>
 
-## Honed 3D Math and C++ skills
+## Оттачивал навыки 3D-математики и C++
 
 FLEX_WRAP_START
 
@@ -90,25 +103,27 @@ YOUTUBE_X4yfK4Lj8kg
 
 FLEX_END
 
-Honed skills of linear algebra, matrix transformations, and C++
+Поработал с линейной алгеброй, матричными преобразованиями и C++
 
 <br>
 
-## Project in C++ for personal education [Discontinued]
+## Проект на C++ для личного обучения
 
 YOUTUBE_aR0MfmgZVeQ
 
 IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
-Game without an engine from scratch. Studied C++, CPU, memory, rendering, audio, graphs, etc.
+Игра с нуля без движка. Изучал C++, работу CPU, память, рендеринг, аудио, графы и другое.
 
-Inspired by [Handmade Hero](https://guide.handmadehero.org/)
+Вдохновлялся [Handmade Hero](https://guide.handmadehero.org/)
 
 <br>
 
-## Game for «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter)
+## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter)
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
+
+Понял, что мне не нравится работать в формате распределенных по миру команд из людей, что друг друга заранее не знают
 
 <br>
 
@@ -118,25 +133,25 @@ FLEX_START
 
 IMAGES ds3-cheat-sheet-tool.png
 
-For progress tracking (Python, PyQt)
+Для трекинга прогресса людям, что хотят пройти на 100% (Python, PyQt)
 
 FLEX_END
 
 <br>
 
-## Booklet for «MH:W» – [Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/), [Updated Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/)
+## Буклет для «MH:W» – [Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/), [Updated Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/)
 
 FLEX_START
 
 IMAGES mhw_booklet.jpeg
 
-Shows weaknesses of monsters (Python, Pillow)
+Показывает уязвимости монстров (Python, Pillow)
 
 FLEX_END
 
 <br>
 
-## Education
+## Совсем уж давнее
 
 IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_shake.gif messing_with_see_through_shaders.gif messing_with_depth_of_field.gif tanks_ai.gif angry_birds.gif tetris.jpg 2048.jpg sokoban_in_terminal_block_placed.jpg
 
@@ -144,5 +159,5 @@ IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_s
 
 ## Credited
 
-- [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Implemented running VS Code commands on save (TypeScript)
-- [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) mod for «Terraria» - Improved speed of «Extractinator» (C#)
+- [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Прикрутил исполнение команд VS Code при сохранении файла (TypeScript)
+- [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» (C#)

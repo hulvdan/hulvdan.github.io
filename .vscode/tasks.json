@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "live",
+      "type": "shell",
+      "command": "uv run livereload --host localhost --port 8000 docs",
+      "icon": {
+        "id": "run"
+      }
+    }
+  ]
+}

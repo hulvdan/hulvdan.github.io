@@ -1,0 +1,19 @@
+{
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".json$",
+        "cmd": "prettier -w ${file}"
+      },
+      {
+        "match": ".md$",
+        "cmd": "uv run python build.py"
+      },
+      {
+        "match": ".pyi?$",
+        "cmd": "uv run ruff format ${file} && uv run ruff check --select I ${file} --fix"
+      }
+    ]
+  },
+  "liveServer.settings.multiRootWorkspaceName": "hulvdan.github.io"
+}

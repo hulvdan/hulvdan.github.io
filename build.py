@@ -1,6 +1,5 @@
 import hashlib
 import os
-import re
 import shutil
 import urllib.parse
 from datetime import datetime
@@ -170,7 +169,8 @@ def write_file(*, template_data: str, markdown_contents: str, output_file_path):
     )
 
     content = markdown2.markdown(
-        markdown_contents.replace(" - ", " — "), extras=["markdown-in-html"]
+        markdown_contents.replace(" - ", " — ").replace("->", "⇒"),
+        extras=["markdown-in-html"],
     )
     rendered_html = template_data.format(content=content)
 
