@@ -4,7 +4,7 @@
 
 <hr>
 
-## Щя работаю (02/2026 - current)
+## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - current)
 
 - Перешел с C++ на Godot *(т.к. у Unity / Unreal время компиляции длиннее, а на C++ я не хочу вручную писать хороший рендеринг)*
 
@@ -13,7 +13,7 @@
 <hr>
 
 
-## НЛО Заоблачная Сортировка - [yandex.ru](https://yandex.ru/games/app/464161?lang=ru) (01/2026)
+## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/464161?lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png
 
@@ -37,23 +37,23 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <hr>
 
-## Молочник! Арена Выживания - [yandex.ru](https://yandex.com/games/app/483687?lang=ru) (09/2025 - 12/2025)
+## Молочник! Арена Выживания - [yandex](https://yandex.com/games/app/483687?lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
 IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
 
 *(клонил Бротато для яндекса, сменив сеттинг)*
 
-✅ Первая игра, выпущенная с прицелом на коммерцию
+✅ Первая игра, *доведенная до конца* и *выпущенная с прицелом на коммерцию*
 
 ✅ Изучил и наладил pipeline работы с Reaper для работы с аудио *(в частности, прикрутил hot reload)*
 
-❌ 108 дней разработки многовато -> 1. Мне стоит ещё больше ускорить процесс
+❌ 108 дней разработки многовато -> Мне стоит ещё больше ускорить процесс
 
 ❌ Не взлетела -> Стоит сделать игру с ключевыми словами, которые люди уже ищут
 
 <hr>
 
-## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy) (07/2025 - 08/2025)
+## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
 
 FLEX_START
 
@@ -69,13 +69,13 @@ FLEX_END
 
 <hr>
 
-## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760) (12/2024 - 06/2025) [Discontinued]
+## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git (+ скрины изменений)](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
 
 YOUTUBE_2JGHfKlFlb0
 
 IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
-✅ Первая страница игры в Steam
+✅ Первая страница игры в Steam *(хоть и забросил в итоге)*
 
 ✅ Первые шаги в маркетинге: сделал 2 коротких видео для TikTok
 
@@ -111,19 +111,23 @@ FLEX_END
 
 <hr>
 
-## Проект на C++ для личного обучения
+## Недо игра на C++ - [git](https://github.com/hulvdan/handmade-cpp-game) (12/2023 - 08/2024)
 
 YOUTUBE_aR0MfmgZVeQ
 
 IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
-Игра с нуля без движка. Изучал C++, работу CPU, память, рендеринг, аудио, графы и другое
+Работал с нуля без движка. Прототипировал несколько раз
+
+Изучал C++, работу CPU, память, рендеринг, аудио, графы и пр.
 
 Вдохновлялся [Handmade Hero](https://guide.handmadehero.org/)
 
+В ретроспективе от 2026-03-14: overall, полагаю, стоит использовать игровые движки, чтобы не париться с рисованием спрайтов, шрифтами, вращениями, звуком и пр.
+
 <hr>
 
-## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter)
+## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023)
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
