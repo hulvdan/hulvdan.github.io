@@ -17,9 +17,11 @@
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png
 
+*(клонил сортировку по полочкам Яна Байнами, сменив сеттинг + чуть изменив управление)*
+
 ✅ Делал 23 дня до отправки на модерацию. 28 - до публикации
 
-✅ Добавил фишку в уже популярную игру *(клонил сортировку по полочкам Яна Байнами, сделав ~indirect управление через НЛО)*
+✅ Добавил фишку в уже популярную игру
 
 ✅ Узнал про ASO. Использовал ключевые слова, которые применяют похожие игры
 
@@ -35,9 +37,11 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-## Milker! Survival Arena - [yandex.ru](https://yandex.com/games/app/483687?lang=ru) (09/2025 - 12/2025)
+## Молочник! Арена Выживания - [yandex.ru](https://yandex.com/games/app/483687?lang=ru) (09/2025 - 12/2025)
 
 IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
+
+*(клонил Бротато для яндекса, сменив сеттинг)*
 
 ✅ Первая игра, выпущенная с прицелом на коммерцию
 
