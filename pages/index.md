@@ -45,7 +45,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 ✅ Первая игра, выпущенная с прицелом на коммерцию
 
-✅ Изучил и наладил pipeline работы с Reaper для работы с аудио
+✅ Изучил и наладил pipeline работы с Reaper для работы с аудио *(в частности, прикрутил hot reload)*
 
 ❌ 108 дней разработки многовато -> 1. Мне стоит ещё больше ускорить процесс
 
@@ -61,9 +61,9 @@ FLEX_START
 
 FLEX_END
 
-✅ Создал шаблонный репозиторий для ускорения разработки
+✅ Создал шаблонную репу для быстрого bootstrap-а игр
 
-✅ Научился рисовать
+✅ Научился рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
 
 ❌ Не смог пройти модерацию яндекса -> Мне нужно сделать игру, которая точно её пройдет
 
@@ -85,7 +85,7 @@ IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
 ❌ Не маркетингуема -> мне нужно изучить, как профессионалы продвигают игры на разных платформах
 
-❌ Требует огромных усилий на разработку *(Open World RPG moment :/)* -> мне нужно делать много маленьких игр, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном большом файле + создать шаблонный репозиторий для быстрого старта последующих игр с уже необходимым мне кодом, который я и так везде таскаю)*
+❌ Требует огромных усилий на разработку *(Open World RPG moment :/)* -> мне нужно делать много маленьких игр, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном файле + создать шаблонную репу для мгновенного старта новых игр с кодом, который я и так везде таскаю)*
 
 <br>
 
@@ -117,7 +117,7 @@ YOUTUBE_aR0MfmgZVeQ
 
 IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
-Игра с нуля без движка. Изучал C++, работу CPU, память, рендеринг, аудио, графы и другое.
+Игра с нуля без движка. Изучал C++, работу CPU, память, рендеринг, аудио, графы и другое
 
 Вдохновлялся [Handmade Hero](https://guide.handmadehero.org/)
 
@@ -127,7 +127,9 @@ IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
-Понял, что мне не нравится работать в формате распределенных по миру команд из людей, что друг друга заранее не знают
+Поучаствовал в двух игровых джемах
+
+Понял, что мне не нравится работать в командах из распределенных по миру людей, что впервые видят друг друга
 
 <br>
 
@@ -137,7 +139,7 @@ FLEX_START
 
 IMAGES ds3-cheat-sheet-tool.png
 
-Для трекинга прогресса людям, что хотят пройти на 100% (Python, PyQt)
+Для трекинга прогресса людям, что хотят пройти на 100% *(Python, PyQt)*
 
 FLEX_END
 
@@ -149,7 +151,7 @@ FLEX_START
 
 IMAGES mhw_booklet.jpeg
 
-Показывает уязвимости монстров (Python, Pillow)
+Показывает уязвимости монстров *(Python, Pillow)*
 
 FLEX_END
 
@@ -163,7 +165,7 @@ IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_s
 
 ## Credited
 
-- [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Прикрутил исполнение команд VS Code при сохранении файла (TypeScript)
-- [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» (C#)
+- [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Прикрутил исполнение команд VS Code при сохранении файла *(TypeScript)*
+- [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» *(C#)*
 
 <br>

@@ -4,7 +4,7 @@
     {
       "label": "live",
       "type": "shell",
-      "command": "uv run livereload --host localhost --port 8000 docs",
+      "command": "start http://localhost:8000 && uv run livereload --host localhost --port 8000 docs",
       "icon": {
         "id": "run"
       }
