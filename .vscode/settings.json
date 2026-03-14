@@ -2,11 +2,11 @@
   "emeraldwalk.runonsave": {
     "commands": [
       {
-        "match": ".json$",
+        "match": ".(json|css)$",
         "cmd": "prettier -w ${file}"
       },
       {
-        "match": ".md$",
+        "match": ".(md|css|html)$",
         "cmd": "uv run python build.py"
       },
       {
