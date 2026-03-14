@@ -198,3 +198,9 @@ em>* {
 br {
   line-height: 450%;
 }
+
+hr {
+  margin: 120px 60px;
+  height: 1px;
+  background-color: var(--palLight);
+}

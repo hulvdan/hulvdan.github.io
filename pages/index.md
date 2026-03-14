@@ -2,7 +2,7 @@
 
 <center>i maek gaems</center>
 
-<br>
+<hr>
 
 ## Щя работаю (02/2026 - current)
 
@@ -10,7 +10,7 @@
 
 - Делаю упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
 
-<br>
+<hr>
 
 
 ## НЛО Заоблачная Сортировка - [yandex.ru](https://yandex.ru/games/app/464161?lang=ru) (01/2026)
@@ -35,7 +35,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 -> Стоит перейти на движок *(чтобы не писать рендер повернутого текста, например)*
 
-<br>
+<hr>
 
 ## Молочник! Арена Выживания - [yandex.ru](https://yandex.com/games/app/483687?lang=ru) (09/2025 - 12/2025)
 
@@ -51,7 +51,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 ❌ Не взлетела -> Стоит сделать игру с ключевыми словами, которые люди уже ищут
 
-<br>
+<hr>
 
 ## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy) (07/2025 - 08/2025)
 
@@ -67,7 +67,7 @@ FLEX_END
 
 ❌ Не смог пройти модерацию яндекса -> Мне нужно сделать игру, которая точно её пройдет
 
-<br>
+<hr>
 
 ## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760) (12/2024 - 06/2025) [Discontinued]
 
@@ -87,7 +87,7 @@ IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
 ❌ Требует огромных усилий на разработку *(Open World RPG moment :/)* -> мне нужно делать много маленьких игр, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном файле + создать шаблонную репу для мгновенного старта новых игр с кодом, который я и так везде таскаю)*
 
-<br>
+<hr>
 
 ## Демо записи действий и перезагрузки DLL в C++
 
@@ -95,7 +95,7 @@ YOUTUBE_5jdQKfxns-4
 
 *HotReload C++* и *проигрывание действий игрока с предыдущего включения игры* сильно ускоряют отладку
 
-<br>
+<hr>
 
 ## Оттачивал навыки 3D-математики и C++
 
@@ -109,7 +109,7 @@ FLEX_END
 
 Поработал с линейной алгеброй, матричными преобразованиями и C++
 
-<br>
+<hr>
 
 ## Проект на C++ для личного обучения
 
@@ -121,7 +121,7 @@ IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
 Вдохновлялся [Handmade Hero](https://guide.handmadehero.org/)
 
-<br>
+<hr>
 
 ## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter)
 
@@ -131,7 +131,7 @@ IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
 Понял, что мне не нравится работать в командах из распределенных по миру людей, что впервые видят друг друга
 
-<br>
+<hr>
 
 ## Dark Souls 3 Cheat Sheet tool – [Reddit](https://www.reddit.com/r/darksouls3/comments/7ylfqp/dark_souls_3_cheat_sheet_tool/)
 
@@ -143,7 +143,7 @@ IMAGES ds3-cheat-sheet-tool.png
 
 FLEX_END
 
-<br>
+<hr>
 
 ## Буклет для «MH:W» – [Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/), [Updated Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/)
 
@@ -155,13 +155,13 @@ IMAGES mhw_booklet.jpeg
 
 FLEX_END
 
-<br>
+<hr>
 
 ## Совсем уж давнее
 
 IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_shake.gif messing_with_see_through_shaders.gif messing_with_depth_of_field.gif tanks_ai.gif angry_birds.gif tetris.jpg 2048.jpg sokoban_in_terminal_block_placed.jpg
 
-<br>
+<hr>
 
 ## Credited
 
