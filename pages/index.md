@@ -111,11 +111,13 @@ FLEX_END
 
 <hr>
 
-## Недо игра на C++ - [git](https://github.com/hulvdan/handmade-cpp-game) (12/2023 - 08/2024)
+## Недо игра на C++ - [git](https://github.com/hulvdan/handmade-cpp-game) (10/2023 - 08/2024)
 
 YOUTUBE_aR0MfmgZVeQ
 
 IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
+
+Изначально начал на Unity, C#
 
 Работал с нуля без движка. Прототипировал несколько раз
 
