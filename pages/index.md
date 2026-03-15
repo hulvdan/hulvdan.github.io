@@ -8,7 +8,7 @@
 
 - Делаю упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
 
-- Наткнулся на Того Самого Келина. Обдумываю все его видосы - [yt1](https://www.youtube.com/@Kelin2025), [yt2](https://www.youtube.com/@kelin2playLIVEk)
+- Наткнулся на Того Самого Келина. Обдумываю все его видосы - [yt1](https://www.youtube.com/@Kelin2025), [yt2](https://www.youtube.com/@kelin2playLIVE)
 
 - Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
 
