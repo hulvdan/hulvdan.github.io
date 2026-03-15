@@ -139,6 +139,12 @@ p,
   margin: 0;
 }
 
+em,
+em > * {
+  color: var(--palOrange);
+  font-style: normal;
+}
+
 a {
   color: var(--palSkyblue);
   margin: 0;
@@ -194,12 +200,6 @@ ul > li {
 strong,
 strong > * {
   color: var(--palYellowOrange) !important;
-}
-
-em,
-em > * {
-  color: var(--palOrange);
-  font-style: normal;
 }
 
 br {
