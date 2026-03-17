@@ -210,7 +210,16 @@ hr {
   margin: 20px 0px;
   margin-left: calc(-50vw + 50%);
   width: 100vw;
-  height: 100px;
+  height: 106px;
   border: none;
-  background-color: var(--black);
+  /* background-color: var(--black); */
+
+  /* padding-left: clamp(0px, calc((100vw - 800px) * 32 / 160), 32px);
+  padding-right: clamp(0px, calc((100vw - 800px) * 32 / 160), 32px); */
+  background-image:
+    url(/assets/page_border_t.png), url(/assets/page_border_b.png);
+  background-repeat: repeat-x, repeat-x;
+  background-position:
+    left top,
+    left bottom;
 }
