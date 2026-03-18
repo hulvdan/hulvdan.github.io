@@ -4,7 +4,7 @@
 
 <hr>
 
-## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя) *[Godot, Python]*
+## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя) *[Godot, Python, imgui-bundle]*
 
 - Делаю упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
 
