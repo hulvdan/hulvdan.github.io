@@ -89,12 +89,7 @@ def main():
 next_nanogallery_id = 0
 
 
-_current_hr_index = 0
-
-
-def process_line(line: str, total_hr: int) -> str:
-    global _current_hr_index
-
+def process_line(line: str) -> str:
     if line.startswith("FLEX_WRAP_START"):
         return """<div class="hulvdan_flex hulvdan_flex_wrap" ''>"""
     elif line.startswith("FLEX_START"):
@@ -162,14 +157,6 @@ def process_line(line: str, total_hr: int) -> str:
             src="https://www.youtube.com/embed/{video_id}"
             ></iframe></p>"""
 
-    # if line.strip() == "<hr>":
-    #     _current_hr_index += 1
-    #     if _current_hr_index == 1:
-    #         return line
-    #     else:
-    #         result = f"{total_hr - _current_hr_index + 2}"
-    #         return f'<p class="page-number">{result}</p>\n<hr>'
-
     if line.startswith("PAGE "):
         page_number = line.strip().split(" ", 1)[-1].strip()
         return f'<p class="page-number">{page_number}</p>'
@@ -178,9 +165,8 @@ def process_line(line: str, total_hr: int) -> str:
 
 
 def write_file(*, template_data: str, markdown_contents: str, output_file_path):
-    total_hrs = markdown_contents.count("<hr>")
     markdown_contents = "\n".join(
-        process_line(line, total_hrs) for line in markdown_contents.split("\n")
+        process_line(line) for line in markdown_contents.split("\n")
     )
 
     content = markdown2.markdown(
