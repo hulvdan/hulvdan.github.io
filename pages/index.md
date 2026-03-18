@@ -4,9 +4,9 @@
 
 <hr>
 
-## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
+## Щя делаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
 
-- Делаю упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
+- Упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
 
 - Наткнулся на Того Самого Келина. Обдумываю все его видосы - [yt1](https://www.youtube.com/@Kelin2025), [yt2](https://www.youtube.com/@kelin2playLIVE)
 
