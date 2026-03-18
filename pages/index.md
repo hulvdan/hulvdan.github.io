@@ -4,7 +4,7 @@
 
 <hr>
 
-## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
+## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя) *[Godot, Python]*
 
 - Делаю упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
 
@@ -15,7 +15,7 @@
 <hr>
 
 
-## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/464161?lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
+## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/464161?lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026) *[C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK]*
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png
 
@@ -39,7 +39,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <hr>
 
-## Молочник! Арена Выживания - [yandex](https://yandex.com/games/app/483687?lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
+## Молочник! Арена Выживания - [yandex](https://yandex.com/games/app/483687?lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025) *[C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK]*
 
 IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
 
@@ -55,7 +55,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 <hr>
 
-## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
+## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025) *[C++ SDL bgfx miniaudio, Python, Clip Studio]*
 
 FLEX_START
 
@@ -73,7 +73,7 @@ FLEX_END
 
 <hr>
 
-## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git (+ скрины изменений)](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
+## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git (+ скрины изменений)](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025) *[C++ Raylib, Python]*
 
 YOUTUBE_2JGHfKlFlb0
 
@@ -101,7 +101,7 @@ YOUTUBE_5jdQKfxns-4
 
 <hr>
 
-## Поработал с линейной алгеброй, матрицами и векторами
+## Поработал с линейной алгеброй, матрицами и векторами *[C++ Raylib]*
 
 FLEX_WRAP_START
 
@@ -113,7 +113,7 @@ FLEX_END
 
 <hr>
 
-## Недо игра на C++ - [git](https://github.com/hulvdan/handmade-cpp-game) (10/2023 - 08/2024)
+## Недо игра - [git](https://github.com/hulvdan/handmade-cpp-game) (10/2023 - 08/2024) *[Unity -> Bare C++]*
 
 YOUTUBE_aR0MfmgZVeQ
 
@@ -129,7 +129,7 @@ IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
 <hr>
 
-## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023)
+## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023) *[Unity]*
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
@@ -145,7 +145,7 @@ FLEX_START
 
 IMAGES ds3-cheat-sheet-tool.png
 
-Для трекинга прогресса людям, что хотят пройти на 100% *(Python, PyQt)*
+Для трекинга прогресса людям, что хотят пройти на 100% *[Python, PyQt]*
 
 FLEX_END
 
@@ -157,7 +157,7 @@ FLEX_START
 
 IMAGES mhw_booklet.jpeg
 
-Показывает уязвимости монстров *(Python, Pillow)*
+Показывает уязвимости монстров *[Python, Pillow]*
 
 FLEX_END
 
@@ -171,7 +171,7 @@ IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_s
 
 ## Credited
 
-- [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Прикрутил исполнение команд VS Code при сохранении файла *(TypeScript)*
-- [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» *(C#)*
+- [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Прикрутил исполнение команд VS Code при сохранении файла *[TypeScript]*
+- [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» *[C#]*
 
 <br>
