@@ -4,7 +4,7 @@
 
 <hr>
 
-## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя) *[Godot, Python, imgui-bundle]*
+## Щя работаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
 
 - Делаю упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
 
@@ -12,14 +12,17 @@
 
 - Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
 
+PAGE 13 - Godot, Python, imgui-bundle
+
 <hr>
 
-
-## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/464161?lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026) *[C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK]*
+## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/464161?lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png
 
 *(клонил [сортировку по полочкам Яна Байнами](https://yandex.ru/games/app/297752), сменив сеттинг + чуть изменив управление)*
+
+<br>
 
 ✅ Делал 23 дня до отправки на модерацию. 28 - до публикации
 
@@ -37,13 +40,19 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 -> Стоит перейти с C++ на движок *(чтобы в будущем не писать рендер повернутого текста, например)*
 
+<br>
+
+PAGE 12 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK
+
 <hr>
 
-## Молочник! Арена Выживания - [yandex](https://yandex.com/games/app/483687?lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025) *[C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK]*
+## Молочник! Арена Выживания - [yandex](https://yandex.com/games/app/483687?lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
 IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
 
 *(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для яндекса, сменив сеттинг)*
+
+<br>
 
 ✅ Первая игра, *доведенная до конца* и *выпущенная с прицелом на коммерцию*
 
@@ -53,9 +62,13 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 ❌ Не взлетела -> Стоит сделать игру с ключевыми словами, которые люди уже ищут
 
+<br>
+
+PAGE 11 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK
+
 <hr>
 
-## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025) *[C++ SDL bgfx miniaudio, Python, Clip Studio]*
+## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
 
 FLEX_START
 
@@ -65,15 +78,21 @@ FLEX_END
 
 *(клонил [The Binding of Isaac](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/), фокусируясь на доведении до конца игры мелкого scope-а)*
 
+<br>
+
 ✅ Создал шаблонную репу для быстрого bootstrap-а игр
 
 ✅ Научился рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
 
 ❌ Не смог пройти модерацию яндекса -> Мне нужно сделать игру, которая точно её пройдет
 
+<br>
+
+PAGE 10 - C++ SDL bgfx miniaudio, Python, Clip Studio
+
 <hr>
 
-## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git (+ скрины изменений)](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025) *[C++ Raylib, Python]*
+## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git (+ скрины изменений)](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
 
 YOUTUBE_2JGHfKlFlb0
 
@@ -83,13 +102,17 @@ IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
 ✅ Первые шаги в маркетинге: сделал 2 коротких видео для TikTok
 
-Я понял, что эта игра:
+<br>
 
 ❌ Выглядит плохо -> мне нужен хороший визуал
 
 ❌ Не маркетингуема -> мне нужно изучить, как профессионалы продвигают игры на разных платформах
 
 ❌ Требует огромных усилий на разработку *(Open World RPG moment :/)* -> мне нужно делать много маленьких игр, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном файле + создать шаблонную репу для мгновенного старта новых игр с кодом, который я и так везде таскаю)*
+
+<br>
+
+PAGE 9 - C++ Raylib, Python
 
 <hr>
 
@@ -99,9 +122,11 @@ YOUTUBE_5jdQKfxns-4
 
 *HotReload C++* и *проигрывание действий игрока с предыдущего включения игры* сильно ускоряют отладку
 
+PAGE 8
+
 <hr>
 
-## Поработал с линейной алгеброй, матрицами и векторами *[C++ Raylib]*
+## Поработал с линейной алгеброй, матрицами и векторами
 
 FLEX_WRAP_START
 
@@ -111,9 +136,11 @@ YOUTUBE_X4yfK4Lj8kg
 
 FLEX_END
 
+PAGE 7 - C++ Raylib
+
 <hr>
 
-## Недо игра - [git](https://github.com/hulvdan/handmade-cpp-game) (10/2023 - 08/2024) *[Unity -> Bare C++]*
+## Недо игра - [git](https://github.com/hulvdan/handmade-cpp-game) (10/2023 - 08/2024)
 
 YOUTUBE_aR0MfmgZVeQ
 
@@ -125,15 +152,19 @@ IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
 *В ретроспективе от 2026-03-14:* overall, полагаю, стоит использовать игровые движки, чтобы не париться с рисованием спрайтов, шрифтами, вращениями, звуком и пр.
 
+PAGE 6 - Unity -> Bare C++
+
 <hr>
 
-## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023) *[Unity]*
+## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023)
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
 Поучаствовал в двух игровых джемах
 
 Понял, что мне не нравится работать в командах из распределенных по миру людей, что впервые видят друг друга
+
+PAGE 5 - Unity
 
 <hr>
 
@@ -143,9 +174,11 @@ FLEX_START
 
 IMAGES ds3-cheat-sheet-tool.png
 
-Для трекинга прогресса людям, что хотят пройти на 100% *[Python, PyQt]*
+Для трекинга прогресса людям, что хотят пройти на 100% **
 
 FLEX_END
+
+PAGE 4 - Python, PyQt
 
 <hr>
 
@@ -155,9 +188,11 @@ FLEX_START
 
 IMAGES mhw_booklet.jpeg
 
-Показывает уязвимости монстров *[Python, Pillow]*
+Показывает уязвимости монстров
 
 FLEX_END
+
+PAGE 3 - Python, Pillow
 
 <hr>
 
@@ -165,11 +200,15 @@ FLEX_END
 
 IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_shake.gif messing_with_see_through_shaders.gif messing_with_depth_of_field.gif tanks_ai.gif angry_birds.gif tetris.jpg 2048.jpg sokoban_in_terminal_block_placed.jpg
 
+PAGE 2
+
 <hr>
 
 ## Credited
 
 - [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Прикрутил исполнение команд VS Code при сохранении файла *[TypeScript]*
 - [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» *[C#]*
+
+PAGE 1
 
 <br>
