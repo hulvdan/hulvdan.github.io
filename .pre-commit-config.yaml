@@ -53,6 +53,14 @@ repos:
         files: \.md$
         always_run: true
         language: system
+      - id: build
+        name: build
+        entry: uv run python build.py
+        stages: [pre-commit, pre-merge-commit, manual]
+        require_serial: true
+        pass_filenames: false
+        always_run: true
+        language: system
   - repo: https://github.com/editorconfig-checker/editorconfig-checker
     rev: v3.6.1
     hooks:

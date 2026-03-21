@@ -10,13 +10,13 @@
 from pathlib import Path
 print()
 for x in (Path("pages") / "useful").glob("*.md"):
-    folder = x.relative_to("pages").parent
-    name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ")
-    print("- [{}](/{}/{})".format(name, folder.as_posix(), x.stem))
+  folder = x.relative_to("pages").parent
+  name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ")
+  print("- [{}](/{}/{}.html)".format(name, folder.as_posix(), x.stem))
 print()
 cog]]] -->
 
-- [Невозможность запуска игры с некорректным кодом / данными](/useful/01)
+- [Невозможность запуска игры с некорректным кодом / данными](/useful/01.html)
 
 <!-- [[[end]]] -->
 

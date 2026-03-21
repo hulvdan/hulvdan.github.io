@@ -5,7 +5,8 @@
     <title>Hulvdan</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/style-374b6416.css" />
+    <link rel="stylesheet" href="/pygments-80b5b744.css" />
+    <link rel="stylesheet" href="/style-ae4c7451.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -23,13 +24,13 @@
 
 <hr>
 
-<p>Можно заранее прогонять:</p>
+<p>При запуске игры в дебаге можно заранее прогонять:</p>
 
 <ul>
 <li>type-checker'ы</li>
 <li>линтеры</li>
-<li>кодогенерацию</li>
 <li>валидацию данных (yaml-ов, json-ов, csv, наличие картинок, наличие звуков и пр.)</li>
+<li>(+ кодогенерацию, генерацию картинок, нарезание spritesheet-ов)</li>
 </ul>
 
 <p>Если что-то падает — сделать так, чтобы <em>игра просто не запускалась</em></p>
@@ -50,7 +51,7 @@
 
 <h2>Как контрю</h2>
 
-<p>Для игры на Godot (GDScript) я выстроил процесс такой:</p>
+<p>Для игры на Godot (GDScript) я выстроил процесс такой: <em>(упрощённо)</em></p>
 
 <ol>
 <li>В VSCode нажимаю F5</li>
@@ -60,17 +61,19 @@
 <ol>
 <li>Прогоняет <code>gdlint</code> <em>(linter для gdscript)</em></li>
 <li>Прогоняет <code>godot --quit --headless --check-only --debug</code> <em>(проверка на типы / линтинг GDScript)</em> <em>(в Godot ⇒ Project ⇒ Project Settings ⇒ Debug ⇒ GDScript стоит ужесточить проверки)</em></li>
-<li>Если все ок, запускается autohotkey скрипт <code>cli.ahk run_in_godot</code>, что посылает в окно godot-а event нажатия «F5» — запуска игры</li>
+<li>Если все прошло без ошибок, запускается autohotkey скрипт <code>cli.ahk run_in_godot</code>, что посылает в окно godot-а event нажатия «F5» — запуска игры</li>
 </ol></li>
 </ol>
 
 <p>Таким образом, <em>я никогда не запускаю игру с легкоуловимыми ошибками в коде</em>. Кукуха сохранена. <em>Время не было потрачено впустую</em></p>
 
-<p>Это бы работало даже если в коде динамически подгружаются GDScript файлы с помощью <code>load()</code>. Напротив, если бы запускали игру в Godot, она бы не упала, пока не вызвался бы <code>load()</code> на некорректном gdscript файле ⇒ мы бы потратили время</p>
+<p><br></p>
+
+<p>Это бы работало даже если в коде динамически подгружаются GDScript файлы с помощью <code>load()</code>. Напротив, не используя этот подход, если бы запускали игру просто через Godot, она бы упала в момент вызова <code>load()</code> на некорректном gdscript файле ⇒ мы бы потратили время. <em>Jonathan Blow бы назвал это «Silence is Violence»</em></p>
 
 <p><br></p>
 
-<p>Обобщая, команды можно использовать для <em>валидации корректности кода перед запуском</em></p>
+<p>Обобщая, команды можно прогонять для <em>валидации корректности кода перед запуском</em></p>
 
 <hr>
 
@@ -86,15 +89,17 @@
 
 <p>Допустим, у меня есть мобы в игре. У каждого из них в <code>glib.yaml</code> должен был быть указан <code>damage &gt; 0</code>. Я бы это решил через</p>
 
-<p><code>
-for i, creature in enumerate(glib['creatures']):
-  if i &gt; 1:  # Т.к. 0 — INVALID, 1 — PLAYER
-    assert creature.get('damage', 0) &gt; 0
-</code></p>
+<div class="codehilite">
+<pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">creature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">glib</span><span class="p">[</span><span class="s1">&#39;creatures&#39;</span><span class="p">]):</span>
+  <span class="k">assert</span> <span class="n">creature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;damage&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</code></pre>
+</div>
+
+<p>Да, примитивно. Зато помогает довести до конца небольшого размера проект в соло, когда он обрастает сложностью</p>
 
 <p><br></p>
 
-<p>Обобщая, команды можно использовать для <em>валидации данных перед запуском</em></p>
+<p>Обобщая, команды можно прогонять для <em>валидации данных перед запуском</em></p>
 
 <hr>
 

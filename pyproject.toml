@@ -7,6 +7,7 @@ dependencies = [
   "livereload>=2.7.1",
   "markdown2>=2.5.5",
   "pillow>=12.1.1",
+  "pygments>=2.19.2",
 ]
 
 [dependency-groups]

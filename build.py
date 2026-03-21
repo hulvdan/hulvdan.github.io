@@ -3,6 +3,7 @@ import os
 import shutil
 import urllib.parse
 from glob import glob
+from itertools import chain
 from pathlib import Path
 
 import markdown2
@@ -12,12 +13,19 @@ HTML_TEMPLATE_FILE_PATH = Path("index_template.html")
 
 
 def main():
-    with open("style.css", "rb") as in_file:
-        pretty_hash = hashlib.md5(in_file.read()).hexdigest()[:8]
-        style_css_path = "/style-{}.css".format(pretty_hash)
+    style_css_file_name = "style-{}.css".format(
+        hashlib.md5(Path("style.css").read_bytes()).hexdigest()[:8]
+    )
+    pygments_css_file_name = "pygments-{}.css".format(
+        hashlib.md5(Path("pygments.css").read_bytes()).hexdigest()[:8]
+    )
 
-    with open(HTML_TEMPLATE_FILE_PATH) as in_file:
-        template_data = in_file.read().replace("{{ STYLE_CSS }}", style_css_path)
+    template_data = (
+        Path(HTML_TEMPLATE_FILE_PATH)
+        .read_text()
+        .replace("{{ STYLE_CSS }}", f"/{style_css_file_name}")
+        .replace("{{ PYGMENTS_CSS }}", f"/{pygments_css_file_name}")
+    )
 
     for filepath in Path("docs/assets").iterdir():
         if "th__" in filepath.stem:
@@ -59,10 +67,13 @@ def main():
         for i in glob("**/*.md", root_dir="pages", recursive=True)
     ]
 
-    old_style_css = [i for i in glob("style-*.css", root_dir="docs", recursive=False)]
-    for old_file in old_style_css:
-        os.remove(Path("docs") / old_file)
-    shutil.copyfile("style.css", Path("docs") / "style-{}.css".format(pretty_hash))
+    for x in chain(
+        Path("docs").glob("style-*.css"),
+        Path("docs").glob("pygments-*.css"),
+    ):
+        x.unlink()
+    shutil.copyfile("style.css", Path("docs") / style_css_file_name)
+    shutil.copyfile("pygments.css", Path("docs") / pygments_css_file_name)
 
     for source_path, output_path in pairs:
         print(f'Generating from "{source_path}" - "{output_path}"...')
@@ -169,7 +180,7 @@ def write_file(*, template_data: str, markdown_contents: str, output_file_path):
 
     content = markdown2.markdown(
         markdown_contents.replace(" - ", " — ").replace(" -> ", " ⇒ "),
-        extras=["markdown-in-html"],
+        extras=["markdown-in-html", "fenced-code-blocks"],
     )
     rendered_html = template_data.format(content=content)
 
