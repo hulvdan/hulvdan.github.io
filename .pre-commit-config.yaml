@@ -46,7 +46,7 @@ repos:
         stages: [pre-commit, pre-merge-commit, manual]
       - id: cog
         name: cog
-        entry: uv run cog -n utf-8 -U -r -P --markers="[[[cog cog]]] [[[end]]]"
+        entry: python -c "import subprocess, pathlib; subprocess.run('uv run cog -n utf-8 -U -r -P --markers=\"[[[cog cog]]] [[[end]]]\" ' + ' '.join(x.as_posix() for x in pathlib.Path('.').rglob('*.md')), check=True)"
         stages: [pre-commit, pre-merge-commit, manual]
         require_serial: true
         pass_filenames: true
