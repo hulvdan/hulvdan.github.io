@@ -30,7 +30,6 @@
 <li>type-checker'ы</li>
 <li>линтеры</li>
 <li>валидацию данных (yaml-ов, json-ов, csv, наличие картинок, наличие звуков и пр.)</li>
-<li>(+ например, кодогенерацию, генерацию картинок, нарезание spritesheet-ов)</li>
 </ul>
 
 <p>Если что-то падает — сделать так, чтобы <em>игра не запускалась</em></p>
@@ -61,7 +60,7 @@
 <ol>
 <li>Прогоняет <code>gdlint</code> <em>(linter для gdscript)</em></li>
 <li>Прогоняет <code>godot --quit --headless --check-only --debug</code> <em>(проверка на типы / линтинг GDScript)</em> <em>(в Godot ⇒ Project ⇒ Project Settings ⇒ Debug ⇒ GDScript стоит ужесточить проверки)</em></li>
-<li>Если все прошло без ошибок, запускается autohotkey скрипт <code>cli.ahk run_in_godot</code>, что посылает в окно godot-а event нажатия «F5» — запуска игры</li>
+<li>Если все прошло без ошибок, запускается AutoHotkey (AHK) скрипт <code>cli.ahk run_in_godot</code>, что посылает в окно godot-а event нажатия «F5» — запуска игры</li>
 </ol></li>
 </ol>
 
