@@ -90,8 +90,8 @@
 <p>Допустим, у меня есть мобы в игре. У каждого из них в <code>glib.yaml</code> должен был быть указан <code>damage &gt; 0</code>. Я бы это решил через</p>
 
 <div class="codehilite">
-<pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">creature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">glib</span><span class="p">[</span><span class="s1">&#39;creatures&#39;</span><span class="p">]):</span>
-  <span class="k">assert</span> <span class="n">creature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;damage&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<pre><span></span><code><span class="k">for</span> <span class="n">creature</span> <span class="ow">in</span> <span class="n">glib</span><span class="p">[</span><span class="s2">&quot;creatures&quot;</span><span class="p">]:</span>
+  <span class="k">assert</span> <span class="n">creature</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;damage&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </code></pre>
 </div>
 
