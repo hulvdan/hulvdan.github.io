@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hulvdan</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/style-bf77c7e5.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600;800&display=swap" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  </head>
+
+  <body>
+    <main class="border-paper">
+      <div id="content">
+        <ul>
+<li>Исполнение команд перед запуском игры. В частности: форматтеры, линтеры, type checker-ы при сохранении файла / перед запуском игры + невозможность запуска игры, если они не проходят   [+скорость, -баги, -рутина, +желание жить]</li>
+</ul>
+
+<p>ПОЛЕЗНОСТЬ 1. ЗАПУСК КОМАНД ПЕРЕД ЗАПУСКОМ ИГРЫ</p>
+
+<p>Пример проблемы 1: «Запускаю, а игра падает из-за банальной ошибки в коде»</p>
+
+<p>Такие проблемы растягивают длительности итераций (от начала «я хочу сделать Х» до «у меня в игре работает Х»). Совсем жить перестаёт хотеться, когда в процессе работы натыкаешься на цепь: одну решил ⇒ вторая появилась ⇒ решил ⇒ третья... На статически типизированных языках бы мы заранее увидели несоответствия — компилятор упадет</p>
+
+<p>Решение 1. Для Godot GDScript с использованием Python. Сейчас я использую VSCode. У меня работает так:
+«F5» запускает:
+⇒ task <code>ty check</code> (проверяет типы)
+⇒ <code>ruff check</code> («линтер». Проверяет дурацкие ошибки)
+⇒ мой python скрипт <code>bf_cli.py build Windows Debug</code>:
+  ⇒</p>
+
+<p>Раньше использовал neovim. Там можно навесить на сочетания клавиш свои бинды команд и кто его использует — наверняка уже все знает и без меня</p>
+
+<p>Пример проблемы 2: «100 раз изменяю картинку, добиваясь приемлемого качества. Бесит вновь сохранять ее с определенным названием»</p>
+
+<p>Решение 2.</p>
+
+<p>Пример проблемы 3: «»</p>
+
+<p>Решение 3.</p>
+
+<p>Пример проблемы 4: «»</p>
+
+<p>Решение 4.</p>
+
+      </div>
+    </main>
+  </body>
+</html>

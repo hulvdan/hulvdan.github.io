@@ -12,7 +12,7 @@
 
 - Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
 
-PAGE 13 - Godot, Python, imgui-bundle
+PAGE 13 - Godot, Python, imgui-bundle, protobuf, godobuf
 
 <hr>
 
@@ -42,7 +42,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-PAGE 12 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK. Мало игроков -> яндекс снял с публикации
+PAGE 12 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK, flatbuffers. Мало игроков -> яндекс снял с публикации
 
 <hr>
 
@@ -64,7 +64,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 <br>
 
-PAGE 11 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK. Мало игроков -> яндекс снял с публикации
+PAGE 11 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK, flatbuffers. Мало игроков -> яндекс снял с публикации
 
 <hr>
 
@@ -168,21 +168,7 @@ PAGE 5 - Unity
 
 <hr>
 
-## Dark Souls 3 Cheat Sheet tool – [Reddit](https://www.reddit.com/r/darksouls3/comments/7ylfqp/dark_souls_3_cheat_sheet_tool/)
-
-FLEX_START
-
-IMAGES ds3-cheat-sheet-tool.png
-
-Для трекинга прогресса людям, что хотят пройти на 100%
-
-FLEX_END
-
-PAGE 4 - Python, PyQt
-
-<hr>
-
-## Буклет для «MH:W» – [Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/), [Updated Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/)
+## Буклет для «MH:W» – [Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/), [Updated Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/) (2018, 2021)
 
 FLEX_START
 
@@ -192,7 +178,21 @@ IMAGES mhw_booklet.jpeg
 
 FLEX_END
 
-PAGE 3 - Python, Pillow
+PAGE 4 - Python, Pillow
+
+<hr>
+
+## Dark Souls 3 Cheat Sheet tool – [Reddit](https://www.reddit.com/r/darksouls3/comments/7ylfqp/dark_souls_3_cheat_sheet_tool/) (2018)
+
+FLEX_START
+
+IMAGES ds3-cheat-sheet-tool.png
+
+Для трекинга прогресса людям, что хотят пройти на 100%
+
+FLEX_END
+
+PAGE 3 - Python, PyQt
 
 <hr>
 
