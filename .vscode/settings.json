@@ -6,7 +6,7 @@
     },
     {
       "match": ".(md|css|html)$",
-      "command": "uv run python build.py"
+      "command": "uv run cog -n utf-8 -U -r -P --markers=\"[[[cog cog]]] [[[end]]]\" ${file} && uv run python build.py"
     },
     {
       "match": ".pyi?$",

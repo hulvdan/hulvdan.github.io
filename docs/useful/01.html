@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hulvdan</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/style-374b6416.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  </head>
+
+  <body>
+    <main class="border-paper">
+      <div id="content">
+        <h1>Невозможность запуска игры с некорректным кодом / данными</h1>
+
+<hr>
+
+<p>Можно заранее прогонять:</p>
+
+<ul>
+<li>type-checker'ы</li>
+<li>линтеры</li>
+<li>кодогенерацию</li>
+<li>валидацию данных (yaml-ов, json-ов, csv, наличие картинок, наличие звуков и пр.)</li>
+</ul>
+
+<p>Если что-то падает — сделать так, чтобы <em>игра просто не запускалась</em></p>
+
+<hr>
+
+<p>Зачем? Пойду от примеров</p>
+
+<hr>
+
+<h2>Проблема 1. Запускаю, а игра падает из-за банальной ошибки в коде</h2>
+
+<p>Это растягивает длительность итераций <em>(от начала «я хочу сделать Х» до «у меня в игре работает Х»)</em></p>
+
+<p>Ряд ошибок могут быть отловлены линтерами / type-checker-ами / компиляторами <em>до</em> запуска</p>
+
+<p><br></p>
+
+<h2>Как контрю</h2>
+
+<p>Для игры на Godot (GDScript) я выстроил процесс такой:</p>
+
+<ol>
+<li>В VSCode нажимаю F5</li>
+<li>Отрабатывает task: <code>ty check</code> <em>(type checker для python)</em></li>
+<li>Отрабатывает task: <code>ruff check</code> <em>(linter для python)</em></li>
+<li>Запускается python launch config <code>bf_cli.py run</code>
+<ol>
+<li>Прогоняет <code>gdlint</code> <em>(linter для gdscript)</em></li>
+<li>Прогоняет <code>godot --quit --headless --check-only --debug</code> <em>(проверка на типы / линтинг GDScript)</em> <em>(в Godot ⇒ Project ⇒ Project Settings ⇒ Debug ⇒ GDScript стоит ужесточить проверки)</em></li>
+<li>Если все ок, запускается autohotkey скрипт <code>cli.ahk run_in_godot</code>, что посылает в окно godot-а event нажатия «F5» — запуска игры</li>
+</ol></li>
+</ol>
+
+<p>Таким образом, <em>я никогда не запускаю игру с легкоуловимыми ошибками в коде</em>. Кукуха сохранена. <em>Время не было потрачено впустую</em></p>
+
+<p>Это бы работало даже если в коде динамически подгружаются GDScript файлы с помощью <code>load()</code>. Напротив, если бы запускали игру в Godot, она бы не упала, пока не вызвался бы <code>load()</code> на некорректном gdscript файле ⇒ мы бы потратили время</p>
+
+<p><br></p>
+
+<p>Обобщая, команды можно использовать для <em>валидации корректности кода перед запуском</em></p>
+
+<hr>
+
+<h2>Проблема 2. Запустил игру, а данные в yaml файле я изначально забил некорректные</h2>
+
+<h2>Как контрю</h2>
+
+<p>В том же <code>bf_cli.py</code> у меня есть стадия валидации данных <code>glib.yaml</code> (моего большого файла с данными по игре). Я прогоняюсь по нему тучей <code>assert</code>-ов. Если упадет — увижу проблему ещё до запуска.</p>
+
+<p><br></p>
+
+<h2>Прикладной пример</h2>
+
+<p>Допустим, у меня есть мобы в игре. У каждого из них в <code>glib.yaml</code> должен был быть указан <code>damage &gt; 0</code>. Я бы это решил через</p>
+
+<p><code>
+for i, creature in enumerate(glib['creatures']):
+  if i &gt; 1:  # Т.к. 0 — INVALID, 1 — PLAYER
+    assert creature.get('damage', 0) &gt; 0
+</code></p>
+
+<p><br></p>
+
+<p>Обобщая, команды можно использовать для <em>валидации данных перед запуском</em></p>
+
+<hr>
+
+<h2><center><a href="/">Hulvdan</a></center></h2>
+
+      </div>
+    </main>
+  </body>
+</html>

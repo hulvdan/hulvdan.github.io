@@ -1,0 +1,61 @@
+# https://pre-commit.com/
+default_install_hook_types:
+  - pre-commit
+  - pre-push
+
+repos:
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-no-eval
+        name: 'Prohibited: "nocheckin"'
+        entry: "nocheckin"
+        language: pygrep
+        files: ^(?!.pre-commit-config).*\.(h|c|hpp|cpp|json|jsonc|yaml|yml|txt|py|md|toml|cfg|gd)$
+        exclude: ^addons/.*$
+        types: []
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        require_serial: true
+        files: \.py$
+        stages: [pre-commit, pre-merge-commit, manual]
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check --output-format=concise
+        language: system
+        require_serial: true
+        files: \.py$
+        stages: [pre-commit, pre-merge-commit, manual]
+      - id: ty-check
+        name: ty check
+        entry: ty check . --output-format=concise --no-progress
+        language: system
+        require_serial: true
+        files: \.py$
+        stages: [pre-commit, pre-merge-commit, manual]
+      - id: tombi-format
+        name: tombi format
+        entry: uvx tombi format
+        language: system
+        require_serial: true
+        files: \.toml$
+        stages: [pre-commit, pre-merge-commit, manual]
+      - id: cog
+        name: cog
+        entry: uv run cog -n utf-8 -U -r -P --markers="[[[cog cog]]] [[[end]]]"
+        stages: [pre-commit, pre-merge-commit, manual]
+        require_serial: true
+        pass_filenames: true
+        files: \.md$
+        always_run: true
+        language: system
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker
+    rev: v3.6.1
+    hooks:
+      - id: editorconfig-checker
+        exclude: ^(addons|assets)/.*$
+        args: ["-disable-indent-size"]

@@ -43,14 +43,35 @@ html {
   font-size: 1.35em;
   line-height: 1.5;
 
-  font-family: "Merriweather";
-  font-weight: 600;
+  font-family:
+    "Google Sans",
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    Segoe UI Symbol,
+    "Noto Color Emoji";
   font-style: normal;
+  font-variation-settings: "GRAD" 0;
+  font-weight: 400;
 
   background-color: var(--black);
 
   padding: 0;
   margin: 0;
+}
+
+code {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  color: var(--palLime);
+  background-color: color-mix(in srgb, var(--background) 90%, white);
+  padding: 0px 6px 2px 6px;
+  border-radius: 4px;
 }
 
 body {
@@ -80,13 +101,9 @@ main {
   margin: 0 auto;
 }
 
-h2 {
-  font-weight: 800;
-}
-
 h1 {
   font-size: 1.75em;
-  font-weight: 600;
+  font-weight: 700;
   padding: 40px 20px 0px 20px;
   margin: 0;
   text-align: center;
@@ -97,9 +114,15 @@ h1 > p {
   text-align: center;
 }
 
+ol {
+  margin-right: 20px;
+}
+
 h2 {
+  font-size: 1.75em;
+  font-weight: 700;
   font-size: 1.2em;
-  padding: 20px 20px 20px 20px;
+  padding: 0 20px 20px 20px;
   margin: 0;
   color: var(--palRed);
 }

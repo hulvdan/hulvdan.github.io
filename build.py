@@ -2,7 +2,6 @@ import hashlib
 import os
 import shutil
 import urllib.parse
-from datetime import datetime
 from glob import glob
 from pathlib import Path
 
@@ -30,8 +29,7 @@ def main():
 
         img = Image.open(filepath)
         if filepath.name.endswith(".gif"):
-            mypalette = img.getpalette()
-            img.putpalette(mypalette)
+            img.putpalette(img.getpalette())  # ty:ignore[invalid-argument-type]
             new_im = Image.new("RGB", img.size)
             new_im.paste(img)
             img = new_im
@@ -170,7 +168,7 @@ def write_file(*, template_data: str, markdown_contents: str, output_file_path):
     )
 
     content = markdown2.markdown(
-        markdown_contents.replace(" - ", " — ").replace("->", "⇒"),
+        markdown_contents.replace(" - ", " — ").replace(" -> ", " ⇒ "),
         extras=["markdown-in-html"],
     )
     rendered_html = template_data.format(content=content)

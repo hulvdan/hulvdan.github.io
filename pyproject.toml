@@ -3,13 +3,16 @@ name = "hulvdan-github-io"
 version = "0.1.0"
 requires-python = ">=3.11.3"
 dependencies = [
-    "livereload>=2.7.1",
-    "markdown2>=2.5.5",
-    "pillow>=12.1.1",
+  "cogapp>=3.6.0",
+  "livereload>=2.7.1",
+  "markdown2>=2.5.5",
+  "pillow>=12.1.1",
 ]
 
-[tool.uv.build-backend]
-module-root = ""
+[dependency-groups]
+dev = [
+  "pre-commit>=4.5.1",
+]
 
 [tool.black]
 line-length = 90
@@ -18,3 +21,6 @@ line-length = 90
 multi_line_output = 3
 line_length = 90
 include_trailing_comma = true
+
+[tool.uv.build-backend]
+module-root = ""

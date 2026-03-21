@@ -5,10 +5,10 @@
     <title>Hulvdan</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/style-bf77c7e5.css" />
+    <link rel="stylesheet" href="/style-374b6416.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <meta name="format-detection" content="telephone=no">
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
@@ -25,11 +25,31 @@
 
 <hr>
 
+<h2>Полезности</h2>
+
+<!-- [[[cog
+from pathlib import Path
+print()
+for x in (Path("pages") / "useful").glob("*.md"):
+    folder = x.relative_to("pages").parent
+    name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ")
+    print("- [{}](/{}/{})".format(name, folder.as_posix(), x.stem))
+print()
+cog]]] -->
+
+<ul>
+<li><a href="/useful/01">Исполнение команд перед запуском игры</a></li>
+</ul>
+
+<!-- [[[end]]] -->
+
+<hr>
+
 <h2>Щя делаю — <a href="https://github.com/Hulvdan/game3">git</a> (02/2026 — щя)</h2>
 
 <ul>
 <li><p>Упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки <em>(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)</em></p></li>
-<li><p>Наткнулся на Того Самого Келина. Обдумываю все его видосы — <a href="https://www.youtube.com/@Kelin2025">yt1</a>, <a href="https://www.youtube.com/@kelin2playLIVE">yt2</a></p></li>
+<li><p>Наткнулся на Того Самого Келина. Обдумываю его видосы — <a href="https://www.youtube.com/@Kelin2025">yt1</a>, <a href="https://www.youtube.com/@kelin2playLIVE">yt2</a></p></li>
 <li><p>Перешел с C++ на Godot <em>(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)</em></p></li>
 </ul>
 
