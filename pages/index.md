@@ -16,7 +16,7 @@ PAGE 13 - Godot, Python, imgui-bundle
 
 <hr>
 
-## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/464161?lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
+## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png
 
@@ -42,11 +42,11 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-PAGE 12 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK
+PAGE 12 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK. Мало игроков -> яндекс снял с публикации
 
 <hr>
 
-## Молочник! Арена Выживания - [yandex](https://yandex.com/games/app/483687?lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
+## Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
 IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
 
@@ -64,7 +64,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 <br>
 
-PAGE 11 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK
+PAGE 11 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK. Мало игроков -> яндекс снял с публикации
 
 <hr>
 
