@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hulvdan</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/pygments-80b5b744.css" />
+    <link rel="stylesheet" href="/style-58712855.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  </head>
+
+  <body>
+    <main class="border-paper">
+      <div id="content">
+        <h1>Исполнение команд при сохранении файлов</h1>
+
+<hr>
+
+<p>Зачем? — Для экономии времени за счёт:</p>
+
+<ul>
+<li>Автоформатирования кода <em>(GDScript, C#, C++, Python, JSON, YAML, Markdown, lua, и любого другого, для которого есть форматтер)</em></li>
+<li>Автоисправления простых ошибок файлов <em>(python-овый linter «ruff» может исправлять ошибки/рекомендации, если ему дать аргумент <code>--fix</code>)</em></li>
+<li>Автозапуска тестов</li>
+<li>И пр. рутинных действий</li>
+</ul>
+
+<hr>
+
+<p>В VSCode есть встроенный функционал <strong>Format on Save</strong>, что прогоняет форматтер</p>
+
+<p>Но то, что я опишу далее, позволяет прогонять <strong>набор команд, не обязательно связанных с форматированием</strong></p>
+
+<hr>
+
+<h2>VSCode Расширение <a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run on Save</a></h2>
+
+<p>Простой пример:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1">// .vscode/settings.json</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;runOnSave.commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.json$&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prettier -w ${file}&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>При сохранении файлов, название которых оканчивается на <code>.json</code> <em>(это regex matching)</em>, будет прогоняться по ним <code>prettier -w</code></p>
+
+<hr>
+
+<p>Этого можно было бы добиться и с помощью <strong>Format on Save</strong>. Но что-то посложнее — нет</p>
+
+<p>Например:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;runOnSave.commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.pyi?$&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uv run cog -n utf-8 -U -r -P --markers=\&quot;{{{cog cog}}} {{{end}}}\&quot; ${file} &amp;&amp; uv run ruff format ${file} &amp;&amp; uv run ruff check --select I ${file} --fix&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><br></p>
+
+<p>В этом случае при сохранении python файла последовательно бы отрабатывали <strong>3 экономящие моё время команды</strong>:</p>
+
+<ul>
+<li><code>uv run cog -n utf-8 -U -r -P --markers="{{{cog cog}}} {{{end}}}" ${file}</code> <em>(для кодогенерации внутри файла через использование python cogapp)</em></li>
+<li><code>uv run ruff format ${file}</code> <em>(для форматирования)</em></li>
+<li><code>uv run ruff check --select I ${file} --fix</code> <em>(для сортировки импортов)</em></li>
+</ul>
+
+<p><br></p>
+
+<p class="page-number">На самом деле в cog я использую не {{{, а [[[. Заменил в примере, чтобы он не прогонялся</p>
+
+<hr>
+
+<h2>Specifically для Godot GDScript разработяг, что используют VSCode</h2>
+
+<p>Среди форматтеров я остановился на <a href="https://github.com/GDQuest/GDScript-formatter">gdscript-formatter</a></p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;runOnSave.commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.gd$&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">// Если не нравится, можно убрать `--reorder-code`</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uv run gdscript-formatter --reorder-code ${file}&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Specifically для Unity C# разработяг, что используют VSCode</h2>
+
+<p>Можно было бы установить <a href="https://csharpier.com/">CSharpier</a> и так же навесить его на сохранение файлов</p>
+
+<hr>
+
+<h2>Прикладной Пример — Protobuf + <a href="https://github.com/mariomakdis/proto-renumber">proto-renumber</a> + <a href="https://buf.build/docs/reference/cli/buf/format/">buf format</a> — Big Brain Giga Chad Комбинация</h2>
+
+<p>Пока я прототипирую схемы данных в protobuf файлах, у меня номера полей идут вразнобой. Пока работаю, я их туда-сюда перетаскиваю внутри message / файла</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">Lib</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="n">GRoom</span><span class="w"> </span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><br></p>
+
+<p>Рандомная последовательность слегка триггерит ОКР — появляется желание их последовательно пронумеровать для сохранения порядка</p>
+
+<p>Но больше всего моя ж*па взрывается, когда я, не заметив, добавляю поле с ранее забитым номером и падаю с ошибкой:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">Lib</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ошибка!</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="n">GRoom</span><span class="w"> </span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// &lt;- уже есть поле с номером 2</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><br></p>
+
+<p>Это не просто так в protobuf сделано.</p>
+
+<p>Но когда я использую protobuf для, в сущности, просто типизации json-ов, мне не нужно опираться на сохранение последовательности номеров полей в proto файлах игровых данных</p>
+
+<p>И однажды я нашёл <a href="https://github.com/mariomakdis/proto-renumber">proto-renumber</a>. Он автоматом везде последовательно пронумеровывает поля</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="kd">message</span><span class="w"> </span><span class="nc">Lib</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="n">GRoom</span><span class="w"> </span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Кукуха сохранена. Я больше ни секунды времени не трачу на бесполезные думы о нумерации полей + изменения номеров полей</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;runOnSave.commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.proto$&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proto-renumber -replace ${file} &amp;&amp; buf format -w ${file}&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Ссылки</h2>
+
+<ul>
+<li><p><a href="https://github.com/hulvdan/game3/blob/7b53a673c5a7e32aa0cb80deccb0a207a1679455/.vscode/settings.json#L27-L71">Пример моих команд при сохранении файлов</a></p></li>
+<li><p>Расширение для VSCode — <a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run on Save by pucelle</a></p></li>
+<li><p>В IDE от JetBrains аналогичные штуки делать через <strong>File Watchers</strong></p></li>
+<li><p>Раньше я использовал Neovim и прописывал ряд обработчиков с помощью плагина <a href="https://github.com/stevearc/conform.nvim">conform</a></p></li>
+</ul>
+
+<hr>
+
+<h2><center><a href="/">Hulvdan</a></center></h2>
+
+      </div>
+    </main>
+  </body>
+</html>
