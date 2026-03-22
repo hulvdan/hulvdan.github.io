@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hulvdan</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/pygments-80b5b744.css" />
+    <link rel="stylesheet" href="/style-58712855.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  </head>
+
+  <body>
+    <main class="border-paper">
+      <div id="content">
+        <h1>Сокрытие кода. Топовый code folding</h1>
+
+<hr>
+
+<p>Зачем использовать folding (скрывать код)?</p>
+
+<p>Чтобы во время работы:</p>
+
+<ol>
+<li><p>Было проще удерживать важные куски кода в голове</p></li>
+<li><p>Скрыть с глаз неважный код <em>(= забрать у него возможность нас отвлекать / тратить энергию на распознавание того, что он делает)</em></p></li>
+</ol>
+
+<hr>
+
+<h2>Обычные fold-ы</h2>
+
+<p>❌ Не позволяют самостоятельно задать область для сокрытия кода</p>
+
+<p>❌ Команды «Fold level 1» скрывают все на 1-ом уровне. Но есть более сложные функции, которым я бы хотел описать области сокрытия + задать им summary того, что они делают</p>
+
+<hr>
+
+<h2>Пары <code>#region</code> / <code>#endregion</code></h2>
+
+<p>❌ Слишком много букв</p>
+
+<hr>
+
+<h2>Big Brain Giga Chad VSCode Расширение <a href="https://marketplace.visualstudio.com/items?itemName=zokugun.explicit-folding">Explicit Folding</a></h2>
+
+<p>✅ Позволяют задать области сокрытия кода</p>
+
+<p>✅ Можно указать человеческий summary</p>
+
+<p>✅ Можно скрывать все кастомные fold-ы keyboard shortcut-ом</p>
+
+<hr>
+
+<h2>Демонстрирую</h2>
+
+<!-- [[[cog
+from pathlib import Path
+print()
+for x in Path("docs/assets").glob("useful_03_*.png"):
+  print("![](/{})".format(x.as_posix()))
+  print("<br>")
+  print("<br>")
+print()
+cog]]] -->
+
+<p><img src="/assets/useful_03_Code_2026-03-22_22.22.07.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-22_22.22.11.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-22_22.22.44.png" alt="" />
+<br>
+<br>
+<img src="/assets/useful_03_Code_2026-03-22_22.22.51.png" alt="" />
+<br>
+<br></p>
+
+<!-- [[[end]]] -->
+
+<p>Мне так намного проще навигироваться в коде</p>
+
+<hr>
+
+<h2>Мои настройки VSCode</h2>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1">// VSCode Preferences: Open User Settings (JSON)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;editor.defaultFoldingRangeProvider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zokugun.explicit-folding&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;explicitFolding.rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;*&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;[python]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;explicitFolding.rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;##&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cog}}}&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{{end}}}&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;[proto]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;explicitFolding.rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;}&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cog}}}&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{{end}}}&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><br></p>
+
+<p class="page-number">для cog тут заменил [[[]]] на {{{}}}, чтобы у меня кодген не отрабатывал</p>
+
+<hr>
+
+<h2>Ссылки</h2>
+
+<ul>
+<li><p>Расширение VSCode — <a href="https://marketplace.visualstudio.com/items?itemName=zokugun.explicit-folding">Explicit Folding</a></p></li>
+<li><p>В Neovim я использовал manual folding + биндил <code>&lt;leader&gt;0</code> для сокрытия кода внутри всех пар <code>/// {</code> + <code>/// }</code> <em>(или <code>### {</code> + <code>### }</code>)</em> с помощью <code>vim.fn.execute([[%g/\/\/\//silent!normal! $bbzf%]])</code> <em>(<code>vim.fn.execute([[%g/###/silent!normal! $bbzf%]])</code>)</em></p></li>
+</ul>
+
+<hr>
+
+<h2><center><a href="/">Hulvdan</a></center></h2>
+
+      </div>
+    </main>
+  </body>
+</html>
