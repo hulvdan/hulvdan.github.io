@@ -131,7 +131,13 @@ cog]]] -->
 
 <ul>
 <li><p>Расширение VSCode — <a href="https://marketplace.visualstudio.com/items?itemName=zokugun.explicit-folding">Explicit Folding</a></p></li>
-<li><p>В Neovim я использовал manual folding + биндил <code>&lt;leader&gt;0</code> для сокрытия кода внутри всех пар <code>/// {</code> + <code>/// }</code> <em>(или <code>### {</code> + <code>### }</code>)</em> с помощью <code>vim.fn.execute([[%g/\/\/\//silent!normal! $bbzf%]])</code> <em>(<code>vim.fn.execute([[%g/###/silent!normal! $bbzf%]])</code>)</em></p></li>
+<li><p>В Neovim я использовал manual folding + биндил <code>&lt;leader&gt;0</code> для сокрытия кода внутри всех пар <code>{ ///</code> + <code>}</code> <em>(или <code># {  ###</code> + <code># }</code>)</em> с помощью <code>vim.fn.execute([[%g/\/\/\//silent!normal! $bbzf%]])</code> <em>(<code>vim.fn.execute([[%g/###/silent!normal! $bbzf%]])</code>)</em></p></li>
+</ul>
+
+<p><br></p>
+
+<ul>
+<li><strong>Безумие moment.</strong> Ходят легенды, что я в одном файле писал геймплей + рендер клона brotato. <a href="https://github.com/hulvdan/cookier/blob/492ed2d9269ccdd93f0c746df97852e737c98e1f/src/game/bf_game.cpp">14к+ строк</a>. И довел игру до конца. Хочу этим сказать, что с помощью грамотных fold-ов, похоже, можно в голове удерживать намного более обширную картину происходящего в коде</li>
 </ul>
 
 <hr>
