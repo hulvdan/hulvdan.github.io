@@ -17,9 +17,9 @@ print()
 cog]]] -->
 
 - [Невозможность запуска игры с некорректным кодом / данными](/useful/01.html)
-- [Исполнение команд при сохранении файлов](/useful/02.html)
-- [Сокрытие кода. Топовый code folding. VSCode Расширение Explicit Folding](/useful/03.html)
-- [Команды и проверки перед коммитом. pre-commit](/useful/04.html)
+- [⭐ Исполнение команд при сохранении файлов](/useful/02.html)
+- [⭐ Сокрытие кода. Топовый code folding. VSCode Расширение Explicit Folding](/useful/03.html)
+- [⭐ Команды и проверки перед коммитом. pre-commit](/useful/04.html)
 
 <!-- [[[end]]] -->
 
