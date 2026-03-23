@@ -15,5 +15,8 @@
       "command": "uv run ruff format ${file} && uv run ruff check --select I ${file} --fix",
       "clearOutput": true
     }
-  ]
+  ],
+  "launches": {
+    "run_f5": "build"
+  }
 }
