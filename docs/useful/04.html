@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hulvdan</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/pygments-80b5b744.css" />
+    <link rel="stylesheet" href="/style-58712855.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  </head>
+
+  <body>
+    <main class="border-paper">
+      <div id="content">
+        <h1>Команды и проверки перед коммитом. pre-commit</h1>
+
+<hr>
+
+<p><strong>Зачем использовать pre-commit хуки?</strong></p>
+
+<ul>
+<li>Чтобы случайно не залить в репозиторий сломанный код / данные</li>
+<li>Чтобы заливаемый код всегда был отформатирован в одном стиле</li>
+<li>Чтобы соблюдать договоренности в духе «в файле Х мы не используем Y» <em>(я иногда кастомлю <code>assert</code> функции и не хочу, чтобы из-за мышечной памяти я случайно заиспользовал оригинальный <code>assert</code> там, где не нужно)</em></li>
+</ul>
+
+<hr>
+
+<h2>База</h2>
+
+<p>В git-е можно подвязать свои команды на различные события <em>(вроде pre-commit, commit-msg, post-commit, pre-merge-commit, pre-push и пр.)</em></p>
+
+<p>Это были бы одноименные файлы-скрипты в <code>.git/hooks/</code></p>
+
+<p>Но я с ними никогда не работал и, честно говоря, разбираться не хочу :/</p>
+
+<p>Я просто однажды наткнулся на удобный инструмент-фреймворк <strong>«pre-commit»</strong> и с тех пор его использую</p>
+
+<hr>
+
+<h2>Примеры задач, для которых я использую <a href="https://pre-commit.com/#install">pre-commit</a></h2>
+
+<ul>
+<li><p>Для автоформатирования <em>(yaml, json, toml, gdscript, python, python-stubs, c++, c#, go, и пр.) (btw, форматтеры отчасти являются проверками — они падают с ошибкой при встрече кода с невалидным синтаксисом)</em></p></li>
+<li><p>Для линтинга <em>(gdlint, cpplint, ruff check, yamllint, ty check, pyright, mypy)</em></p></li>
+<li><p>Для соблюдения договорённостей</p>
+
+<p>— <em>Запрещаю коммитить, если где-то есть строка с <code>noсheckin</code> (оставляю такие отметки, чтобы 100% перед коммитом вернуться в какую-то часть кода) (подсмотрел у Jonathan Blow) (в vscodevim забиндил ctrl+n для мгновенной вставки noсheckin в след. строку)</em></p>
+
+<p>— <em>В python файлах запрещаю функции с префиксом <code>test_</code>, но разрешаю <code>_test_</code> (чтобы тесты не дублировались в test runner-е VSCode)</em></p></li>
+<li><p>Для кодогенерации <em>(в отдельных случаях я запускаю cog на некоторых файлах. Зачастую — для автовставок картинок в markdown)</em></p></li>
+<li><p>Для билда <em>(этот сайт всегда билдится в статику при коммите ⇒ я лишь редактирую markdown файлы. На github-pages раскатается актуальная версия)</em></p></li>
+<li><p>Для прогона тестов <em>(не люблю тесты прогонять на всё. Иногда через большой рефакторинг прохожу и приходится <code>--no-verify</code> использовать частенько. Сейчас ограничиваюсь прогоном тестов лишь на свои «библиотечные» файлы)</em></p></li>
+</ul>
+
+<p><br></p>
+
+<p><a href="https://github.com/hulvdan/game3/blob/13e7160d1671799d283af3c4ec9ad5c69f6d90bf/.pre-commit-config.yaml">Пример моей конфигурации .pre-commit-config.yaml</a></p>
+
+<hr>
+
+<h2>Ссылки</h2>
+
+<ul>
+<li><a href="https://pre-commit.com/#install">pre-commit</a> (я использую <a href="https://docs.astral.sh/uv/">uv</a>, посему, ставлю через <code>uv add --dev pre-commit; uv run pre-commit --install; uv run pre-commit --install-hooks</code>)</li>
+</ul>
+
+<hr>
+
+<h2>Btw</h2>
+
+<ul>
+<li><p>Коммитить все равно можно будет с помощью <code>git commit --no-verify</code>. У Github Desktop есть опция «Bypass Commit Hooks». В lazygit тоже можно удобно пропускать хуки</p></li>
+<li><p>Разработяги в корпоратах в CI/CD пайплайны могут встраивать стадию lint-а. Но пока изменения запушатся, раннер стартанет, проект подготовится и линтинг завершится, пройдет некоторое время. Куда быстрее локально прогнать линтер перед коммитом и сразу узнать об ошибках (но не говорю, что линтинг в CI/CD — плохо)</p></li>
+</ul>
+
+<hr>
+
+<h2><center><a href="/">Hulvdan</a></center></h2>
+
+      </div>
+    </main>
+  </body>
+</html>
