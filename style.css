@@ -43,6 +43,8 @@ html {
   font-size: 1.35em;
   line-height: 1.5;
 
+  font-variant-emoji: text;
+
   font-family:
     "Google Sans",
     ui-sans-serif,
