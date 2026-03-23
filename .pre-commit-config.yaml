@@ -55,7 +55,7 @@ repos:
         language: system
       - id: build
         name: build
-        entry: uv run python build.py
+        entry: uv run python main.py build
         stages: [pre-commit, pre-merge-commit, manual]
         require_serial: true
         pass_filenames: false

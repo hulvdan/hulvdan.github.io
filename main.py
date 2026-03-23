@@ -1,18 +1,25 @@
+#
+## Imports
 import hashlib
 import os
 import shutil
+import subprocess
 import urllib.parse
 from glob import glob
 from itertools import chain
 from pathlib import Path
 
 import markdown2
+import typer
 from PIL import Image
 
-HTML_TEMPLATE_FILE_PATH = Path("index_template.html")
+##
+
+app = typer.Typer()
 
 
-def main():
+@app.command()
+def build():
     style_css_file_name = "style-{}.css".format(
         hashlib.md5(Path("style.css").read_bytes()).hexdigest()[:8]
     )
@@ -21,12 +28,13 @@ def main():
     )
 
     template_data = (
-        Path(HTML_TEMPLATE_FILE_PATH)
+        Path("index_template.html")
         .read_text()
         .replace("{{ STYLE_CSS }}", f"/{style_css_file_name}")
         .replace("{{ PYGMENTS_CSS }}", f"/{pygments_css_file_name}")
     )
 
+    ## Making thumbnails
     for filepath in Path("docs/assets").iterdir():
         if "th__" in filepath.stem:
             continue
@@ -61,6 +69,7 @@ def main():
         img = img.resize((w, h))
         print(f"Saving '{th_filepath}'...")
         img.save(th_filepath)
+    ##
 
     pairs = [
         (Path("pages") / i, Path("docs") / (i[:-2] + "html"))
@@ -188,5 +197,21 @@ def write_file(*, template_data: str, markdown_contents: str, output_file_path):
         out_file.write(rendered_html)
 
 
+@app.command()
+def gitf():  ##
+    RETRIES = 3
+    for i in range(RETRIES):
+        try:
+            subprocess.run("git add -A", check=True)
+            subprocess.run('git commit -m "upd"', check=True)
+            break
+        except Exception:
+            if i == RETRIES - 1:
+                raise
+            continue
+    subprocess.run("git push", check=False)
+    ##
+
+
 if __name__ == "__main__":
-    main()
+    app()
