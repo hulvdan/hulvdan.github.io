@@ -59,7 +59,7 @@
 <li>Запускается python launch config <code>bf_cli.py run</code>
 <ol>
 <li>Прогоняет <code>gdlint</code> <em>(linter для gdscript)</em></li>
-<li>Прогоняет <code>godot --quit --headless --check-only --debug</code> <em>(проверка на типы / линтинг GDScript)</em> <em>(в Godot ⇒ Project ⇒ Project Settings ⇒ Debug ⇒ GDScript стоит ужесточить проверки)</em></li>
+<li>Прогоняет <code>godot --quit --headless --check-only --debug</code> <em>(проверка на типы / линтинг GDScript)</em> <em>(в Godot ➜ Project ➜ Project Settings ➜ Debug ➜ GDScript стоит ужесточить проверки)</em></li>
 <li>Если все прошло без ошибок, запускается AutoHotkey (AHK) скрипт <code>cli.ahk run_in_godot</code>, что посылает в окно godot-а event нажатия «F5» — запуска игры</li>
 </ol></li>
 </ol>
@@ -68,7 +68,7 @@
 
 <p><br></p>
 
-<p>Это бы работало даже если в коде динамически подгружаются GDScript файлы с помощью <code>load()</code>. Напротив, не используя этот подход, если бы запускали игру просто через Godot, она бы упала в момент вызова <code>load()</code> на некорректном gdscript файле ⇒ мы бы потратили время</p>
+<p>Это бы работало даже если в коде динамически подгружаются GDScript файлы с помощью <code>load()</code>. Напротив, не используя этот подход, если бы запускали игру просто через Godot, она бы упала в момент вызова <code>load()</code> на некорректном gdscript файле ➜ мы бы потратили время</p>
 
 <p><br></p>
 

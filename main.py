@@ -127,7 +127,7 @@ def process_line(line: str) -> str:
 
     global next_nanogallery_id
 
-    line = line.replace(" -> ", " ⇒ ")
+    line = line.replace(" -> ", " ➜ ")
 
     if line.startswith("IMAGES "):
         images = [i.strip() for i in line.removeprefix("IMAGES ").split() if i]
@@ -188,7 +188,7 @@ def write_file(*, template_data: str, markdown_contents: str, output_file_path):
     )
 
     content = markdown2.markdown(
-        markdown_contents.replace(" - ", " — ").replace(" -> ", " ⇒ "),
+        markdown_contents.replace(" - ", " — "),
         extras=["markdown-in-html", "fenced-code-blocks"],
     )
     rendered_html = template_data.format(content=content)
