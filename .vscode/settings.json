@@ -2,15 +2,18 @@
   "runOnSave.commands": [
     {
       "match": ".(json|css)$",
-      "command": "prettier -w ${file}"
+      "command": "prettier -w ${file}",
+      "clearOutput": true
     },
     {
-      "match": ".(md|css|html)$",
-      "command": "uv run cog -n utf-8 -U -r -P --markers=\"[[[cog cog]]] [[[end]]]\" ${file} && uv run python build.py"
+      "match": "^(?!.*settings\\.json$).*",
+      "command": "uv run cog -n utf-8 -U -r -P --markers=\"[[[cog cog]]] [[[end]]]\" ${file} && uv run python build.py",
+      "clearOutput": true
     },
     {
       "match": ".pyi?$",
-      "command": "uv run ruff format ${file} && uv run ruff check --select I ${file} --fix"
+      "command": "uv run ruff format ${file} && uv run ruff check --select I ${file} --fix",
+      "clearOutput": true
     }
   ]
 }
