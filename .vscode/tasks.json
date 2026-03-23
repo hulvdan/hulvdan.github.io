@@ -14,7 +14,7 @@
     {
       "label": "1_gitf",
       "type": "shell",
-      "command": "git add -A && git commit -m 'upd'",
+      "command": "git add -A && git commit -m 'upd' && git push",
       "icon": {
         "id": "run"
       },
