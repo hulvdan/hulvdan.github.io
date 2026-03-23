@@ -10,6 +10,18 @@
       },
       "hide": true,
       "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "1_gitf",
+      "type": "shell",
+      "command": "git add -A && git commit -m 'upd'",
+      "icon": {
+        "id": "run"
+      },
+      "presentation": {
+        "reveal": "silent",
+        "clear": true
+      }
     }
   ]
 }
