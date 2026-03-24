@@ -40,7 +40,7 @@ cog]]] -->
 
 - Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
 
-PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle
+PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle, AutoHotkey
 
 <hr>
 
@@ -70,7 +70,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AHK. Мало игроков -> яндекс снял с публикации
+PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> яндекс снял с публикации
 
 <hr>
 
@@ -92,7 +92,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 <br>
 
-PAGE 11 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK, flatbuffers. Мало игроков -> яндекс снял с публикации
+PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> яндекс снял с публикации
 
 <hr>
 
@@ -116,11 +116,11 @@ FLEX_END
 
 <br>
 
-PAGE 10 - C++ SDL bgfx miniaudio, Python, Clip Studio
+PAGE 10 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio
 
 <hr>
 
-## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git (+ скрины изменений)](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
+## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
 
 YOUTUBE_2JGHfKlFlb0
 
@@ -140,7 +140,7 @@ IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
 <br>
 
-PAGE 9 - C++ Raylib, Python
+PAGE 9 - C++ Raylib, flatbuffers, Python
 
 <hr>
 
