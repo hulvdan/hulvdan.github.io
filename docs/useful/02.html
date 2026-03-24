@@ -20,7 +20,7 @@
   <body>
     <main class="border-paper">
       <div id="content">
-        <h1>⭐ Исполнение команд при сохранении файлов в редакторах кода</h1>
+        <h1>⭐ Исполнение команд при сохранении файлов в редакторах кодjа</h1>
 
 <p class="page-number">Для меня это «game-changer»</p>
 
@@ -33,6 +33,7 @@
 <li>Автоисправления простых ошибок в файлах <em>(к примеру, (1) python-овый linter «ruff» может исправлять ошибки/рекомендации, если ему дать аргумент <code>--fix</code>, (2) «prettier» может убирать лишние запятые из json-ов)</em></li>
 <li>Автозапуска тестов <em>(позже опишу)</em></li>
 <li>Автозапуска кодогенерации <em>(позже опишу)</em></li>
+<li>Автозапуска билда</li>
 <li>И автоматизации пр. рутинных действий</li>
 </ul>
 
@@ -124,7 +125,7 @@
 
 <hr>
 
-<h2>Прикладной Пример — Protobuf + <a href="https://github.com/mariomakdis/proto-renumber">proto-renumber</a> + <a href="https://buf.build/docs/reference/cli/buf/format/">buf format</a> — Big Brain Giga Chad Комбинация</h2>
+<h2>Практичный Пример 1 — Protobuf + <a href="https://github.com/mariomakdis/proto-renumber">proto-renumber</a> + <a href="https://buf.build/docs/reference/cli/buf/format/">buf format</a> — Big Brain Giga Chad Комбинация</h2>
 
 <p>Пока я прототипирую схемы данных в protobuf файлах, у меня номера полей идут вразнобой. Пока работаю, я их туда-сюда перетаскиваю внутри message / файла</p>
 
@@ -187,6 +188,14 @@
 <span class="p">}</span>
 </code></pre>
 </div>
+
+<hr>
+
+<h2>Практичный Пример 2 — Автозапуск билда</h2>
+
+<p>В репе моего github.io сайта <em>(= этого сайта)</em> я <a href="https://github.com/hulvdan/hulvdan.github.io/blob/e4255d328fd3c31b7372463b6c01761186dafb60/.vscode/settings.json#L8-L12">настроил автозапуск билда при изменении любого файла</a></p>
+
+<p>Навешиваю на это livereload <em>(локальный сервер с hot-reload-ом html-ок)</em> и получаю удобный и быстрый flow работы без необходимости нажимать какие-либо кнопки</p>
 
 <hr>
 
