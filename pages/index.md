@@ -33,7 +33,7 @@ cog]]] -->
 
 - Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
 
-PAGE 13 - Godot, Python, imgui-bundle, protobuf, godobuf
+PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle
 
 <hr>
 
@@ -63,7 +63,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-PAGE 12 - C++ SDL bgfx miniaudio, Python, Clip Studio, Reaper, AHK, flatbuffers. Мало игроков -> яндекс снял с публикации
+PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AHK. Мало игроков -> яндекс снял с публикации
 
 <hr>
 
