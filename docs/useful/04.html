@@ -26,7 +26,7 @@
 
 <hr>
 
-<p><strong>Зачем использовать pre-commit хуки?</strong></p>
+<h2>Зачем использовать pre-commit хуки</h2>
 
 <ul>
 <li>Чтобы случайно не залить в репозиторий сломанный код / данные</li>
@@ -60,20 +60,22 @@
 
 <p>— <em>В python файлах запрещаю функции с префиксом <code>test_</code>, но разрешаю <code>_test_</code> (чтобы тесты не дублировались в test runner-е VSCode)</em></p></li>
 <li><p>Для кодогенерации <em>(в отдельных случаях я запускаю cog на некоторых файлах. Зачастую — для автовставок картинок в markdown)</em></p></li>
-<li><p>Для билда <em>(этот сайт всегда билдится в статику при коммите ➜ я лишь редактирую markdown файлы. На github-pages раскатается актуальная версия)</em></p></li>
+<li><p>Для билда <em>(этот сайт билдится в статику при коммите. Я лишь редактирую markdown файлы. На github-pages раскатается актуальная версия)</em></p></li>
 <li><p>Для прогона тестов <em>(не люблю все тесты прогонять pre-commit-ом. Иногда через большой рефакторинг прохожу и приходится <code>--no-verify</code> использовать частенько. Сейчас ограничиваюсь прогоном тестов лишь на свои «библиотечные» файлы)</em></p></li>
 </ul>
-
-<p><br></p>
-
-<p><a href="https://github.com/hulvdan/game3/blob/13e7160d1671799d283af3c4ec9ad5c69f6d90bf/.pre-commit-config.yaml">Пример моей конфигурации .pre-commit-config.yaml</a></p>
 
 <hr>
 
 <h2>Ссылки</h2>
 
 <ul>
-<li><a href="https://pre-commit.com/#install">pre-commit</a> (я использую <a href="https://docs.astral.sh/uv/">uv</a>, посему, ставлю через <code>uv add --dev pre-commit; uv run pre-commit --install; uv run pre-commit --install-hooks</code>)</li>
+<li><p><a href="https://pre-commit.com/#install">pre-commit</a> (я использую <a href="https://docs.astral.sh/uv/">uv</a>, посему, ставлю через <code>uv add --dev pre-commit; uv run pre-commit --install; uv run pre-commit --install-hooks</code>)</p></li>
+<li><p>Примеры моих <code>.pre-commit-config.yaml</code></p>
+
+<ol>
+<li><p><a href="https://github.com/hulvdan/game3/blob/13e7160d1671799d283af3c4ec9ad5c69f6d90bf/.pre-commit-config.yaml">Для игры</a></p></li>
+<li><p><a href="https://github.com/hulvdan/hulvdan.github.io/blob/de82723ca5a460127ed0a3cbb900bb7569d9619a/.pre-commit-config.yaml">Для сайта</a></p></li>
+</ol></li>
 </ul>
 
 <hr>
