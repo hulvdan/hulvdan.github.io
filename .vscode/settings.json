@@ -18,5 +18,6 @@
   ],
   "launches": {
     "run_f5": "build"
-  }
+  },
+  "cSpell.words": ["foldfix"]
 }
