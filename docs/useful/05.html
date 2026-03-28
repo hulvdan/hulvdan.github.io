@@ -39,25 +39,31 @@
 
 <hr>
 
-<h2>VSCode запуск тестов при сохранении файла с использованием <a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run on Save</a></h2>
+<p>TODO GODOT</p>
+
+<h2>VSCode запуск тестов при сохранении PYTHON файла с использованием <a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run on Save</a></h2>
 
 <div class="codehilite">
 <pre><span></span><code><span class="c1">// .vscode/settings.json</span>
 <span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
 <span class="w">  </span><span class="nt">&quot;runOnSave.commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="err">...</span>
+<span class="w">    </span><span class="c1">// ...</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(bf_lib|bf_game)\\.py$&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testing.runCurrentFile&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;runIn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode&quot;</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="err">...</span>
 <span class="w">  </span><span class="p">],</span>
 <span class="w">  </span><span class="nt">&quot;python.testing.unittestEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;python.testing.pytestEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre>
 </div>
+
+<p>В данном случае при сохранении <code>bf_lib.py</code> или <code>bf_game.py</code> у меня бы прогонялись тесты внутри этих файлов</p>
+
+<p>Это запускается VSCode команда <code>testing.runCurrentFile</code> <em>(это не команда, что в терминале вызывается, а то, что отрабатывало при запуске «Test: Run tests in current file» из списка команд VSCode)</em>. Кодовые названия этих команд можно доставать через TODO</p>
 
 <hr>
 
@@ -66,6 +72,10 @@
 <ul>
 <li><a href="/useful/02.html">Исполнение команд при сохранении файлов в редакторах кода</a></li>
 </ul>
+
+<hr>
+
+<h2><center><a href="/">Hulvdan</a></center></h2>
 
       </div>
     </main>
