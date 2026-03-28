@@ -39,6 +39,28 @@
 
 <hr>
 
+<h2>VSCode запуск тестов при сохранении файла с использованием <a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run on Save</a></h2>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1">// .vscode/settings.json</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;runOnSave.commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="err">...</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(bf_lib|bf_game)\\.py$&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testing.runCurrentFile&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;runIn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="err">...</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;python.testing.unittestEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;python.testing.pytestEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<hr>
+
 <h2>Ссылки</h2>
 
 <ul>
