@@ -99,11 +99,9 @@ PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Stu
 
 ## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
 
-FLEX_START
-
 <iframe style="margin-left: 10px" frameborder="0" src="https://itch.io/embed/3681662?linkback=true&amp;border_width=0&amp;bg_color=0e0e0e&amp;fg_color=f5eeb0&amp;link_color=f05b5b&amp;border_color=0e0e0e" width="206" height="165"><a href="https://hulvdan.itch.io/cult-boy">Cult Boy by Hulvdan</a></iframe>
 
-FLEX_END
+IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png
 
 *(клонил [The Binding of Isaac](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/), фокусируясь на доведении до конца игры мелкого scope-а)*
 
@@ -123,9 +121,11 @@ PAGE 10 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Cl
 
 ## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
 
-YOUTUBE_2JGHfKlFlb0
+YOUTUBE_qV5DvOTt16w
 
-IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
+<!-- YOUTUBE_2JGHfKlFlb0 -->
+
+IMAGES rec18.png rec19.jpg rec20.jpg rec21.png
 
 ✅ Первая страница игры в Steam *(хоть и забросил в итоге)*
 
@@ -137,7 +137,7 @@ IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
 ❌ Не маркетингуема -> мне нужно изучить, как профессионалы продвигают игры на разных платформах
 
-❌ Требует огромных усилий на разработку *(Open World RPG moment :/)* -> мне нужно делать много маленьких игр, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном файле + создать шаблонную репу для мгновенного старта новых игр с кодом, который я и так везде таскаю)*
+❌ Большой scope *(Open World RPG moment :/)* -> мне стоит делать много маленьких игр, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном файле + создать шаблонную репу для мгновенного старта новых игр с кодом, который я и так везде таскаю)*
 
 <br>
 
