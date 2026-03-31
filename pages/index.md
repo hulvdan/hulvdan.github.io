@@ -191,8 +191,6 @@ IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
 Поучаствовал в двух игровых джемах
 
-Понял, что мне не нравится работать в командах из распределенных по миру людей, что впервые видят друг друга
-
 PAGE 5 - Unity
 
 <hr>
