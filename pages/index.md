@@ -41,7 +41,7 @@ cog]]] -->
 
 - Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
 
-PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle, AutoHotkey
+PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
 
 <hr>
 
@@ -71,7 +71,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
 <hr>
 
@@ -117,7 +117,7 @@ FLEX_END
 
 <br>
 
-PAGE 10 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio
+PAGE 10 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, LDtk
 
 <hr>
 
@@ -141,7 +141,7 @@ IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
 <br>
 
-PAGE 9 - C++ Raylib, flatbuffers, Python
+PAGE 9 - C++ Raylib, flatbuffers, Python, LDtk
 
 <hr>
 
@@ -165,7 +165,7 @@ YOUTUBE_X4yfK4Lj8kg
 
 FLEX_END
 
-PAGE 7 - C++ Raylib
+PAGE 7 - C++ Raylib / Bare C++
 
 <hr>
 
