@@ -20,18 +20,18 @@
   <body>
     <main class="border-paper">
       <div id="content">
-        <h1>_ ⭐ В ПРОЦЕССЕ НАПИСАНИЯ — Тесты + Запуск тестов при сохранении</h1>
+        <h1>⭐ Тесты + Запуск тестов при сохранении</h1>
 
 <p class="page-number">Для меня это «game-changer»</p>
 
 <hr>
 
-<h2>Что тесты кода дадут</h2>
+<h2>Что автотесты кода потенциально дадут</h2>
 
 <ul>
-<li><p>Ускорят разработку в некоторых случаях</p></li>
-<li><p>Дадут гарантию работоспособности частей кода</p></li>
-<li><p>Радикально уменьшат количество «Поменял что-то в одном месте ➜ где-то другое отломалось» в покрытых тестами частях</p></li>
+<li><p>Ускорят разработку</p></li>
+<li><p>Гарантия работоспособности частей кода</p></li>
+<li><p>Радикально уменьшат количество «Поменял что-то в одном месте ➜ где-то другое отломалось»</p></li>
 <li><p>TDD. Откроют новый подход к разработке «Делаю, пока не заработает» <em>(люблю иногда в TDD; я против радикальных форм TDD)</em></p></li>
 <li><p>Меньше документации <em>(набор test-case-ов вместо бОльшей части комментов)</em></p></li>
 <li><p>Документация бы чаще оставалась актуальной <em>(за счет того, что тесты сами бы были документацией)</em></p></li>
@@ -39,11 +39,9 @@
 
 <hr>
 
-<p>TODO GODOT</p>
+<h2>Показываю. VSCode запуск тестов при сохранении PYTHON файла с использованием <a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run on Save</a></h2>
 
-<h2>VSCode запуск тестов при сохранении PYTHON файла с использованием <a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run on Save</a></h2>
-
-<p>Показываю типичный flow работы</p>
+<p>Типичный flow работы при написании utility функций:</p>
 
 <p><iframe
             allowfullscreen="true"
@@ -79,14 +77,78 @@
 
 <p>В данном случае при сохранении <code>bf_lib.py</code> или <code>bf_game.py</code> у меня бы прогонялись тесты внутри этих файлов</p>
 
-<p>Это запускается VSCode команда <code>testing.runCurrentFile</code> <em>(это не команда, что в терминале вызывается, а то, что отрабатывало при запуске «Test: Run tests in current file» из списка команд VSCode)</em>. Кодовые названия этих команд можно доставать через TODO</p>
+<p>Это запускается VSCode команда <code>testing.runCurrentFile</code> <em>(это не команда, что в терминале вызывается, а то, что отрабатывало при запуске «Test: Run tests in current file» из списка команд VSCode)</em>. Кодовые названия команд VSCode можно доставать через ПКМ по ним в окне <strong>Keyboard Shortcuts</strong></p>
+
+<hr>
+
+<h2>Запуск тестов при сохранении GDScript файла</h2>
+
+<p>Я использую Godot <a href="https://github.com/bitwes/Gut">Gut</a></p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1">// .vscode/settings.json</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="nt">&quot;runOnSave.commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;\\.gd$&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;godot --no-header --headless -s addons/gut/gut_cmdln.gd -gdir src/tests -gexit -gprefix test -gdisable_colors&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;async&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Тесты лежат в <code>src/tests/</code>. <a href="https://github.com/hulvdan/game3/tree/4a3ef9d232f9ac46317534623c78fe33f44a3bbc">См. репу</a></p>
+
+<hr>
+
+<h2>Показываю. Как тесты убирают необходимость в документации комментами</h2>
+
+<div class="codehilite">
+<pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">iter_neighbors</span><span class="p">(</span>
+    <span class="n">seq</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="n">T</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span>
+    <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+<span class="p">]:</span> <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_test_neighbor_iter</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">iter_neighbors</span><span class="p">([]))</span> <span class="o">==</span> <span class="p">[</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">iter_neighbors</span><span class="p">([</span><span class="mi">10</span><span class="p">]))</span> <span class="o">==</span> <span class="p">[</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">iter_neighbors</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]))</span> <span class="o">==</span> <span class="p">[</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="p">]</span>
+</code></pre>
+</div>
+
+<p><br></p>
+
+<p>Тут есть:</p>
+
+<ul>
+<li>«как использовать»</li>
+<li>«что получается в результате»</li>
+<li>гарантия работоспособности этой «документации»</li>
+<li><em>Не затрачено времени на тщетные попытки написать, что это за итератор такой. Тесты мне о нём говорят сразу всё, что мне нужно. Никакого AI slope для доки в репе не заюзано</em></li>
+</ul>
 
 <hr>
 
 <h2>Ссылки</h2>
 
 <ul>
-<li><a href="/useful/02.html">Исполнение команд при сохранении файлов в редакторах кода</a></li>
+<li><a href="/useful/02.html">⭐ Исполнение команд при сохранении файлов в редакторах кода</a></li>
 </ul>
 
 <hr>

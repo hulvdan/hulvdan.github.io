@@ -127,7 +127,7 @@ def process_line(line: str) -> str:
 
     global next_nanogallery_id
 
-    line = line.replace(" -> ", " ➜ ")
+    line = line.replace(" -> ", " ➜ ").replace(" \-\> ", " -> ")
 
     if line.startswith("IMAGES "):
         images = [i.strip() for i in line.removeprefix("IMAGES ").split() if i]
