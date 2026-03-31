@@ -71,7 +71,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> яндекс снял с публикации
+PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
 <hr>
 
@@ -79,7 +79,7 @@ PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, Auto
 
 IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
 
-*(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для яндекса, сменив сеттинг)*
+*(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
 
 <br>
 
@@ -93,7 +93,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 <br>
 
-PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> яндекс снял с публикации
+PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
 <hr>
 
@@ -113,7 +113,7 @@ FLEX_END
 
 ✅ Научился рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
 
-❌ Не смог пройти модерацию яндекса -> Мне нужно сделать игру, которая точно её пройдет
+❌ Не смог пройти модерацию Яндекса -> Мне нужно сделать игру, которая точно её пройдет
 
 <br>
 
