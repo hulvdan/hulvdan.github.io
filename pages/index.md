@@ -18,8 +18,9 @@ from pathlib import Path
 print()
 for x in (Path("pages") / "useful").glob("*.md"):
   folder = x.relative_to("pages").parent
-  name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ")
-  print("- [{}](/{}/{}.html)".format(name, folder.as_posix(), x.stem))
+  name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ").strip()
+  if not name.startswith('_'):
+    print("- [{}](/{}/{}.html)".format(name, folder.as_posix(), x.stem))
 print()
 cog]]] -->
 
@@ -27,7 +28,6 @@ cog]]] -->
 - [⭐ Исполнение команд при сохранении файлов в редакторах кода](/useful/02.html)
 - [⭐ Сокрытие кода. Folding. VSCode Расширение Explicit Folding](/useful/03.html)
 - [⭐ Команды и проверки перед коммитом. pre-commit](/useful/04.html)
-- [⭐ В ПРОЦЕССЕ НАПИСАНИЯ - Тесты + Запуск тестов при сохранении](/useful/05.html)
 
 <!-- [[[end]]] -->
 
