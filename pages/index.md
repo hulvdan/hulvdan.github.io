@@ -71,7 +71,7 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 
 <br>
 
-PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
 <hr>
 
@@ -93,7 +93,7 @@ IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png
 
 <br>
 
-PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
 <hr>
 
@@ -117,7 +117,7 @@ FLEX_END
 
 <br>
 
-PAGE 10 - C++ SDL bgfx miniaudio, flatbuffers, Python, Clip Studio, LDtk
+PAGE 10 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio
 
 <hr>
 
@@ -141,7 +141,7 @@ IMAGES rec9.png rec11.jpg rec10.jpg rec12.png
 
 <br>
 
-PAGE 9 - C++ Raylib, flatbuffers, Python, LDtk
+PAGE 9 - C++ Raylib, flatbuffers, Python, LDtk, free-tex-packer
 
 <hr>
 
