@@ -37,7 +37,7 @@ PAGE Для меня это «game-changer»
 
 ## База
 
-В git-е можно подвязать свои команды на различные события *(вроде pre-commit, commit-msg, post-commit, pre-merge-commit, pre-push и пр.)*
+В git можно привязать запуск команд к событиям *(вроде pre-commit, commit-msg, post-commit, pre-merge-commit, pre-push и пр.)*
 
 Это были бы одноименные файлы-скрипты в `.git/hooks/`. Но я с ними разбираться не хочу :/
 
