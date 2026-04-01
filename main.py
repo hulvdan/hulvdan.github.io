@@ -205,7 +205,7 @@ def gitf():  ##
     for i in range(2):
         try:
             subprocess.run("git add -A", check=True)
-            subprocess.run('git commit -m "upd"', check=True)
+            subprocess.run("git commit -m f", check=True)
             break
         except Exception:
             if i:
