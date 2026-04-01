@@ -51,9 +51,9 @@ PAGE Для меня это «game-changer»
 
 - Примеры моих `.pre-commit-config.yaml`
 
-  1. [Для игры](https://github.com/hulvdan/game3/blob/13e7160d1671799d283af3c4ec9ad5c69f6d90bf/.pre-commit-config.yaml)
+  - [Для игры](https://github.com/hulvdan/game3/blob/13e7160d1671799d283af3c4ec9ad5c69f6d90bf/.pre-commit-config.yaml)
 
-  2. [Для сайта](https://github.com/hulvdan/hulvdan.github.io/blob/de82723ca5a460127ed0a3cbb900bb7569d9619a/.pre-commit-config.yaml)
+  - [Для сайта](https://github.com/hulvdan/hulvdan.github.io/blob/de82723ca5a460127ed0a3cbb900bb7569d9619a/.pre-commit-config.yaml)
 
 <hr>
 
