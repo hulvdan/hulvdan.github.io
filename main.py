@@ -202,14 +202,13 @@ def write_file(*, template_data: str, markdown_contents: str, output_file_path):
 
 @app.command()
 def gitf():  ##
-    RETRIES = 3
-    for i in range(RETRIES):
+    for i in range(2):
         try:
             subprocess.run("git add -A", check=True)
             subprocess.run('git commit -m "upd"', check=True)
             break
         except Exception:
-            if i == RETRIES - 1:
+            if i:
                 raise
             continue
     subprocess.run("git push", check=False)
