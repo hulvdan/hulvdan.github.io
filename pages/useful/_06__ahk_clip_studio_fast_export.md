@@ -1,4 +1,4 @@
-# Clip Studio. Быстрый экспорт «по кнопке». Autohotkey макрос
+# Clip Studio. Быстрый экспорт «по кнопке». AutoHotkey макрос
 
 <hr>
 

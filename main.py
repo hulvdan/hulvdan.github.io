@@ -5,7 +5,6 @@ import os
 import shutil
 import subprocess
 import urllib.parse
-from glob import glob
 from itertools import chain
 from pathlib import Path
 
@@ -71,11 +70,6 @@ def build():
         img.save(th_filepath)
     ##
 
-    pairs = [
-        (Path("pages") / i, Path("docs") / (i[:-2] + "html"))
-        for i in glob("**/*.md", root_dir="pages", recursive=True)
-    ]
-
     for x in chain(
         Path("docs").glob("style-*.css"),
         Path("docs").glob("pygments-*.css"),
@@ -84,6 +78,15 @@ def build():
     shutil.copyfile("style.css", Path("docs") / style_css_file_name)
     shutil.copyfile("pygments.css", Path("docs") / pygments_css_file_name)
 
+    pairs = [
+        (
+            x,
+            Path("docs")
+            / x.parent.relative_to("pages")
+            / (x.stem.split("__", 1)[0] + ".html"),
+        )
+        for x in Path("pages").rglob("*.md")
+    ]
     for source_path, output_path in pairs:
         print(f'Generating from "{source_path}" - "{output_path}"...')
 
@@ -127,7 +130,7 @@ def process_line(line: str) -> str:
 
     global next_nanogallery_id
 
-    line = line.replace(" -> ", " ➜ ").replace(" \-\> ", " -> ")
+    line = line.replace(" -> ", " ➜ ").replace(r" \-\> ", " -> ")
 
     if line.startswith("IMAGES "):
         images = [i.strip() for i in line.removeprefix("IMAGES ").split() if i]
