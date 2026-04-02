@@ -49,7 +49,7 @@ PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
 
 ## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
-IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png
+IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
 
 *(клонил [сортировку по полочкам Яна Байнами](https://yandex.ru/games/app/297752), сменив сеттинг + чуть изменив управление)*
 
@@ -79,7 +79,7 @@ PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Cl
 
 ## Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
-IMAGES cookier2_dist_banner_big.png cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png
+IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
 
 *(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
 
@@ -103,7 +103,7 @@ PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Stu
 
 <iframe style="margin-left: 10px" frameborder="0" src="https://itch.io/embed/3681662?linkback=true&amp;border_width=0&amp;bg_color=0e0e0e&amp;fg_color=f5eeb0&amp;link_color=f05b5b&amp;border_color=0e0e0e" width="206" height="165"><a href="https://hulvdan.itch.io/cult-boy">Cult Boy by Hulvdan</a></iframe>
 
-IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png
+IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png cult_7.png
 
 *(клонил [The Binding of Isaac](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/), фокусируясь на доведении до конца игры мелкого scope-а)*
 
@@ -111,7 +111,7 @@ IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png
 
 ✅ Создал шаблонную репу для быстрого bootstrap-а игр
 
-✅ Научился рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
+✅ Научился худо-бедно рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
 
 ❌ Не смог пройти модерацию Яндекса -> Мне нужно сделать игру, которая точно её пройдет
 
