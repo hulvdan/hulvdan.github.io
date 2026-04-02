@@ -163,15 +163,13 @@ PAGE 7 - C++ Raylib / Bare C++
 
 <hr>
 
-## Недо игра - [git](https://github.com/hulvdan/handmade-cpp-game) (10/2023 - 08/2024)
+## Прототипировал игру на Unity -> Перешёл на C++ - [git](https://github.com/hulvdan/handmade-cpp-game) (10/2023 - 08/2024)
 
 YOUTUBE_aR0MfmgZVeQ
 
 IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
-Изначально начал на Unity, C#
-
-Потом наткнулся и вдохновился [Handmade Hero](https://guide.handmadehero.org/) -> Работал на C++ с нуля без движка. Прототипировал несколько раз
+Начал на Unity. Потом наткнулся на [Handmade Hero](https://guide.handmadehero.org/) -> Работал на C++ с нуля без движка. Прототипировал несколько раз
 
 *В ретроспективе от 2026-03-14:* overall, полагаю, стоит использовать игровые движки, чтобы не париться с рисованием спрайтов, шрифтами, вращениями, звуком и пр.
 
