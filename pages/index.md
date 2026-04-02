@@ -51,7 +51,7 @@ PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
 
 YOUTUBE_GC8Sh4DFP9A
 
-IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
+IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_13.png cookier2_14.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
 
 *(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
 
