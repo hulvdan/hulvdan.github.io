@@ -47,6 +47,28 @@ PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
 
 <hr>
 
+## Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
+
+IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
+
+*(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
+
+<br>
+
+✅ Первая игра, *доведенная до конца* и *выпущенная с прицелом на коммерцию*
+
+✅ Изучил и наладил pipeline работы с Reaper для работы с аудио *(в частности, прикрутил hot reload)*
+
+❌ 108 дней разработки многовато -> Мне стоит ещё больше ускорить процесс
+
+❌ Не взлетела -> Стоит сделать игру с ключевыми словами, которые люди уже ищут
+
+<br>
+
+PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+
+<hr>
+
 ## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
@@ -74,28 +96,6 @@ IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png 
 <br>
 
 PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
-
-<hr>
-
-## Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
-
-IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
-
-*(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
-
-<br>
-
-✅ Первая игра, *доведенная до конца* и *выпущенная с прицелом на коммерцию*
-
-✅ Изучил и наладил pipeline работы с Reaper для работы с аудио *(в частности, прикрутил hot reload)*
-
-❌ 108 дней разработки многовато -> Мне стоит ещё больше ускорить процесс
-
-❌ Не взлетела -> Стоит сделать игру с ключевыми словами, которые люди уже ищут
-
-<br>
-
-PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
 <hr>
 
@@ -127,7 +127,7 @@ YOUTUBE_qV5DvOTt16w
 
 <!-- YOUTUBE_2JGHfKlFlb0 -->
 
-IMAGES rec18.png rec19.jpg rec20.jpg rec21.png
+IMAGES rec18.png rec19.jpg rec20.jpg rec21.png rec_boner_1.png
 
 ✅ Первая страница игры в Steam *(хоть и забросил в итоге)*
 
