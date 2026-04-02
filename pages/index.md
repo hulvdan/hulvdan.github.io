@@ -61,9 +61,9 @@ IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_12.p
 
 ✅ Изучил и наладил pipeline работы с Reaper для работы с аудио *(в частности, прикрутил hot reload)*
 
-❌ 108 дней разработки многовато -> Мне стоит ещё больше ускорить процесс
+❌ 108 дней разработки многовато -> Мне стоит ещё ускорить процесс
 
-❌ Не взлетела -> Стоит сделать игру с ключевыми словами, которые люди уже ищут
+❌ Не взлетела
 
 <br>
 
@@ -71,11 +71,9 @@ PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Stu
 
 <hr>
 
-## НЛО Заоблачная Сортировка - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
+## Клон сортировки по полочкам Яна Байнами - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
-
-*(клонил [сортировку по полочкам Яна Байнами](https://yandex.ru/games/app/297752), сменив сеттинг + чуть изменив управление)*
 
 <br>
 
