@@ -111,6 +111,13 @@ next_nanogallery_id = 0
 
 
 def process_line(line: str) -> str:
+    if line.startswith("SPOILER_START"):
+        line = line.removeprefix("SPOILER_START")
+        if line.strip() == "":
+            line = "Доп. инфа"
+        return f"<details><summary>{line}</summary>"
+    elif line.startswith("SPOILER_END"):
+        return "</details>"
     if line.startswith("FLEX_WRAP_START"):
         return """<div class="hulvdan_flex hulvdan_flex_wrap" ''>"""
     elif line.startswith("FLEX_START"):

@@ -11,7 +11,7 @@ I maek gaems.
 
 <hr>
 
-## Полезности для разработяг
+## Блог полезностей для разработяг
 
 <!-- [[[cog
 from pathlib import Path
@@ -35,7 +35,9 @@ cog]]] -->
 
 <hr>
 
-## Щя делаю - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
+## Щя прототипирую - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
+
+SPOILER_START
 
 - Упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
 
@@ -43,7 +45,9 @@ cog]]] -->
 
 - Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
 
-PAGE 13 - Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
+PAGE Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
+
+SPOILER_END
 
 <hr>
 
@@ -53,9 +57,9 @@ YOUTUBE_GC8Sh4DFP9A
 
 IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_13.png cookier2_14.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
 
-*(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
+SPOILER_START
 
-<br>
+*(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
 
 ✅ Первая игра, *доведенная до конца* и *выпущенная с прицелом на коммерцию*
 
@@ -65,9 +69,9 @@ IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_13.p
 
 ❌ Не взлетела
 
-<br>
+PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
-PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+SPOILER_END
 
 <hr>
 
@@ -75,19 +79,17 @@ PAGE 11 - C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Stu
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
 
-<br>
+SPOILER_START
 
 ❌ Результаты плохие. Понял, что сейчас на Яндексе намного сложнее взлететь, нежели 2-3 года назад (хоть и возможно)
-
-<br>
 
  -> Вероятно, мне нужно делать что-то, в чём мои сильные стороны будут реализованы в полной мере *(Тот Самый Келин как-то выразил мысль - норм-тема - искать exploit, который позволит обойти большинство на рынке, а не идти туда, куда идёт большинство)*
 
  -> Стоит перейти с C++ на движок *(чтобы в будущем не писать рендер повернутого текста, например)*
 
-<br>
+PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
-PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+SPOILER_END
 
 <hr>
 
@@ -97,19 +99,19 @@ PAGE 12 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Cl
 
 IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png cult_7.png
 
+SPOILER_START
+
 *(клонил [The Binding of Isaac](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/), фокусируясь на доведении до конца игры мелкого scope-а)*
 
-<br>
-
-✅ Научился худо-бедно рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
+✅ Научился рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
 
 ✅ Создал шаблонную репу для быстрого bootstrap-а игр
 
 ❌ Не смог пройти модерацию Яндекса -> Мне нужно сделать игру, которая точно её пройдет
 
-<br>
+PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio
 
-PAGE 10 - C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio
+SPOILER_END
 
 <hr>
 
@@ -121,11 +123,11 @@ YOUTUBE_qV5DvOTt16w
 
 IMAGES rec18.png rec19.jpg rec20.jpg rec21.png rec_boner_1.png
 
+SPOILER_START
+
 ✅ Первая страница игры в Steam *(хоть и забросил в итоге)*
 
 ✅ Первые шаги в маркетинге: сделал 2 TikTok-а
-
-<br>
 
 ❌ Выглядит плохо -> мне нужен хороший визуал
 
@@ -133,9 +135,9 @@ IMAGES rec18.png rec19.jpg rec20.jpg rec21.png rec_boner_1.png
 
 ❌ Большой scope *(Open World RPG moment :/)* -> мне стоит научиться доделывать игры меньшего scope-а до конца, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном файле + создать шаблонную репу для мгновенного старта новых игр с кодом, который я и так везде таскаю)*
 
-<br>
+PAGE C++ Raylib, flatbuffers, Python, LDtk, free-tex-packer
 
-PAGE 9 - C++ Raylib, flatbuffers, Python, LDtk, free-tex-packer
+SPOILER_END
 
 <hr>
 
@@ -144,8 +146,6 @@ PAGE 9 - C++ Raylib, flatbuffers, Python, LDtk, free-tex-packer
 YOUTUBE_5jdQKfxns-4
 
 *HotReload C++* и *проигрывание действий игрока с предыдущего включения игры* сильно ускоряют отладку
-
-PAGE 8
 
 <hr>
 
@@ -159,7 +159,7 @@ YOUTUBE_X4yfK4Lj8kg
 
 FLEX_END
 
-PAGE 7 - C++ Raylib / Bare C++
+PAGE C++ Raylib / Bare C++
 
 <hr>
 
@@ -169,11 +169,15 @@ YOUTUBE_aR0MfmgZVeQ
 
 IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
+SPOILER_START
+
 Начал на Unity. Потом наткнулся на [Handmade Hero](https://guide.handmadehero.org/) -> Работал на C++ с нуля без движка. Прототипировал несколько раз
 
 *В ретроспективе от 2026-03-14:* overall, полагаю, стоит использовать игровые движки, чтобы не париться с рисованием спрайтов, шрифтами, вращениями, звуком и пр.
 
-PAGE 6 - Unity -> Bare C++
+PAGE Unity -> Bare C++
+
+SPOILER_END
 
 <hr>
 
@@ -181,9 +185,7 @@ PAGE 6 - Unity -> Bare C++
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
-Поучаствовал в двух игровых джемах
-
-PAGE 5 - Unity
+Поучаствовал в двух игровых джемах *(Unity, C#)*
 
 <hr>
 
@@ -193,11 +195,9 @@ FLEX_START
 
 IMAGES mhw_booklet.jpeg
 
-Показывает уязвимости монстров
+Показывает уязвимости монстров *(Python, Pillow)*
 
 FLEX_END
-
-PAGE 4 - Python, Pillow
 
 <hr>
 
@@ -207,11 +207,9 @@ FLEX_START
 
 IMAGES ds3-cheat-sheet-tool.png
 
-Для трекинга прогресса людям, что хотят пройти на 100%
+Для трекинга прогресса людям, что хотят пройти на 100% *(Python, PyQt)*
 
 FLEX_END
-
-PAGE 3 - Python, PyQt
 
 <hr>
 
@@ -227,7 +225,5 @@ PAGE 2
 
 - [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) VS Code extension - Прикрутил исполнение команд VS Code при сохранении файла *[TypeScript]*
 - [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» *[C#]*
-
-PAGE 1
 
 <br>
