@@ -2,6 +2,7 @@
   --white: #ffffff;
   --black: #000000;
   --background: #171513;
+  --aBackground: color-mix(in srgb, var(--background) 65%, var(--palBlue));
   --palLight: #f5eeb0;
   --palYellowOrange: #fabf61;
   --palOrange: #e08d51;
@@ -181,6 +182,12 @@ a {
   color: var(--palSkyblue);
   margin: 0;
   text-decoration: none;
+}
+
+a:hover {
+  background-color: var(--aBackground);
+  box-shadow: 0 0 0 4px var(--aBackground);
+  border-radius: 8px;
 }
 
 img {
