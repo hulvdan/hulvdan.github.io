@@ -219,7 +219,7 @@ FLEX_END
 
 IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_shake.gif messing_with_see_through_shaders.gif messing_with_depth_of_field.gif tanks_ai.gif angry_birds.gif tetris.jpg 2048.jpg sokoban_in_terminal_block_placed.jpg
 
-Раньше я много что начинал делать и забрасывал
+Раньше я много что начинал и забрасывал
 
 <hr>
 
