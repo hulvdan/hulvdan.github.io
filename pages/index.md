@@ -45,7 +45,7 @@ SPOILER_START
 
 - Наткнулся на Того Самого Келина. Обдумываю его видосы - [yt1](https://www.youtube.com/@Kelin2025), [yt2](https://www.youtube.com/@kelin2playLIVE)
 
-- Перешел с C++ на Godot *(т.к. Unity компилит дольше, а на C++ мне влом писать 3D рендеринг)*
+- Перешел с C++ на Godot *(т.к. на Unity итерироваться медленнее, а на C++ мне влом писать 3D рендеринг)*
 
 PAGE Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
 
