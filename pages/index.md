@@ -215,11 +215,11 @@ FLEX_END
 
 <hr>
 
-## Совсем уж давнее
+## Ранее
 
 IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_shake.gif messing_with_see_through_shaders.gif messing_with_depth_of_field.gif tanks_ai.gif angry_birds.gif tetris.jpg 2048.jpg sokoban_in_terminal_block_placed.jpg
 
-Раньше я много что начинал и забрасывал
+С 11 лет я много что начинал и без меры много что забрасывал
 
 <hr>
 
