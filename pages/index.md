@@ -36,7 +36,7 @@ cog]]] -->
 
 <hr>
 
-## Прототипирую - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
+## Прототипирую игру на Godot - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
 
 SPOILER_START
 
