@@ -208,7 +208,7 @@ FLEX_START
 
 IMAGES ds3-cheat-sheet-tool.png
 
-Программа отслеживания прогресса прохождения игры "Dark Souls 3" *(Python, PyQt)*
+Программа отслеживания прогресса прохождения игры «Dark Souls 3» *(Python, PyQt)*
 
 FLEX_END
 
