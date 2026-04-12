@@ -94,7 +94,7 @@ SPOILER_END
 
 <hr>
 
-## Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
+## Не вышедшая игра на C++. Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
 
 <iframe style="margin-left: 10px" frameborder="0" src="https://itch.io/embed/3681662?linkback=true&amp;border_width=0&amp;bg_color=0e0e0e&amp;fg_color=f5eeb0&amp;link_color=f05b5b&amp;border_color=0e0e0e" width="206" height="165"><a href="https://hulvdan.itch.io/cult-boy">Cult Boy by Hulvdan</a></iframe>
 
@@ -116,7 +116,7 @@ SPOILER_END
 
 <hr>
 
-## Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
+## Не вышедшая игра на C++. Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
 
 YOUTUBE_qV5DvOTt16w
 
@@ -150,7 +150,7 @@ YOUTUBE_5jdQKfxns-4
 
 <hr>
 
-## Поработал с линейной алгеброй, матрицами и векторами
+## Улучшал навыки математики для видеоигр
 
 FLEX_WRAP_START
 
