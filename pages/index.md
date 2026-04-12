@@ -182,7 +182,7 @@ SPOILER_END
 
 <hr>
 
-## Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023)
+## Поучаствовал в game jam-е. Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023)
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
