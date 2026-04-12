@@ -52,6 +52,26 @@ SPOILER_END
 
 <hr>
 
+## Игра на C++. Клон игры жанра "3 в ряд" - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
+
+IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
+
+SPOILER_START
+
+*(Клонил «Сортировку по полочкам» Яна Байнами)*
+
+❌ Результаты плохие. Понял, что сейчас на Яндексе намного сложнее взлететь, нежели 2-3 года назад (хоть и возможно)
+
+ -> Вероятно, мне нужно делать что-то, в чём мои сильные стороны будут реализованы в полной мере *(Тот Самый Келин как-то выразил мысль - норм-тема - искать exploit, который позволит обойти большинство на рынке, а не идти туда, куда идёт большинство)*
+
+ -> Стоит перейти с C++ на движок *(чтобы в будущем не писать рендер повернутого текста, например)*
+
+PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+
+SPOILER_END
+
+<hr>
+
 ## Игра на C++. Клон "Brotato". Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
 YOUTUBE_GC8Sh4DFP9A
@@ -69,26 +89,6 @@ SPOILER_START
 ❌ Не взлетела
 
 PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
-
-SPOILER_END
-
-<hr>
-
-## Игра на C++. Клон игры жанра "3 в ряд" - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
-
-IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
-
-SPOILER_START
-
-*(Клонил «Сортировку по полочкам» Яна Байнами)*
-
-❌ Результаты плохие. Понял, что сейчас на Яндексе намного сложнее взлететь, нежели 2-3 года назад (хоть и возможно)
-
- -> Вероятно, мне нужно делать что-то, в чём мои сильные стороны будут реализованы в полной мере *(Тот Самый Келин как-то выразил мысль - норм-тема - искать exploit, который позволит обойти большинство на рынке, а не идти туда, куда идёт большинство)*
-
- -> Стоит перейти с C++ на движок *(чтобы в будущем не писать рендер повернутого текста, например)*
-
-PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
 
 SPOILER_END
 
