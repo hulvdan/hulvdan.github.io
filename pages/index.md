@@ -31,6 +31,7 @@ cog]]] -->
 - [Сокрытие кода. Folding. VSCode Расширение Explicit Folding](/useful/03.html)
 - [pre-commit. Команды и проверки перед коммитом](/useful/04.html)
 - [Тесты. Запуск тестов при сохранении файлов. Весёлый TDD](/useful/05.html)
+- [Демо записи действий и перезагрузки DLL в C++](/useful/06.html)
 
 <!-- [[[end]]] -->
 
@@ -139,14 +140,6 @@ SPOILER_START
 PAGE C++ Raylib, flatbuffers, Python, LDtk, free-tex-packer
 
 SPOILER_END
-
-<hr>
-
-## Демо записи действий и перезагрузки DLL в C++
-
-YOUTUBE_5jdQKfxns-4
-
-*HotReload C++* и *проигрывание действий игрока с предыдущего включения игры* сильно ускоряют отладку
 
 <hr>
 

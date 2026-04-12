@@ -20,21 +20,27 @@
   <body>
     <main class="border-paper">
       <div id="content">
-        <h1>Демо записи действий и перезагрузки DLL в C++</h1>
+        <h1>AutoHotkey. Reaper. Избавился от рутины экспорта вариаций звуков</h1>
+
+<p><center>
+AutoHotkey помогает автоматизировать рутину
+</center></p>
 
 <hr>
 
-<p><iframe
-            allowfullscreen="true"
-            frameborder="0"
-            width="480"
-            rel=0
-            loop=0
-            style="max-width: 100%; aspect-ratio: 16 / 9;"
-            src="https://www.youtube.com/embed/5jdQKfxns-4"
-            ></iframe></p>
+<h2>Рутинный flow экспорта звуков в Reaper</h2>
 
-<p><em>HotReload C++</em> и <em>проигрывание действий игрока с предыдущего включения игры</em> сильно ускоряют отладку</p>
+<p>У меня &gt;40 звуков в игре, клоне Brotato</p>
+
+<p>Пока я настраивал workflow, настройки экспорта у меня менялись ➜ мне приходилось пробегаться по ряду файлов и заново их экспортировать</p>
+
+<p>Это слишком монотонный процесс, который занимал тучу времени и ощущался как «я бесполезно трачу время»</p>
+
+<hr>
+
+<h2>Я частично решил его с помощью AutoHotkey</h2>
+
+<p>В своем глобальном <a href="https://github.com/hulvdan/.dotfiles/blob/59fd62f28718026bab31b85e40defb414a833a7d/windows/AHK_hotkeys.ahk#L371-L393">AHK_hotkeys.ahk</a> для <strong>reaper.exe</strong> забиндил <strong>F5</strong> на исполнение цепочки действий</p>
 
 <hr>
 
