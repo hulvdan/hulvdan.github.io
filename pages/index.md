@@ -53,7 +53,7 @@ SPOILER_END
 
 <hr>
 
-## Игра на C++. Клон игры жанра "3 в ряд" - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
+## Игра на C++. Клон игры жанра «3 в ряд» - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
 
@@ -73,7 +73,7 @@ SPOILER_END
 
 <hr>
 
-## Игра на C++. Клон "Brotato". Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
+## Игра на C++. Клон «Brotato». Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
 YOUTUBE_GC8Sh4DFP9A
 
