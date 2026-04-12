@@ -208,7 +208,7 @@ FLEX_START
 
 IMAGES ds3-cheat-sheet-tool.png
 
-Для трекинга прогресса людям, что хотят пройти на 100% *(Python, PyQt)*
+программа отслеживания прогресса прохождения игры "Dark Souls 3" *(Python, PyQt)*
 
 FLEX_END
 
