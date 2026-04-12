@@ -52,15 +52,13 @@ SPOILER_END
 
 <hr>
 
-## Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
+## Игра на C++. Клон "Brotato". Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
 YOUTUBE_GC8Sh4DFP9A
 
 IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_13.png cookier2_14.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
 
 SPOILER_START
-
-*(клонил [Brotato](https://store.steampowered.com/app/1942280/Brotato/) для Яндекса, сменив сеттинг)*
 
 ✅ Первая игра, *доведенная до конца* и *выпущенная с прицелом на коммерцию*
 
@@ -76,11 +74,13 @@ SPOILER_END
 
 <hr>
 
-## Клон сортировки по полочкам Яна Байнами - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
+## Игра на C++. Клон игры жанра "3 в ряд" - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
 
 SPOILER_START
+
+*(Клонил «Сортировку по полочкам» Яна Байнами)*
 
 ❌ Результаты плохие. Понял, что сейчас на Яндексе намного сложнее взлететь, нежели 2-3 года назад (хоть и возможно)
 
