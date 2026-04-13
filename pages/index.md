@@ -1,5 +1,7 @@
 # Hulvdan
 
+<!--
+
 <center>
 <p>
 I maek gaems.
@@ -9,6 +11,8 @@ I maek gaems.
 Продолжаю
 </p>
 </center>
+
+-->
 
 <hr>
 
