@@ -18,35 +18,6 @@ I maek gaems.
 
 <hr>
 
-## Блог полезностей для разработяг
-
-SPOILER_START
-
-<!-- [[[cog
-from pathlib import Path
-print()
-for x in (Path("pages") / "useful").glob("*.md"):
-  if x.stem.startswith("_"):
-    continue
-  folder = x.relative_to("pages").parent
-  name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ").strip()
-  print("- [{}](/{}/{}.html)".format(name, folder.as_posix(), x.stem.split("__", 1)[0]))
-print()
-cog]]] -->
-
-- [Невозможность запуска игры с некорректным кодом / данными](/useful/01.html)
-- [Исполнение команд при сохранении файлов в редакторах кода](/useful/02.html)
-- [Сокрытие кода. Folding. VSCode Расширение Explicit Folding](/useful/03.html)
-- [pre-commit. Команды и проверки перед коммитом](/useful/04.html)
-- [Тесты. Запуск тестов при сохранении файлов. Весёлый TDD](/useful/05.html)
-- [Демо записи действий и перезагрузки DLL в C++](/useful/06.html)
-
-<!-- [[[end]]] -->
-
-SPOILER_END
-
-<hr>
-
 ## Прототипирую игру на Godot - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
 
 SPOILER_START
@@ -221,7 +192,34 @@ FLEX_END
 
 IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_shake.gif messing_with_see_through_shaders.gif messing_with_depth_of_field.gif tanks_ai.gif angry_birds.gif tetris.jpg 2048.jpg sokoban_in_terminal_block_placed.jpg
 
-<!-- С 11 лет я много что начинал и без меры много что забрасывал -->
+<hr>
+
+## Блог полезностей для разработяг
+
+SPOILER_START
+
+<!-- [[[cog
+from pathlib import Path
+print()
+for x in (Path("pages") / "useful").glob("*.md"):
+  if x.stem.startswith("_"):
+    continue
+  folder = x.relative_to("pages").parent
+  name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ").strip()
+  print("- [{}](/{}/{}.html)".format(name, folder.as_posix(), x.stem.split("__", 1)[0]))
+print()
+cog]]] -->
+
+- [Невозможность запуска игры с некорректным кодом / данными](/useful/01.html)
+- [Исполнение команд при сохранении файлов в редакторах кода](/useful/02.html)
+- [Сокрытие кода. Folding. VSCode Расширение Explicit Folding](/useful/03.html)
+- [pre-commit. Команды и проверки перед коммитом](/useful/04.html)
+- [Тесты. Запуск тестов при сохранении файлов. Весёлый TDD](/useful/05.html)
+- [Демо записи действий и перезагрузки DLL в C++](/useful/06.html)
+
+<!-- [[[end]]] -->
+
+SPOILER_END
 
 <hr>
 

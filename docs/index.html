@@ -43,37 +43,6 @@ I maek gaems.
 
 <hr>
 
-<h2>Блог полезностей для разработяг</h2>
-
-<p><details><summary>Подробнее</summary></p>
-
-<!-- [[[cog
-from pathlib import Path
-print()
-for x in (Path("pages") / "useful").glob("*.md"):
-  if x.stem.startswith("_"):
-    continue
-  folder = x.relative_to("pages").parent
-  name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ").strip()
-  print("- [{}](/{}/{}.html)".format(name, folder.as_posix(), x.stem.split("__", 1)[0]))
-print()
-cog]]] -->
-
-<ul>
-<li><a href="/useful/01.html">Невозможность запуска игры с некорректным кодом / данными</a></li>
-<li><a href="/useful/02.html">Исполнение команд при сохранении файлов в редакторах кода</a></li>
-<li><a href="/useful/03.html">Сокрытие кода. Folding. VSCode Расширение Explicit Folding</a></li>
-<li><a href="/useful/04.html">pre-commit. Команды и проверки перед коммитом</a></li>
-<li><a href="/useful/05.html">Тесты. Запуск тестов при сохранении файлов. Весёлый TDD</a></li>
-<li><a href="/useful/06.html">Демо записи действий и перезагрузки DLL в C++</a></li>
-</ul>
-
-<!-- [[[end]]] -->
-
-<p></details></p>
-
-<hr>
-
 <h2>Прототипирую игру на Godot — <a href="https://github.com/Hulvdan/game3">git</a> (02/2026 — щя)</h2>
 
 <p><details><summary>Подробнее</summary></p>
@@ -406,7 +375,36 @@ cog]]] -->
             "viewerTools": { "topLeft":  "", "topRight": "closeButton" }
         }'><a href="assets/avocado_coyote_time.gif" data-ngthumb="assets/th__avocado_coyote_time.jpg"></a><a href="assets/avocado_jump_input_buffering.gif" data-ngthumb="assets/th__avocado_jump_input_buffering.jpg"></a><a href="assets/avocado_camera_shake.gif" data-ngthumb="assets/th__avocado_camera_shake.jpg"></a><a href="assets/messing_with_see_through_shaders.gif" data-ngthumb="assets/th__messing_with_see_through_shaders.jpg"></a><a href="assets/messing_with_depth_of_field.gif" data-ngthumb="assets/th__messing_with_depth_of_field.jpg"></a><a href="assets/tanks_ai.gif" data-ngthumb="assets/th__tanks_ai.jpg"></a><a href="assets/angry_birds.gif" data-ngthumb="assets/th__angry_birds.jpg"></a><a href="assets/tetris.jpg" data-ngthumb="assets/th__tetris.jpg"></a><a href="assets/2048.jpg" data-ngthumb="assets/th__2048.jpg"></a><a href="assets/sokoban_in_terminal_block_placed.jpg" data-ngthumb="assets/th__sokoban_in_terminal_block_placed.jpg"></a></div>
 
-<!-- С 11 лет я много что начинал и без меры много что забрасывал -->
+<hr>
+
+<h2>Блог полезностей для разработяг</h2>
+
+<p><details><summary>Подробнее</summary></p>
+
+<!-- [[[cog
+from pathlib import Path
+print()
+for x in (Path("pages") / "useful").glob("*.md"):
+  if x.stem.startswith("_"):
+    continue
+  folder = x.relative_to("pages").parent
+  name = x.read_text(encoding="utf-8").split("\n", 1)[0].removeprefix("# ").strip()
+  print("- [{}](/{}/{}.html)".format(name, folder.as_posix(), x.stem.split("__", 1)[0]))
+print()
+cog]]] -->
+
+<ul>
+<li><a href="/useful/01.html">Невозможность запуска игры с некорректным кодом / данными</a></li>
+<li><a href="/useful/02.html">Исполнение команд при сохранении файлов в редакторах кода</a></li>
+<li><a href="/useful/03.html">Сокрытие кода. Folding. VSCode Расширение Explicit Folding</a></li>
+<li><a href="/useful/04.html">pre-commit. Команды и проверки перед коммитом</a></li>
+<li><a href="/useful/05.html">Тесты. Запуск тестов при сохранении файлов. Весёлый TDD</a></li>
+<li><a href="/useful/06.html">Демо записи действий и перезагрузки DLL в C++</a></li>
+</ul>
+
+<!-- [[[end]]] -->
+
+<p></details></p>
 
 <hr>
 
