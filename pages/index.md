@@ -194,7 +194,7 @@ IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_s
 
 <hr>
 
-## Блог полезностей для разработяг
+## Статьи о полезностях для разработяг
 
 SPOILER_START
 
