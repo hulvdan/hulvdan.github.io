@@ -18,7 +18,7 @@ I maek gaems.
 
 <hr>
 
-## Прототипирую игру на Godot - [git](https://github.com/Hulvdan/game3) (02/2026 - щя)
+## Прототипирую игру на Godot - [git](https://github.com/Hulvdan/game3) (02/2026 - н.в.)
 
 SPOILER_START
 
