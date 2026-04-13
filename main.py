@@ -114,7 +114,7 @@ def process_line(line: str) -> str:
     if line.startswith("SPOILER_START"):
         line = line.removeprefix("SPOILER_START")
         if line.strip() == "":
-            line = "Доп инфа"
+            line = "Подробнее"
         return f"<details><summary>{line}</summary>"
     elif line.startswith("SPOILER_END"):
         return "</details>"

@@ -14,6 +14,8 @@ I maek gaems.
 
 ## Блог полезностей для разработяг
 
+SPOILER_START
+
 <!-- [[[cog
 from pathlib import Path
 print()
@@ -34,6 +36,8 @@ cog]]] -->
 - [Демо записи действий и перезагрузки DLL в C++](/useful/06.html)
 
 <!-- [[[end]]] -->
+
+SPOILER_END
 
 <hr>
 
