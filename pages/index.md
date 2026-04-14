@@ -150,8 +150,6 @@ IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
 IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
 
-Поучаствовал в двух игровых джемах *(Unity, C#)*
-
 <hr>
 
 ## Буклет для «MH:W» – [Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/), [Updated Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/) (2018, 2021)
