@@ -1,7 +1,5 @@
 # Сокрытие кода. Folding. VSCode Расширение Explicit Folding
 
-PAGE Для меня это «game-changer»
-
 <hr>
 
 ## Показываю
