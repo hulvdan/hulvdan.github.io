@@ -38,7 +38,7 @@ SPOILER_END
 
 -->
 
-## Игра на C++. Клон «Brotato». Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
+## Игра на C++. Клон «Brotato» - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
 YOUTUBE_GC8Sh4DFP9A
 
@@ -80,7 +80,7 @@ SPOILER_END
 
 <hr>
 
-## Не вышедшая игра на C++. Cult Boy - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
+## Не вышедшая игра на C++. Клон «The Binding of Isaac» - [itch.io](https://hulvdan.itch.io/cult-boy), [git](https://github.com/hulvdan/isaac) (07/2025 - 08/2025)
 
 <iframe style="margin-left: 10px" frameborder="0" src="https://itch.io/embed/3681662?linkback=true&amp;border_width=0&amp;bg_color=0e0e0e&amp;fg_color=f5eeb0&amp;link_color=f05b5b&amp;border_color=0e0e0e" width="206" height="165"><a href="https://hulvdan.itch.io/cult-boy">Cult Boy by Hulvdan</a></iframe>
 
@@ -88,9 +88,7 @@ IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png cult_7.png
 
 SPOILER_START
 
-*(клонил [The Binding of Isaac](https://store.steampowered.com/app/113200/The_Binding_of_Isaac/), фокусируясь на доведении до конца игры мелкого scope-а)*
-
-✅ Научился рисовать в векторе *(Clip Studio + б/у Wacom планшет за 1500 рублей)*
+✅ Научился рисовать в векторе *(Clip Studio)*
 
 ✅ Создал шаблонную репу для быстрого bootstrap-а игр
 
