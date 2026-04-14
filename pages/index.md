@@ -18,6 +18,8 @@ I maek gaems.
 
 <hr>
 
+<!--
+
 ## Прототипирую игру на Godot - [git](https://github.com/Hulvdan/game3) (02/2026 - н.в.)
 
 SPOILER_START
@@ -33,6 +35,8 @@ PAGE Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
 SPOILER_END
 
 <hr>
+
+-->
 
 ## Игра на C++. Клон «Brotato». Молочник! Арена Выживания - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
