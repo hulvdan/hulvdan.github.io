@@ -144,16 +144,6 @@ YOUTUBE_aR0MfmgZVeQ
 
 IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
 
-SPOILER_START
-
-Начал на Unity. Потом наткнулся на [Handmade Hero](https://guide.handmadehero.org/) -> Работал на C++ с нуля без движка. Прототипировал несколько раз
-
-*В ретроспективе от 2026-03-14:* overall, полагаю, стоит использовать игровые движки, чтобы не париться с рисованием спрайтов, шрифтами, вращениями, звуком и пр.
-
-PAGE Unity -> Bare C++
-
-SPOILER_END
-
 <hr>
 
 ## Поучаствовал в game jam-е. Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023)
