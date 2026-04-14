@@ -100,7 +100,7 @@ SPOILER_END
 
 <hr>
 
-## Не вышедшая игра на C++. Journey's Spirit - [Steam](https://store.steampowered.com/app/3592760), [git](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
+## Не вышедшая игра на C++. «Journey's Spirit» - [Steam](https://store.steampowered.com/app/3592760), [git](https://github.com/hulvdan/recettear-wannabe) (12/2024 - 06/2025)
 
 YOUTUBE_qV5DvOTt16w
 
@@ -110,9 +110,7 @@ IMAGES rec18.png rec19.jpg rec20.jpg rec21.png rec_boner_1.png
 
 SPOILER_START
 
-✅ Первая страница игры в Steam *(хоть и забросил в итоге)*
-
-✅ Первые шаги в маркетинге: сделал 2 TikTok-а
+✅ Первая страница игры в Steam + первые шаги в маркетинге
 
 ❌ Выглядит плохо -> мне нужен хороший визуал
 
