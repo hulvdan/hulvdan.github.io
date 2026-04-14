@@ -44,19 +44,7 @@ YOUTUBE_GC8Sh4DFP9A
 
 IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_13.png cookier2_14.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
 
-SPOILER_START
-
-✅ Первая игра, *доведенная до конца* и *выпущенная с прицелом на коммерцию*
-
-✅ Изучил и наладил pipeline работы с Reaper для работы с аудио *(в частности, прикрутил hot reload)*
-
-❌ 108 дней разработки многовато -> Мне стоит ещё ускорить процесс
-
-❌ Не взлетела
-
 PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
-
-SPOILER_END
 
 <hr>
 
@@ -64,19 +52,7 @@ SPOILER_END
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
 
-SPOILER_START
-
-*(Клонил «Сортировку по полочкам» Яна Байнами)*
-
-❌ Результаты плохие. Понял, что сейчас на Яндексе намного сложнее взлететь, нежели 2-3 года назад (хоть и возможно)
-
- -> Вероятно, мне нужно делать что-то, в чём мои сильные стороны будут реализованы в полной мере *(Тот Самый Келин как-то выразил мысль - норм-тема - искать exploit, который позволит обойти большинство на рынке, а не идти туда, куда идёт большинство)*
-
- -> Стоит перейти с C++ на движок *(чтобы в будущем не писать рендер повернутого текста, например)*
-
 PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
-
-SPOILER_END
 
 <hr>
 
@@ -86,17 +62,7 @@ SPOILER_END
 
 IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png cult_7.png
 
-SPOILER_START
-
-✅ Научился рисовать в векторе *(Clip Studio)*
-
-✅ Создал шаблонную репу для быстрого bootstrap-а игр
-
-❌ Не смог пройти модерацию Яндекса -> Мне нужно сделать игру, которая точно её пройдет
-
 PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio
-
-SPOILER_END
 
 <hr>
 
@@ -104,23 +70,9 @@ SPOILER_END
 
 YOUTUBE_qV5DvOTt16w
 
-<!-- YOUTUBE_2JGHfKlFlb0 -->
-
 IMAGES rec18.png rec19.jpg rec20.jpg rec21.png rec_boner_1.png
 
-SPOILER_START
-
-✅ Первая страница игры в Steam + первые шаги в маркетинге
-
-❌ Выглядит плохо -> мне нужен хороший визуал
-
-❌ Не маркетингуема -> мне нужно изучить, как профессионалы продвигают игры на разных платформах
-
-❌ Большой scope -> мне стоит научиться доделывать игры меньшего scope-а до конца, одновременно улучшая инструментарий *(например, продолжать развивать библиотеку в одном файле + создать шаблонную репу для мгновенного старта новых игр с кодом, который я и так везде таскаю)*
-
 PAGE C++ Raylib, flatbuffers, Python, LDtk, free-tex-packer
-
-SPOILER_END
 
 <hr>
 
