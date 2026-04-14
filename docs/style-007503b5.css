@@ -84,17 +84,6 @@ body {
   margin: 0;
 }
 
-.border-paper {
-  padding-left: clamp(0px, calc((100vw - 800px) * 32 / 160), 32px);
-  padding-right: clamp(0px, calc((100vw - 800px) * 32 / 160), 32px);
-  background-image:
-    url(/assets/page_border_r.png), url(/assets/page_border_l.png);
-  background-repeat: repeat-y, repeat-y;
-  background-position:
-    right top,
-    left top;
-}
-
 #content {
   background-color: var(--background);
 }
@@ -223,6 +212,7 @@ details {
   background-color: var(--background);
   border: solid 2px var(--palGray);
   border-radius: 8px;
+  margin: 0 20px;
 }
 
 ul {
@@ -247,15 +237,9 @@ hr {
   margin: 20px 0px;
   margin-left: calc(-50vw + 50%);
   width: 100vw;
-  height: 140px;
+  height: 100px;
   border: none;
-
-  background-image:
-    url(/assets/page_border_t.png), url(/assets/page_border_b.png);
-  background-repeat: repeat-x, repeat-x;
-  background-position:
-    left top,
-    left bottom;
+  background-color: black;
 }
 
 .page-number {
