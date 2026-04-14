@@ -44,7 +44,7 @@ YOUTUBE_GC8Sh4DFP9A
 
 IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_13.png cookier2_14.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
 
-PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Яндекс скрыл, когда стало мало игроков
 
 <hr>
 
@@ -52,7 +52,7 @@ PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, 
 
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
 
-PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Мало игроков -> Яндекс снял с публикации
+PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Яндекс скрыл, когда стало мало игроков
 
 <hr>
 
