@@ -40,11 +40,9 @@ SPOILER_END
 
 ## Игра на C++. Клон «Brotato» - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru), [git](https://github.com/hulvdan/cookier) (09/2025 - 12/2025)
 
-YOUTUBE_GC8Sh4DFP9A
+YOUTUBE_U3tBIdrZYnA
 
 IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_22.png cookier2_20.png cookier2_21.png cookier2_19.png cookier2_16.png cookier2_18.png cookier2_17.png cookier2_15.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
-
-
 
 PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Яндекс скрыл, когда стало мало игроков
 
