@@ -52,6 +52,8 @@ PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, 
 
 ## Игра на C++. Клон игры жанра «3 в ряд» - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru), [git](https://github.com/hulvdan/emberveil2) (01/2026)
 
+YOUTUBE_I_3kDdkYqoA
+
 IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
 
 PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Яндекс скрыл, когда стало мало игроков
