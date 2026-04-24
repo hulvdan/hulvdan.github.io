@@ -35,6 +35,8 @@ def build():
 
     ## Making thumbnails
     for filepath in Path("docs/assets").iterdir():
+        if not filepath.name.endswith((".jpg", ".png")):
+            continue
         if "th__" in filepath.stem:
             continue
 
