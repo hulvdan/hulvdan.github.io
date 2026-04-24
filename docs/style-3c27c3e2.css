@@ -3,22 +3,14 @@
   --black: #000000;
   --background: #171513;
   --aBackground: color-mix(in srgb, var(--background) 65%, var(--palBlue));
-  --palLight: #f5eeb0;
+  --textPrimary: #f05b5b;
+  --textDefault: #f5eeb0;
   --palYellowOrange: #fabf61;
   --palOrange: #e08d51;
-  --palBrown: #8a5865;
-  --palDark: #452b3f;
-  --palDarkGreen: #2c5e3b;
-  --palGreen: #609c4f;
   --palLime: #c6cc54;
   --palSkyblue: #78c2d6;
   --palBlue: #5479b0;
   --palGray: #554d44;
-  --palSlateGray: #839fa6;
-  --palLightGray: #e0d3c8;
-  --palRed: #f05b5b;
-  --palPlum: #8f325f;
-  --palPink: #eb6c98;
 }
 
 .hulvdan_flex_wrap {
@@ -40,7 +32,7 @@
 }
 
 html {
-  color: var(--palLight);
+  color: var(--textDefault);
   font-size: 1.35em;
   line-height: 1.5;
 
@@ -96,11 +88,11 @@ main {
 
 h1 {
   font-size: 1.75em;
-  font-weight: 700;
+  font-weight: 900;
   padding: 40px 20px 0px 20px;
   margin: 0;
   text-align: center;
-  color: var(--palRed);
+  color: var(--textPrimary);
 }
 
 h1 > p {
@@ -113,11 +105,11 @@ ol {
 
 h2 {
   font-size: 1.75em;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.2em;
   padding: 0 20px 20px 20px;
   margin: 0;
-  color: var(--palRed);
+  color: var(--textPrimary);
 }
 
 div.codehilite {
@@ -192,13 +184,13 @@ iframe {
 
 summary {
   cursor: pointer;
-  color: var(--palLight);
+  color: var(--textDefault);
   background-color: color-mix(in srgb, var(--background) 90%, white);
   border-radius: 8px;
 }
 
 summary:hover {
-  color: var(--palLight);
+  color: var(--textDefault);
   background-color: color-mix(in srgb, var(--background) 80%, white);
 }
 
