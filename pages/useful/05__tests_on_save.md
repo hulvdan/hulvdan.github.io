@@ -22,7 +22,7 @@
 
 Мой типичный flow работы при написании utility функций:
 
-YOUTUBE_rM5HWySg_YA
+!YOUTUBE_rM5HWySg_YA
 
 <br>
 

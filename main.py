@@ -4,7 +4,6 @@ import hashlib
 import os
 import shutil
 import subprocess
-import urllib.parse
 from itertools import chain
 from pathlib import Path
 
@@ -113,36 +112,28 @@ next_nanogallery_id = 0
 
 
 def process_line(line: str) -> str:
-    if line.startswith("SPOILER_START"):
-        line = line.removeprefix("SPOILER_START")
+    if line.startswith("!SPOILER_START"):
+        line = line.removeprefix("!SPOILER_START")
         if line.strip() == "":
             line = "Подробнее"
         return f"<details><summary>{line}</summary>"
-    elif line.startswith("SPOILER_END"):
+    elif line.startswith("!SPOILER_END"):
         return "</details>"
-    if line.startswith("FLEX_WRAP_START"):
+    if line.startswith("!FLEX_WRAP_START"):
         return """<div class="hulvdan_flex hulvdan_flex_wrap" ''>"""
-    elif line.startswith("FLEX_START"):
+    elif line.startswith("!FLEX_START"):
         return (
             """<div class="hulvdan_flex" style='display: flex; align-items="center"'>"""
         )
-    elif line.startswith("FLEX_END"):
+    elif line.startswith("!FLEX_END"):
         return "</div>"
-
-    while "BADGE(" in line:
-        line1, line2 = line.split("BADGE(", 1)
-        badge_content, line3 = line2.split(")", 1)
-        badge = '<img alt="Static Badge" src="https://img.shields.io/badge/{}-%235479b0">'.format(
-            urllib.parse.quote_plus(badge_content)
-        )
-        line = line1 + badge + line3
 
     global next_nanogallery_id
 
     line = line.replace(" -> ", " ➜ ").replace(r" \-\> ", " -> ")
 
-    if line.startswith("IMAGES "):
-        images = [i.strip() for i in line.removeprefix("IMAGES ").split() if i]
+    if line.startswith("!IMAGES "):
+        images = [i.strip() for i in line.removeprefix("!IMAGES ").split() if i]
         line = """<div id="ng{}" data-nanogallery2='{{
             "thumbnailWidth": "150",
             "thumbnailHeight": "100",
@@ -169,14 +160,17 @@ def process_line(line: str) -> str:
         )
         next_nanogallery_id += 1
 
-    if line.startswith("YOUTUBE_"):
+    if line.startswith("!YOUTUBE_"):
         video_id = line.split("_", 1)[-1].strip()
 
         loop = 0
-        if video_id.startswith("LOOP_"):
+        if video_id.startswith("!LOOP_"):
             video_id = video_id.split("_", 1)[-1].strip()
             loop = 1
 
+        # random_value = "".join(
+        #     random.choice(string.ascii_letters + string.digits) for _ in range(8)
+        # )
         return f"""<p><iframe
             allowfullscreen="true"
             frameborder="0"
@@ -187,7 +181,7 @@ def process_line(line: str) -> str:
             src="https://www.youtube.com/embed/{video_id}"
             ></iframe></p>"""
 
-    if line.startswith("PAGE "):
+    if line.startswith("!PAGE "):
         page_number = line.strip().split(" ", 1)[-1].strip()
         return f'<p class="page-number">{page_number}</p>'
 

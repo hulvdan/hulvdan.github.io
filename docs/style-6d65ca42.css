@@ -1,17 +1,41 @@
 :root {
   --white: #ffffff;
-  --black: #000000;
-  --background: #171513;
-  --aBackground: color-mix(in srgb, var(--background) 65%, var(--palBlue));
+  --background: #000000;
+  --contentBackground: #171513;
+  --aBackground: color-mix(
+    in srgb,
+    var(--contentBackground) 65%,
+    var(--palBlue)
+  );
   --textPrimary: #f05b5b;
   --textDefault: #f5eeb0;
+  --textItalic: #e08d51;
+  --textFaded: #554d44;
+  --detailsBackground: var(--contentBackground);
   --palYellowOrange: #fabf61;
-  --palOrange: #e08d51;
   --palLime: #c6cc54;
-  --palSkyblue: #78c2d6;
-  --palBlue: #5479b0;
-  --palGray: #554d44;
+  --palBlue: #78c2d6;
 }
+
+/*
+:root {
+  --background: #ececec;
+  --contentBackground: #ffffff;
+  --aBackground: color-mix(
+    in srgb,
+    var(--contentBackground) 85%,
+    var(--palBlue)
+  );
+  --textPrimary: black;
+  --textDefault: black;
+  --textItalic: #28d223;
+  --textFaded: #abaeb6;
+  --detailsBackground: #acef81;
+  --palYellowOrange: #fabf61;
+  --palLime: #c6cc54;
+  --palBlue: #0d41d2;
+}
+*/
 
 .hulvdan_flex_wrap {
   flex-wrap: wrap;
@@ -49,7 +73,7 @@ html {
   font-variation-settings: "GRAD" 0;
   font-weight: 400;
 
-  background-color: var(--black);
+  background-color: var(--background);
 
   padding: 0;
   margin: 0;
@@ -66,7 +90,7 @@ code {
   font-style: normal;
 
   color: var(--palLime);
-  background-color: color-mix(in srgb, var(--background) 90%, white);
+  background-color: color-mix(in srgb, var(--contentBackground) 90%, white);
   padding: 0px 6px 2px 6px;
   border-radius: 6px;
 }
@@ -77,7 +101,7 @@ body {
 }
 
 #content {
-  background-color: var(--background);
+  background-color: var(--contentBackground);
 }
 
 main {
@@ -89,7 +113,7 @@ main {
 h1 {
   font-size: 1.75em;
   font-weight: 900;
-  padding: 40px 20px 0px 20px;
+  padding: 20px 20px 0px 20px;
   margin: 0;
   text-align: center;
   color: var(--textPrimary);
@@ -155,12 +179,12 @@ p,
 
 em,
 em > * {
-  color: var(--palOrange);
+  color: var(--textItalic);
   font-style: normal;
 }
 
 a {
-  color: var(--palSkyblue);
+  color: var(--palBlue);
   margin: 0;
   text-decoration: none;
 }
@@ -185,13 +209,13 @@ iframe {
 summary {
   cursor: pointer;
   color: var(--textDefault);
-  background-color: color-mix(in srgb, var(--background) 90%, white);
+  background-color: color-mix(in srgb, var(--contentBackground) 90%, white);
   border-radius: 8px;
 }
 
 summary:hover {
   color: var(--textDefault);
-  background-color: color-mix(in srgb, var(--background) 80%, white);
+  background-color: color-mix(in srgb, var(--detailsBackground) 80%, white);
 }
 
 .nGY2GThumbnail {
@@ -201,10 +225,13 @@ summary:hover {
 }
 
 details {
-  background-color: var(--background);
-  border: solid 2px var(--palGray);
+  background-color: var(--contentBackground);
+  /* border: solid 2px var(--textFaded); */
   border-radius: 8px;
   margin: 0 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--contentBackground) 90%, white);
 }
 
 ul {
@@ -226,16 +253,40 @@ br {
 }
 
 hr {
-  margin: 20px 0px;
-  margin-left: calc(-50vw + 50%);
-  width: 100vw;
-  height: 100px;
+  position: relative;
+  height: 160px;
+  background: var(--background);
+  /* background: black; */
   border: none;
-  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+hr::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: var(--contentBackground);
+  /* background: magenta; */
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+hr::after {
+  content: "";
+  position: absolute;
+  top: 130px;
+  width: 100%;
+  height: 30px;
+  background: var(--contentBackground);
+  /* background: magenta; */
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .page-number {
   margin-top: 10px;
   text-align: center;
-  color: var(--palGray);
+  color: var(--textFaded);
 }
