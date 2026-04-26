@@ -4,7 +4,7 @@
   --contentBackground: #171513;
   --aBackground: color-mix(
     in srgb,
-    var(--contentBackground) 65%,
+    var(--contentBackground) 75%,
     var(--palBlue)
   );
   --textPrimary: #f05b5b;
