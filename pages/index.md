@@ -88,7 +88,7 @@ I maek gaems.
 
 !FLEX_END
 
-!PAGE C++ Raylib glm / Bare C++
+!PAGE C++ Raylib glm / C++ без библиотек, линейная алгебра
 
 <hr>
 
