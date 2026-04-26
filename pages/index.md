@@ -171,7 +171,7 @@ cog]]] -->
 
 ## Open Source
 
-- В VSCode расширение [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save/changelog) добавил возможность исполнять команды VSCode при сохранении файлов *(TypeScript)*
+- В VSCode расширение [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save) добавил возможность исполнять команды VSCode при сохранении файлов *(TypeScript)*
 <!-- - [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» *(C#)* -->
 
 <br>
