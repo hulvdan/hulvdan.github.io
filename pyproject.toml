@@ -21,17 +21,87 @@ dev = [
   "ty>=0.0.84",
 ]
 
-[tool.black]
-line-length = 90
-
-[tool.isort]
-multi_line_output = 3
-line_length = 90
-include_trailing_comma = true
-
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 90
+indent-width = 2
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "ANN",
+  "B011",
+  "B023",
+  "BLE001",
+  "C401",
+  "C901",
+  "COM",
+  "CPY",
+  "D",
+  "DTZ005",
+  "E501",
+  "E731",
+  "E741",
+  "EM101",
+  "EM102",
+  "ERA001",
+  "FA102",
+  "FBT001",
+  "FBT002",
+  "FBT003",
+  "FIX002",
+  "G001",
+  "G004",
+  "INP001",
+  "LOG002",
+  "N802",
+  "N806",
+  "N815",
+  "PERF401",
+  "PGH003",
+  "PGH004",
+  "PLC0415",
+  "PLR0911",
+  "PLR0912",
+  "PLR0913",
+  "PLR0915",
+  "PLR1714",
+  "PLR1722",
+  "PLR2004",
+  "PLR5501",
+  "PLW0603",
+  "PT015",
+  "PTH123",
+  "RET504",
+  "RET505",
+  "RET507",
+  "RUF001",
+  "RUF002",
+  "RUF003",
+  "RUF012",
+  "S",
+  "SIM102",
+  "SIM103",
+  "SIM108",
+  "SIM114",
+  "SIM223",
+  "SLF001",
+  "T100",
+  "T201",
+  "T203",
+  "TC002",
+  "TC003",
+  "TD002",
+  "TD003",
+  "TD005",
+  "TRY003",
+  "TRY300",
+  "UP032",
+  "UP035",
+]
 
 [tool.uv.build-backend]
 module-root = ""
