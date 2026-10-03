@@ -144,17 +144,26 @@ document.addEventListener("click", (e) => {
 });
 
 // ---------- reveal on scroll ----------
-const io = new IntersectionObserver(
-  (entries) =>
-    entries.forEach((en) => {
-      if (en.isIntersecting) {
-        en.target.classList.add("in");
-        io.unobserve(en.target);
-      }
-    }),
-  { threshold: 0.15 },
-);
-document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+const makeRevealObserver = (options) => {
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add("in");
+          observer.unobserve(en.target);
+        }
+      }),
+    options,
+  );
+  return observer;
+};
+const io = makeRevealObserver({ threshold: 0.15 });
+// Section headers trigger only once they're well inside the viewport,
+// so the first one isn't already revealed on the top of the page.
+const ioHead = makeRevealObserver({ threshold: 0.15, rootMargin: "0px 0px -25% 0px" });
+document
+  .querySelectorAll(".reveal")
+  .forEach((el) => (el.classList.contains("sec-head") ? ioHead : io).observe(el));
 
 setTimeout(() => document.querySelector(".wipe")?.remove(), 1100);
 

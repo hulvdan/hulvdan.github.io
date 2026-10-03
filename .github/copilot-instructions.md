@@ -21,6 +21,8 @@ A rule living in only one file is a bug. Keep the wording the same in all of the
   заметки по тулингу", "Разрешены коммиты по просьбе".
   Never add `Co-Authored-By` or any other co-author/attribution trailers.
 - **Stay inside this directory.** Don't touch files or run commands outside the repo root.
+- **Always rebuild the site after making changes.** Run `uv run python main.py build` after
+  every change to the site (`pages/`, `templates/`, `site.css`, `site.js`, `main.py`, assets).
 
 ## Conventions
 

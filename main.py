@@ -271,7 +271,7 @@ RANSOM_STYLES = [
     ("Rubik Mono One", "#000", "#fabf61"),
     ("Anton", "#fabf61", "#000"),
     ("Archivo Black", "#f5eeb0", "#000"),
-    ("Playfair Display", "#000", "#fabf61"),
+    ("Rubik Mono One", "#000", "#fabf61"),
 ]
 RANSOM_ROTATIONS = [-7, 4, -3, 6, -5, 3, -8]
 
