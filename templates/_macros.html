@@ -14,7 +14,12 @@
 {% set many = c.images|length > 4 %}
 {% set thumbs %}
 {% for i in c.images %}
+{% if i.startswith("youtube:") %}
+{% set video_id = i.removeprefix("youtube:") %}
+<button class="video" data-video="{{ video_id }}" aria-label="Видео"><img loading="lazy" src="https://i.ytimg.com/vi/{{ video_id }}/mqdefault.jpg" alt="" /></button>
+{% else %}
 <button data-full="{{ asset(i) }}" aria-label="Скриншот"><img loading="lazy" src="{{ thumb(i) }}" alt="" /></button>
+{% endif %}
 {% endfor %}
 {% endset %}
 <article class="card reveal{% if index is odd %} from-right{% endif %}">

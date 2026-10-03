@@ -88,9 +88,8 @@
 ### Математика
 
 !GENRE Изучал линал для игр · C++
-!IMAGES donut_small.gif
+!IMAGES donut_small.gif youtube:X4yfK4Lj8kg
 !TAGS C++, Raylib, glm
-!VIDEO Трейлер X4yfK4Lj8kg
 
 ### Handmade
 

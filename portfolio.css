@@ -200,6 +200,11 @@ img { display: block; max-width: 100%; }
 }
 .thumbs button:hover { transform: translateY(-4px) rotate(-4deg); background: var(--accent); }
 .thumbs img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; clip-path: inherit; }
+.thumbs button.video { position: relative; }
+.thumbs button.video::after {
+  content: "▶"; position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 22px; color: var(--white); text-shadow: 0 0 8px #000;
+}
 .thumbs.grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); margin: 0; padding: 0; }
 .card:nth-child(even) .thumbs.grid { order: 3; }
 
@@ -283,6 +288,8 @@ dialog .lb-frame {
   filter: drop-shadow(16px 16px 0 var(--accent));
 }
 dialog img { max-width: 88vw; max-height: 80vh; object-fit: contain; background: #000; }
+dialog iframe { display: block; width: min(88vw, 1100px); aspect-ratio: 16 / 9; border: 0; background: #000; }
+dialog [hidden] { display: none; }
 dialog .btn::before { display: none; }
 dialog .lb-nav { position: absolute; top: 50%; translate: 0 -50%; }
 dialog .lb-prev { left: -20px; }

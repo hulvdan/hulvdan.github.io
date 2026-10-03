@@ -1,15 +1,20 @@
 // ---------- lightbox ----------
-const items = [...document.querySelectorAll("[data-full]")];
+const items = [...document.querySelectorAll("[data-full], [data-video]")];
 const lb = document.getElementById("lb");
 const lbImg = document.getElementById("lbImg");
+const lbVideo = document.getElementById("lbVideo");
 let cur = 0;
 const show = (i) => {
   cur = (i + items.length) % items.length;
-  lbImg.src = items[cur].dataset.full;
+  const { full, video } = items[cur].dataset;
+  lbImg.hidden = !full;
+  lbVideo.hidden = !video;
+  if (full) lbImg.src = full;
+  lbVideo.src = video ? `https://www.youtube-nocookie.com/embed/${video}?autoplay=1` : "";
 };
 
 document.addEventListener("click", (e) => {
-  const item = e.target.closest("[data-full]");
+  const item = e.target.closest("[data-full], [data-video]");
   if (item) {
     show(items.indexOf(item));
     lb.showModal();
@@ -31,6 +36,7 @@ document.getElementById("lbClose").onclick = () => lb.close();
 lb.addEventListener("click", (e) => {
   if (e.target === lb) lb.close();
 });
+lb.addEventListener("close", () => (lbVideo.src = ""));
 addEventListener("keydown", (e) => {
   if (!lb.open) return;
   if (e.key === "ArrowLeft") show(cur - 1);

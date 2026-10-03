@@ -230,7 +230,8 @@ def render_page_content(markdown_contents: str) -> Markup:
 #
 # `# Name` + `!TAGLINE` + text + `!CONTACT <kind> <url>` before the first `##` form the hero.
 # Each `## Section` becomes a block:
-#   - with `### Title` cards (`!STICKER`, `!GENRE`, `!DATE`, `!COVER`, `!IMAGES`,
+#   - with `### Title` cards (`!STICKER`, `!GENRE`, `!DATE`, `!COVER`,
+#     `!IMAGES a.png youtube:<id>`,
 #     `!TAGS a, b`, `!VIDEO <label> <youtube id>`, `!LINK <label> <url>`, `- note`);
 #   - `!IMAGES` -> image grid;
 #   - `- [text](url)` lines -> list of links;
