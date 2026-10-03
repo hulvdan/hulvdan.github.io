@@ -88,7 +88,7 @@ def build():
     for x in chain.from_iterable(
         Path("docs").glob(f"{Path(f).stem}-*{Path(f).suffix}") for f in HASHED_FILES
     ):
-        x.unlink()
+        x.unlink(missing_ok=True)
     for source, name in hashed.items():
         shutil.copyfile(source, Path("docs") / name)
 
@@ -324,6 +324,9 @@ def assign_ids(sections: list[Section]) -> None:
 
 def md_inline(text: str) -> Markup:
     rendered = markdown2.markdown(text).strip()
+    rendered = rendered.replace(
+        '<a href="http', '<a target="_blank" rel="noopener" href="http'
+    )
     return Markup(re.sub(r"^<p>(.*)</p>$", r"\1", rendered, flags=re.DOTALL))
 
 

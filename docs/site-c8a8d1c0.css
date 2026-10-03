@@ -243,7 +243,7 @@ img { display: block; max-width: 100%; }
           mask: var(--chain) center / contain no-repeat;
   opacity: 0; transition: opacity .15s;
 }
-.body h3 .last { position: relative; white-space: nowrap; }
+.body h3 .last { position: relative; }
 .body h3 .last::after { position: absolute; left: 100%; top: 50%; translate: .22em -50%; width: .42em; height: .42em; }
 .sec-head .anchor { align-self: center; width: 34px; height: 34px; color: var(--accent); }
 .body h3 a:hover .last::after, .body h3 a:focus-visible .last::after,
@@ -256,7 +256,9 @@ section[id], .card[id] { scroll-margin-top: 40px; }
 .body h3 {
   margin: 6px 0 4px;
   font: 700 clamp(36px, 4.6vw, 60px)/1.05 var(--head); text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
+.body h3.long { font-size: clamp(30px, 3.4vw, 46px); }
 .genre {
   display: inline-block; margin: 6px 0 0;
   font: 700 16px/1 var(--head); text-transform: uppercase; letter-spacing: .06em;
@@ -266,6 +268,8 @@ section[id], .card[id] { scroll-margin-top: 40px; }
 .date { margin: 12px 0 0; font: 500 15px/1 var(--head); letter-spacing: .12em; color: var(--gray); }
 .notes { margin: 14px 0 0; padding: 0; list-style: none; color: var(--text); }
 .notes li { position: relative; padding-left: 22px; margin-bottom: 6px; }
+.notes a { color: var(--accent); text-underline-offset: 3px; }
+.notes a:hover { color: var(--black); background: var(--accent); text-decoration: none; }
 .notes li::before { content: "◆"; position: absolute; left: 0; color: var(--orange); font-size: 12px; top: 4px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; padding: 0; list-style: none; }
 .tags li { transform: skewX(-12deg); }
