@@ -33,9 +33,7 @@ docs/assets/          images. The build adds `th__<stem>.jpg` thumbnails (gifs t
 ```
 uv run python main.py build       # generate docs/
 uv run python main.py cog         # refresh cog-generated blocks in pages/*.md
-uv run python main.py interlace F # make images progressive (hook does it)
-uv run python main.py check-images # interlaced + fresh WebPs + all added to git (hook)
-uv run pytest -q
+uv run python main.py check-images # fresh WebPs + all added to git (hook)
 uv run prek install               # once after clone
 ```
 

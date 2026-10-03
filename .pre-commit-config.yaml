@@ -29,12 +29,6 @@ repos:
         language: system
         files: \.toml$
         priority: 1
-      - id: interlace
-        name: interlace images
-        entry: uv --offline run python main.py interlace
-        language: system
-        files: (?i)\.(jpe?g|png)$
-        priority: 1
       # Regenerates `[[[cog]]]` blocks in every page (index lists the articles).
       - id: cog
         name: cog
@@ -57,13 +51,6 @@ repos:
         pass_filenames: false
         files: \.py$
         priority: 2
-      - id: pytest
-        name: pytest
-        entry: uv --offline run pytest -q
-        language: system
-        pass_filenames: false
-        files: \.py$
-        priority: 2
       - id: build
         name: build
         entry: uv --offline run python main.py build
@@ -72,7 +59,7 @@ repos:
         files: ^(pages/|templates/|docs/assets/|main\.py$|site\.(css|js)$|pygments\.css$)
         priority: 2
 
-      # Every image is interlaced and has an up-to-date WebP that is added to git.
+      # Every image has an up-to-date WebP that is added to git.
       - id: check-images
         name: check images
         entry: uv --offline run python main.py check-images

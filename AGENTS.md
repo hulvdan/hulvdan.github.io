@@ -34,5 +34,4 @@ A rule living in only one file is a bug. Keep the wording the same in all of the
 ## Commands
 
 - Build the site: `uv run python main.py build`
-- Tests: `uv run pytest -q`
 - Git hooks run via prek (`.pre-commit-config.yaml`): `uv run prek install` once after clone

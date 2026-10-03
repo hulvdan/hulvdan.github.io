@@ -9,7 +9,6 @@ dependencies = [
   "markdown2>=2.5.5",
   "pillow>=12.1.1",
   "pygments>=2.19.2",
-  "pypng>=0.20220715.0",
   "typer>=0.24.1",
 ]
 

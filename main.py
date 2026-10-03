@@ -13,7 +13,6 @@ from itertools import chain
 from pathlib import Path
 
 import markdown2
-import png
 import typer
 from cogapp import Cog
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -84,7 +83,7 @@ def build():
 
         img = img.resize((w, h))
         print(f"Saving '{th_filepath}'...")
-        img.save(th_filepath, progressive=True, optimize=True)
+        img.save(th_filepath, optimize=True)
     ##
 
     make_webps()
@@ -596,89 +595,14 @@ def parse_portfolio(markdown_contents: str) -> tuple[Hero, list[Section]]:
 ##
 
 
-def is_interlaced(img: Image.Image) -> bool:
-    if img.format == "JPEG":
-        return bool(img.info.get("progressive") or img.info.get("progression"))
-    if img.format == "PNG":
-        return bool(img.info.get("interlace"))
-    # GIF isn't supported: Pillow ignores `interlace` when saving animated GIFs.
-    return True
-
-
-def save_interlaced_png(img: Image.Image, fp) -> None:
-    # Pillow can't write interlaced PNGs.
-    if img.mode == "P" and "transparency" not in img.info:
-        palette = img.getpalette() or []
-        kwargs = {
-            "palette": [tuple(palette[i : i + 3]) for i in range(0, len(palette), 3)]
-        }
-    else:
-        if img.mode not in ("L", "LA", "RGB", "RGBA"):
-            img = img.convert("RGBA" if img.has_transparency_data else "RGB")
-        kwargs = {
-            "greyscale": img.mode in ("L", "LA"),
-            "alpha": img.mode in ("LA", "RGBA"),
-        }
-
-    writer = png.Writer(
-        img.width, img.height, bitdepth=8, interlace=True, compression=9, **kwargs
-    )
-    data = img.tobytes()
-    stride = len(data) // img.height
-    rows = (data[y * stride : (y + 1) * stride] for y in range(img.height))
-    writer.write(fp, rows)
-
-
-def interlace_file(filepath: Path) -> None:
-    with Image.open(filepath) as img:
-        if is_interlaced(img):
-            return
-
-        print(f"Interlacing '{filepath}'...")
-        tmp = filepath.with_name(filepath.name + ".tmp")
-        with open(tmp, "wb") as fp:
-            if img.format == "JPEG":
-                img.save(
-                    fp,
-                    "JPEG",
-                    quality="keep",
-                    progressive=True,
-                    optimize=True,
-                    exif=img.info.get("exif", b""),
-                    icc_profile=img.info.get("icc_profile"),
-                )
-            elif img.format == "PNG":
-                save_interlaced_png(img, fp)
-
-    tmp.replace(filepath)
-
-
-@app.command()
-def interlace(files: list[Path]):
-    """Converts images to interlaced / progressive if they aren't already."""
-    # Starting worker processes takes ~0.5s on Windows, small batches are faster inline.
-    if len(files) <= 4:
-        for f in files:
-            interlace_file(f)
-        return
-
-    # Processes, not threads: pypng is pure Python and holds the GIL.
-    with ProcessPoolExecutor(max_workers=6) as executor:
-        list(executor.map(interlace_file, files))
-
-
 @app.command()
 def check_images():
-    """Fails unless every image is interlaced and has an up-to-date, tracked WebP."""
+    """Fails unless every image has an up-to-date, tracked WebP."""
     errors = []
     manifest = load_webp_manifest()
     for x in webp_sources():
         if not webp_is_fresh(x, manifest):
             errors.append(f"{x}: WebP is missing or stale")
-        if x.suffix.lower() in (".png", ".jpg", ".jpeg"):
-            with Image.open(x) as img:
-                if not is_interlaced(img):
-                    errors.append(f"{x}: not interlaced")
 
     untracked = subprocess.run(
         ["git", "ls-files", "--others", "--exclude-standard", "docs/assets"],
@@ -690,10 +614,7 @@ def check_images():
 
     if errors:
         print("\n".join(errors))
-        print(
-            "\nRun `uv run python main.py interlace <files>`, "
-            "`uv run python main.py build` and `git add docs/assets`"
-        )
+        print("\nRun `uv run python main.py build` and `git add docs/assets`")
         raise typer.Exit(1)
 
 
