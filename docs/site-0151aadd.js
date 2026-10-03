@@ -27,7 +27,7 @@ document.addEventListener("click", (e) => {
   }
 
   // ---------- shake on title click ----------
-  const title = e.target.closest(".body h3, .ransom");
+  const title = e.target.closest(".body h3, .ransom, .tagline, .intro");
   if (title) {
     title.classList.remove("shake");
     void title.offsetWidth;
