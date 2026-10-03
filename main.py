@@ -305,6 +305,7 @@ class Hero:
 @dataclass
 class Card:
     title: str
+    id: str = ""
     sticker: str = ""
     genre: str = ""
     date: str = ""
@@ -318,10 +319,33 @@ class Card:
 @dataclass
 class Section:
     title: str
+    id: str = ""
     cards: list[Card] = field(default_factory=list)
     images: list[str] = field(default_factory=list)
     links: list[Link] = field(default_factory=list)
     body: Markup = field(default_factory=Markup)
+
+
+def slugify(text: str) -> str:
+    return re.sub(r"[^\w]+", "-", text.lower().replace("'", "")).strip("-")
+
+
+def assign_ids(sections: list[Section]) -> None:
+    """Gives sections and cards unique anchor ids made from their titles."""
+    used: set[str] = set()
+
+    def unique(title: str) -> str:
+        base = slugify(title)
+        slug, n = base, 2
+        while slug in used:
+            slug, n = f"{base}-{n}", n + 1
+        used.add(slug)
+        return slug
+
+    for section in sections:
+        section.id = unique(section.title)
+        for card in section.cards:
+            card.id = unique(card.title)
 
 
 def md_inline(text: str) -> Markup:
@@ -451,6 +475,7 @@ def parse_portfolio(markdown_contents: str) -> tuple[Hero, list[Section]]:
         else:
             section_lines.append(line)
 
+    assign_ids(sections)
     return parse_hero(lines[:first_section]), sections
 
 

@@ -16,13 +16,13 @@
 {% for i in c.images %}
 {% if i.startswith("youtube:") %}
 {% set video_id = i.removeprefix("youtube:") %}
-<button class="video" data-video="{{ video_id }}" aria-label="Видео"><img loading="lazy" src="https://i.ytimg.com/vi/{{ video_id }}/mqdefault.jpg" alt="" /></button>
+<button class="video" data-video="{{ video_id }}" aria-label="Видео"><img loading="lazy" src="https://i.ytimg.com/vi/{{ video_id }}/maxresdefault.jpg" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" alt="" /></button>
 {% else %}
 <button data-full="{{ asset(i) }}" aria-label="Скриншот"><img loading="lazy" src="{{ thumb(i) }}" alt="" /></button>
 {% endif %}
 {% endfor %}
 {% endset %}
-<article class="card reveal{% if index is odd %} from-right{% endif %}">
+<article id="{{ c.id }}" class="card reveal{% if index is odd %} from-right{% endif %}">
   <div class="frame"></div>
   <div class="media">
     {% if c.sticker %}<span class="sticker">{{ c.sticker }}</span>{% endif %}
@@ -30,7 +30,7 @@
     {% if c.images and not many %}<div class="thumbs">{{ thumbs }}</div>{% endif %}
   </div>
   <div class="body">
-    <h3>{{ c.title }}</h3>
+    <h3><a href="#{{ c.id }}">{{ c.title }}</a></h3>
     {% if c.genre %}<div class="genre">{{ c.genre }}</div>{% endif %}
     {% if c.date %}<p class="date">{{ c.date }}</p>{% endif %}
     {% if c.notes %}
