@@ -352,7 +352,7 @@ picture {
   text-transform: uppercase;
   color: var(--black);
   background: var(--white);
-  padding: 4px 36px 0 22px;
+  padding: 0 34px 0.12em 32px;
   clip-path: polygon(0 8%, 100% 0, 97% 100%, 2% 92%);
   transform: rotate(-3deg);
   filter: drop-shadow(10px 10px 0 var(--accent));
