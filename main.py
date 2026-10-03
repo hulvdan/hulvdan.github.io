@@ -218,7 +218,8 @@ def render_page_content(markdown_contents: str) -> Markup:
 # Each `## Section` becomes a block:
 #   - with `### Title` cards (`!STICKER`, `!GENRE`, `!DATE`, `!COVER`,
 #     `!IMAGES a.png youtube:<id>`,
-#     `!TAGS a, b`, `!VIDEO <label> <youtube id>`, `!LINK <label> <url>`, `- note`);
+#     `!TAGS a, b`, `!VIDEO <label> <youtube id>` (first thumb, plays in the gallery),
+#     `!LINK <label> <url>`, `- note`);
 #   - `!IMAGES` -> image grid;
 #   - `- [text](url)` lines -> list of links;
 #   - anything else -> plain markdown.
@@ -507,7 +508,7 @@ def parse_hero(lines: list[str]) -> Hero:
 
 
 def parse_card(title: str, lines: list[str]) -> Card:
-  card = Card(title)
+  card, videos = Card(title), []
   for line in lines:
     if (v := directive(line, "STICKER")) is not None:
       card.sticker = v
@@ -523,8 +524,8 @@ def parse_card(title: str, lines: list[str]) -> Card:
       tags = [t.strip() for t in v.split(",") if t.strip()]
       card.tags += [Link(t, TAG_URLS.get(t, "")) for t in tags]
     elif (v := directive(line, "VIDEO")) is not None:
-      label, video_id = split_label_value(v)
-      card.actions.append(Link(label, f"https://youtu.be/{video_id}", "youtube"))
+      _, video_id = split_label_value(v)
+      videos.append(f"youtube:{video_id}")
     elif (v := directive(line, "LINK")) is not None:
       label, url = split_label_value(v)
       icon = LINK_ICONS.get(label.split(" ")[0], "")
@@ -536,6 +537,7 @@ def parse_card(title: str, lines: list[str]) -> Card:
 
   if not card.cover:
     card.cover, card.images = card.images[0], card.images[1:]
+  card.images = videos + card.images
   return card
 
 

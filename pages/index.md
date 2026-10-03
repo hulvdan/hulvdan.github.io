@@ -78,7 +78,6 @@
 
 ### Journey's Spirit
 
-!GENRE C++
 !DATE 12/2024 - 06/2025
 !COVER rec19.jpg
 !IMAGES rec20.jpg rec21.jpg rec18.jpg rec_boner_1.png
