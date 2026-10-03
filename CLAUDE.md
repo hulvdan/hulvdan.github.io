@@ -2,7 +2,7 @@ On startup execute `/caveman ultra`
 
 Any new or changed project rule must be written into ALL agent rule files at once: `CLAUDE.md`, `AGENTS.md`, `.cursor/rules/project-rules.mdc`, `.github/copilot-instructions.md`. A rule living in only one file is a bug. Keep wording the same in all of them.
 
-Commit only when asked. Run `git add` / `git commit` only when the user asks. Never run `git push`, `git merge`, `git rebase`, `git reset --hard`, `git tag` or any other history-rewriting command. Read-only git (`status`, `diff`, `log`, `show`) is fine.
+Commit only when asked. Run `git add` / `git commit` only when the user asks. Never run `git merge`, `git rebase`, `git reset --hard`, `git tag` or any other history-rewriting command. Read-only git (`status`, `diff`, `log`, `show`) is fine.
 
 Commit messages: in Russian, prefer a single line, passive form — "Сделан X", not "Сделал X". Short and human: what changed, no filler, no file lists. E.g. "Добавлены заметки по тулингу", "Разрешены коммиты по просьбе". Never add `Co-Authored-By` or any other co-author/attribution trailers.
 

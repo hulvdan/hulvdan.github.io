@@ -17,7 +17,7 @@ A rule living in only one file is a bug. Keep the wording the same in all of the
 ## Hard rules
 
 - **Commit only when asked.** Run `git add` / `git commit` only when the user asks. Never run
-  `git push`, `git merge`, `git rebase`, `git reset --hard`, `git tag` or any other
+  `git merge`, `git rebase`, `git reset --hard`, `git tag` or any other
   history-rewriting command. Read-only git (`status`, `diff`, `log`, `show`) is fine.
 - **Commit messages:** in Russian, prefer a single line, passive form — "Сделан X", not
   "Сделал X". Short and human: what changed, no filler, no file lists. E.g. "Добавлены
