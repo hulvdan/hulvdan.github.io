@@ -25,6 +25,8 @@ body {
   overflow-x: clip;
 }
 a { color: inherit; }
+/* iOS turns dates like 07/2025 into phone links despite format-detection */
+a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; pointer-events: none; }
 img { display: block; max-width: 100%; }
 
 /* ---------- background: warm glows + hairlines + film grain ---------- */

@@ -13,6 +13,7 @@ from pathlib import Path
 import markdown2
 import png
 import typer
+from cogapp import Cog
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup
 from PIL import Image
@@ -24,9 +25,7 @@ app = typer.Typer()
 
 def hashed_name(path: str) -> str:
     p = Path(path)
-    return "{}-{}{}".format(
-        p.stem, hashlib.md5(p.read_bytes()).hexdigest()[:8], p.suffix
-    )
+    return f"{p.stem}-{hashlib.md5(p.read_bytes()).hexdigest()[:8]}{p.suffix}"
 
 
 # Files copied to `docs` under a content-hashed name.
@@ -87,8 +86,7 @@ def build():
     ##
 
     for x in chain.from_iterable(
-        Path("docs").glob("{}-*{}".format(Path(f).stem, Path(f).suffix))
-        for f in HASHED_FILES
+        Path("docs").glob(f"{Path(f).stem}-*{Path(f).suffix}") for f in HASHED_FILES
     ):
         x.unlink()
     for source, name in hashed.items():
@@ -326,7 +324,7 @@ def assign_ids(sections: list[Section]) -> None:
 
 def md_inline(text: str) -> Markup:
     rendered = markdown2.markdown(text).strip()
-    return Markup(re.sub(r"^<p>(.*)</p>$", r"\1", rendered, flags=re.S))
+    return Markup(re.sub(r"^<p>(.*)</p>$", r"\1", rendered, flags=re.DOTALL))
 
 
 def directive(line: str, name: str) -> str | None:
@@ -430,7 +428,7 @@ def parse_section(title: str, lines: list[str]) -> Section:
 
 
 def parse_portfolio(markdown_contents: str) -> tuple[Hero, list[Section]]:
-    text = re.sub(r"<!--.*?-->", "", markdown_contents, flags=re.S)
+    text = re.sub(r"<!--.*?-->", "", markdown_contents, flags=re.DOTALL)
     text = re.sub(r"#{[^}]*}#", "", text)
     text = text.replace(" -> ", " ➜ ").replace(" - ", " — ")
     lines = [
@@ -471,15 +469,16 @@ def save_interlaced_png(img: Image.Image, fp) -> None:
     # Pillow can't write interlaced PNGs.
     if img.mode == "P" and "transparency" not in img.info:
         palette = img.getpalette() or []
-        kwargs = dict(
-            palette=[tuple(palette[i : i + 3]) for i in range(0, len(palette), 3)]
-        )
+        kwargs = {
+            "palette": [tuple(palette[i : i + 3]) for i in range(0, len(palette), 3)]
+        }
     else:
         if img.mode not in ("L", "LA", "RGB", "RGBA"):
             img = img.convert("RGBA" if img.has_transparency_data else "RGB")
-        kwargs = dict(
-            greyscale=img.mode in ("L", "LA"), alpha=img.mode in ("LA", "RGBA")
-        )
+        kwargs = {
+            "greyscale": img.mode in ("L", "LA"),
+            "alpha": img.mode in ("LA", "RGBA"),
+        }
 
     writer = png.Writer(
         img.width, img.height, bitdepth=8, interlace=True, compression=9, **kwargs
@@ -517,9 +516,28 @@ def interlace_file(filepath: Path) -> None:
 @app.command()
 def interlace(files: list[Path]):
     """Converts images to interlaced / progressive if they aren't already."""
+    # Starting worker processes takes ~0.5s on Windows, small batches are faster inline.
+    if len(files) <= 4:
+        for f in files:
+            interlace_file(f)
+        return
+
     # Processes, not threads: pypng is pure Python and holds the GIL.
     with ProcessPoolExecutor(max_workers=6) as executor:
         list(executor.map(interlace_file, files))
+
+
+@app.command()
+def cog():
+    """Regenerates `[[[cog ... ]]]` blocks in markdown files."""
+    files = [
+        x.as_posix() for x in chain(Path(".").glob("*.md"), Path("pages").rglob("*.md"))
+    ]
+    markers = "[[[cog cog]]] [[[end]]]"
+    ret = Cog().main(
+        ["cog", "-n", "utf-8", "-U", "-r", "-P", "--markers", markers, *files]
+    )
+    raise typer.Exit(ret)
 
 
 @app.command()
