@@ -139,6 +139,7 @@ img { display: block; max-width: 100%; }
 .btn.icon-only { padding: 18px 40px; }
 .btn.icon-only::before { display: none; }
 .btn.icon-only .ico { width: 52px; height: 52px; }
+.btn.icon-only .ico-mail { scale: 1.2; }
 .ico-github  { --i: url("https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg"); }
 .ico-itch    { --i: url("https://cdn.jsdelivr.net/npm/simple-icons@13/icons/itchdotio.svg"); }
 .ico-steam   { --i: url("https://cdn.jsdelivr.net/npm/simple-icons@13/icons/steam.svg"); }
