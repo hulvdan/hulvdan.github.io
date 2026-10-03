@@ -1,166 +1,136 @@
+!LAYOUT portfolio
+
 # Hulvdan
 
-<!-- # Портфолио -->
+!TAGLINE I maek gaems
+
+Программирую, чуть рисую и занимаюсь аудио. В одиночку **довёл 2 игры до релиза** на Яндекс Играх. Сейчас с товарищами делаю инкременталку на Godot.
+
+!CONTACT mail mailto:aleksey.chistov@gmail.com
+!CONTACT github https://github.com/hulvdan
+!CONTACT itch https://hulvdan.itch.io
 
 <!--
 
-<center>
-<p>
-I maek gaems.
-Программирую.
-Чуть рисую и занимаюсь аудио.
-В одиночку довёл 2 игры до Яндекса.
-Продолжаю
-</p>
-</center>
+### Прототип на Godot
 
--->
-
-<hr>
-
-<!--
-
-## Прототипирую игру на Godot #{- [git](https://github.com/Hulvdan/game3) }#(02/2026 - н.в.)
-
-!SPOILER_START
+!GENRE Боевая система · Godot
+!DATE 02/2026 - н.в.
+#{!LINK GitHub https://github.com/Hulvdan/game3}#
+!TAGS Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
 
 - Упор на боевую систему, что позволит просто добавлять мувсеты и разные фишки *(из Nioh / Lies of P / Genshin / Monster Hunter и пр.)*
-
 - Наткнулся на Того Самого Келина. Обдумываю его видео - [yt1](https://www.youtube.com/@Kelin2025), [yt2](https://www.youtube.com/@kelin2playLIVE)
-
 - Перешел с C++ на Godot *(т.к. на Unity итерироваться медленнее, а на C++ мне влом писать 3D рендеринг)*
-
-!PAGE Godot, protobuf, godobuf, Python, imgui-bundle, LDtk, AutoHotkey
-
-!SPOILER_END
-
-<hr>
 
 -->
 
-## Игра на Godot. Инкременталка. IncreSouls (04/2026 - н.в.)
+## Игры
 
-!IMAGES game4_65.png game4_64.png game4_63.png game4_62.png game4_61.png game4_60.png game4_59.png game4_58.png game4_57.png game4_56.png game4_55.png game4_54.png game4_53.png game4_52.png game4_51.png game4_50.png game4_49.png game4_48.png game4_47.png game4_46.png game4_45.png game4_44.png game4_43.png game4_42.png game4_41.png game4_40.png game4_39.png game4_38.png game4_37.png game4_36.png game4_35.png game4_34.png game4_32.png game4_30.png game4_29.png game4_28.png game4_27.png game4_26.png game4_21.png game4_19.png game4_8.png game4_7.png game4_6.png game4_5.png game4_4.png game4_3.png game4_2.png game4_1.png
+### IncreSouls
 
-!PAGE Godot, Python, Clip Studio, Reaper, AutoHotkey
+!STICKER В работе
+!GENRE Инкременталка · Godot
+!DATE 04/2026 - н.в.
+!COVER game4_60.png
+!IMAGES game4_65.png game4_64.png game4_63.png game4_62.png game4_61.png game4_59.png game4_58.png game4_57.png game4_56.png game4_55.png game4_54.png game4_53.png game4_52.png game4_51.png game4_50.png game4_49.png game4_48.png game4_47.png game4_46.png game4_45.png game4_44.png game4_43.png game4_42.png game4_41.png game4_40.png game4_39.png game4_38.png game4_37.png game4_36.png game4_35.png game4_34.png game4_32.png game4_30.png game4_29.png game4_28.png game4_27.png game4_26.png game4_21.png game4_19.png game4_8.png game4_7.png game4_6.png game4_5.png game4_4.png game4_3.png game4_2.png game4_1.png
+!TAGS Godot, Python, LDtk, Clip Studio, Reaper, AutoHotkey
 
-<hr>
+### Cookier
 
-## Игра на C++. Клон «Brotato» - [yandex](https://yandex.ru/games/app/509152?draft=true&lang=ru)#{, [git](https://github.com/hulvdan/cookier)}# (09/2025 - 12/2025)
-
-!YOUTUBE_U3tBIdrZYnA
-
+!GENRE Клон «Brotato» · C++
+!DATE 09/2025 - 12/2025
 !IMAGES cookier2_1.png cookier2_2.png cookier2_3.png cookier2_4.png cookier2_22.png cookier2_20.png cookier2_21.png cookier2_19.png cookier2_16.png cookier2_18.png cookier2_17.png cookier2_15.png cookier2_12.png cookier2_11.png cookier2_10.png cookier2_9.png cookier2_8.png cookier2_7.png cookier2_6.png cookier2_5.png
+!TAGS C++, SDL, bgfx, miniaudio, flatbuffers, Python, Clip Studio, Reaper
+!VIDEO Геймплей U3tBIdrZYnA
+!LINK Яндекс Игры https://yandex.ru/games/app/509152?draft=true&lang=ru
+#{!LINK GitHub https://github.com/hulvdan/cookier}#
 
-Минимально освоил Reaper для работы с аудио
+- Первая игра, которую опубликовал
+- Минимально освоил Reaper для работы с аудио
 
-Первая игра, которую actually опубликовал
+### 3 в ряд
 
-!PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Яндекс скрыл, когда стало мало игроков
-
-<hr>
-
-## Игра на C++. Клон игры жанра «3 в ряд» - [yandex](https://yandex.ru/games/app/509154?draft=true&lang=ru)#{, [git](https://github.com/hulvdan/emberveil2)}# (01/2026)
-
-!YOUTUBE_I_3kDdkYqoA
-
+!GENRE Казуальная головоломка · C++
+!DATE 01/2026
 !IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
+!TAGS C++, SDL, bgfx, miniaudio, LDtk, Clip Studio, Reaper
+!VIDEO Геймплей I_3kDdkYqoA
+!LINK Яндекс Игры https://yandex.ru/games/app/509154?draft=true&lang=ru
+#{!LINK GitHub https://github.com/hulvdan/emberveil2}#
 
-!PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio, Reaper, AutoHotkey. Яндекс скрыл, когда стало мало игроков
+### Cult Boy
 
-<hr>
+!GENRE Клон «The Binding of Isaac» · C++
+!DATE 07/2025 - 08/2025
+!COVER cult_3.png
+!IMAGES cult_1_instr_pc.png cult_4.png cult_6.png cult_7.png
+!TAGS C++, SDL, bgfx, LDtk, Clip Studio
+!LINK itch.io https://hulvdan.itch.io/cult-boy
+#{!LINK GitHub https://github.com/hulvdan/isaac}#
 
-## Не вышедшая игра на C++. Клон «The Binding of Isaac» - [itch.io](https://hulvdan.itch.io/cult-boy)#{, [git](https://github.com/hulvdan/isaac)}# (07/2025 - 08/2025)
+- Научился рисовать для игр: Illustrator -> Clip Studio
+- Не получилось опубликовать на Яндекс Играх
 
-<iframe style="margin-left: 10px" frameborder="0" src="https://itch.io/embed/3681662?linkback=true&amp;border_width=0&amp;bg_color=0e0e0e&amp;fg_color=f5eeb0&amp;link_color=f05b5b&amp;border_color=0e0e0e" width="206" height="165"><a href="https://hulvdan.itch.io/cult-boy">Cult Boy by Hulvdan</a></iframe>
+### Journey's Spirit
 
-!IMAGES cult_1_instr_pc.png cult_3.png cult_4.png cult_6.png cult_7.png
+!GENRE C++
+!DATE 12/2024 - 06/2025
+!COVER rec19.jpg
+!IMAGES rec20.jpg rec21.jpg rec18.jpg rec_boner_1.png
+!TAGS C++, Raylib, flatbuffers, LDtk
+!VIDEO Трейлер qV5DvOTt16w
+!LINK Steam https://store.steampowered.com/app/3592760
+#{!LINK GitHub https://github.com/hulvdan/recettear-wannabe}#
 
-Минимально научился рисовать для игр. Пробовал Adobe Illustrator + Clip Studio. Остановился на последней
+- Завёл страницу в Steam и пару тиктоков -> понял, что без арта маркетинг не вытянуть
 
-Не получилось опубликовать на Яндекс Играх
+### Математика
 
-!PAGE C++ SDL bgfx miniaudio, flatbuffers, Python, LDtk, free-tex-packer, Clip Studio
+!GENRE Изучал линал для игр · C++
+!IMAGES donut_small.gif
+!TAGS C++, Raylib, glm
+!VIDEO Трейлер X4yfK4Lj8kg
 
-<hr>
+### Handmade
 
-## Не вышедшая игра на C++. «Journey's Spirit» - [Steam](https://store.steampowered.com/app/3592760)#{, [git](https://github.com/hulvdan/recettear-wannabe)}# (12/2024 - 06/2025)
-
-!YOUTUBE_qV5DvOTt16w
-
-!IMAGES rec18.png rec19.jpg rec20.jpg rec21.png rec_boner_1.png
-
-Более серьезно начал подходить к разработке игр. Но после создания страницы в Steam + запила пары тиктоков понял, что сложно будет маркетинговать -> Мне нужны навыки арта
-
-!PAGE C++ Raylib, flatbuffers, Python, LDtk, free-tex-packer
-
-<hr>
-
-## Улучшал навыки математики для видеоигр
-
-!FLEX_WRAP_START
-
-!YOUTUBE_X4yfK4Lj8kg
-
-<img src="docs/assets/donut_small.gif" alt="">
-
-!FLEX_END
-
-!PAGE C++ Raylib glm / C++ без библиотек, линейная алгебра
-
-<hr>
-
-## Прототипировал игру на Unity -> Перешёл на C++#{ - [git](https://github.com/hulvdan/handmade-cpp-game)}# (10/2023 - 08/2024)
-
-!YOUTUBE_aR0MfmgZVeQ
-
+!GENRE Прототип · Unity -> C++
+!DATE 10/2023 - 08/2024
 !IMAGES tbd4-3.gif tbd4-4.gif tbd4-6.gif
+!TAGS C++, OpenGL, glm, Unity, C#
+!VIDEO Трейлер aR0MfmgZVeQ
+#{!LINK GitHub https://github.com/hulvdan/handmade-cpp-game}#
 
-!PAGE C++ OpenGL glm, Unity, C#
+### Clockwork Letter
 
-<hr>
-
-## Поучаствовал в game jam-е. Игра для «Metroidvania Month» - [itch.io](https://hulvdan.itch.io/the-clockwork-letter) (09/2023)
-
+!GENRE Metroidvania Month · Unity
+!DATE 09/2023
 !IMAGES the_clocktower_letter_jumping.gif the_clocktower_letter_wall_jumping.gif
+!TAGS Unity, C#, FMOD
+!LINK itch.io https://hulvdan.itch.io/the-clockwork-letter
 
-!PAGE Unity, C#, FMOD
+### MH:W Booklet
 
-<hr>
-
-## Буклет для «MH:W» – [Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/), [Updated Reddit post](https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/) (2018, 2021)
-
-!FLEX_START
-
+!GENRE Печатный гайд по слабостям монстров
+!DATE 2018, 2021
 !IMAGES mhw_booklet.jpeg
+!TAGS Python, Pillow
+!LINK Reddit https://www.reddit.com/r/MonsterHunterWorld/comments/98avyb/mhw_printable_monsters_weaknesses_guide/
+!LINK Reddit (upd) https://www.reddit.com/r/MonsterHunterWorld/comments/njj57i/mhw_printable_monsters_weaknesses_guide_updated/
 
-Показывает уязвимости монстров *(Python, Pillow)*
+### DS3 Cheat Sheet
 
-!FLEX_END
-
-<hr>
-
-## Dark Souls 3 Cheat Sheet tool – [Reddit](https://www.reddit.com/r/darksouls3/comments/7ylfqp/dark_souls_3_cheat_sheet_tool/) (2018)
-
-!FLEX_START
-
+!GENRE Трекер прохождения Dark Souls 3
+!DATE 2018
 !IMAGES ds3-cheat-sheet-tool.png
-
-Программа отслеживания прогресса прохождения игры «Dark Souls 3» *(Python, PyQt)*
-
-!FLEX_END
-
-<hr>
+!TAGS Python, PyQt
+!LINK Reddit https://www.reddit.com/r/darksouls3/comments/7ylfqp/dark_souls_3_cheat_sheet_tool/
 
 ## Ранее
 
 !IMAGES avocado_coyote_time.gif avocado_jump_input_buffering.gif avocado_camera_shake.gif messing_with_see_through_shaders.gif messing_with_depth_of_field.gif tanks_ai.gif angry_birds.gif tetris.jpg 2048.jpg sokoban_in_terminal_block_placed.jpg
 
-<hr>
-
-## Статьи о полезностях для программистов
-
-!SPOILER_START
+## Статьи
 
 <!-- [[[cog
 from pathlib import Path
@@ -183,13 +153,7 @@ cog]]] -->
 
 <!-- [[[end]]] -->
 
-!SPOILER_END
-
-<hr>
-
 ## Open Source
 
-- В VSCode расширение [Run on Save](https://marketplace.visualstudio.com/items/pucelle.run-on-save) добавил возможность исполнять команды VSCode при сохранении файлов *(TypeScript)*
+- [VSCode «Run on Save» - исполнение команд VSCode при сохранении файлов *(TypeScript)*](https://marketplace.visualstudio.com/items/pucelle.run-on-save)
 <!-- - [Vanilla Tweaks](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#VanillaTweaks) мод для «Terraria» - Ускорил «Extractinator» *(C#)* -->
-
-<br>
