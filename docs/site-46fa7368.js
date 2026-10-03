@@ -142,24 +142,46 @@ document.addEventListener("click", (e) => {
     title.classList.add("shake");
   }
 
-  if (title?.classList.contains("tagline")) curse(title);
+  if (title?.matches(".ransom, .tagline")) curse(title, 1);
+  if (title?.matches(".intro")) curse(title, 3 + Math.floor(Math.random() * 3));
 });
 
-// ---------- tagline curses on click ----------
-// Every click adds a comic-style swear symbol, never the same as its neighbour.
-// Once the line is full, clicks swap a random symbol instead, so it keeps cursing.
-const GRAWLIX = "#%$^&@*!?";
-const MAX_GRAWLIX = 8;
+// ---------- hero curses on click ----------
+// Every click turns random letters into comic-style swear symbols, never the same as
+// their neighbours. Already cursed letters get re-cursed, so it keeps changing.
+const GRAWLIX = "#%$^&@*!?-+\\/=[]{}()|";
 const randomOf = (list) => list[Math.floor(Math.random() * list.length)];
-const curse = (tagline) => {
-  const text = tagline.querySelector("span");
-  const symbols = text.querySelectorAll(".grawlix");
-  const sym =
-    symbols.length < MAX_GRAWLIX
-      ? text.appendChild(document.createElement("b"))
-      : randomOf(symbols);
-  const neighbours = [sym.previousElementSibling, sym.nextElementSibling];
-  const taken = [sym.textContent, ...neighbours.map((el) => el?.textContent)];
+const curse = (root, count) => {
+  // Candidates: every letter in plain text, plus every symbol cursed earlier.
+  const spots = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  for (let node; (node = walker.nextNode()); ) {
+    if (node.parentElement.classList.contains("grawlix")) {
+      spots.push([node, 0]);
+      continue;
+    }
+    for (let i = 0; i < node.data.length; i++)
+      if (/\p{L}/u.test(node.data[i])) spots.push([node, i]);
+  }
+  // Distinct spots, last first: splitting a text node keeps the offsets before the split valid.
+  const picked = new Set();
+  while (picked.size < Math.min(count, spots.length))
+    picked.add(Math.floor(Math.random() * spots.length));
+  [...picked].sort((a, b) => b - a).forEach((k) => curseSpot(...spots[k]));
+};
+const curseSpot = (node, i) => {
+  let sym = node.parentElement;
+  if (!sym.classList.contains("grawlix")) {
+    const letter = node.splitText(i);
+    letter.splitText(1);
+    sym = document.createElement("i");
+    letter.replaceWith(sym);
+  }
+  const taken = [
+    sym.textContent,
+    sym.previousSibling?.textContent.at(-1),
+    sym.nextSibling?.textContent[0],
+  ];
   let ch;
   do ch = randomOf(GRAWLIX);
   while (taken.includes(ch));

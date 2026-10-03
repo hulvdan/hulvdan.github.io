@@ -192,9 +192,10 @@ picture {
     border-color 0.12s,
     box-shadow 0.12s;
 }
-/* swear symbols added on click (site.js) */
+/* swear symbols replacing hero letters on click (site.js) */
 .grawlix {
   display: inline-block;
+  font-style: inherit;
   rotate: var(--r);
   animation: grawlix-pop 0.25s ease-out;
 }
