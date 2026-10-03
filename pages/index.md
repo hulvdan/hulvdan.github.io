@@ -106,7 +106,7 @@
 
 - Наткнулся на [Handmade Hero](https://handmadehero.org) и принялся «изучать базу»
 
-### Clockwork Letter
+### Clocktower Letter
 
 !GENRE Metroidvania Month · Unity
 !DATE 09/2023

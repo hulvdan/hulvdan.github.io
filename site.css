@@ -203,7 +203,7 @@ img { display: block; max-width: 100%; }
 }
 .card:nth-child(even) .cover { transform: rotate(2deg); }
 .cover img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; clip-path: inherit; image-rendering: auto; }
-.cover:hover { transform: rotate(0) scale(1.03); }
+.cover:hover, .card:nth-child(even) .cover:hover { transform: rotate(0) scale(1.03); }
 .thumbs { display: flex; gap: 8px; margin-top: 14px; padding-left: 10px; }
 .thumbs button {
   flex: 1; padding: 3px; background: var(--white); border: 0; cursor: zoom-in;
@@ -229,8 +229,13 @@ img { display: block; max-width: 100%; }
   background: var(--white); color: var(--black);
   clip-path: polygon(50% 0,61% 18%,80% 7%,79% 29%,100% 31%,86% 48%,100% 65%,79% 70%,82% 92%,61% 83%,50% 100%,39% 83%,18% 92%,21% 70%,0 65%,14% 48%,0 31%,21% 29%,20% 7%,39% 18%);
   transform: rotate(12deg);
+  pointer-events: none; /* hover and clicks go to the cover under it */
+  transition: transform .15s cubic-bezier(.3,1.8,.5,1);
 }
 .card:nth-child(even) .sticker { right: auto; left: -14px; transform: rotate(-12deg); }
+/* the sticker follows the cover it sits on */
+.media:has(.cover:hover) .sticker { transform: rotate(4deg) scale(1.12); }
+.card:nth-child(even) .media:has(.cover:hover) .sticker { transform: rotate(-4deg) scale(1.12); }
 
 .sec-head h2 a, .body h3 a { color: inherit; text-decoration: none; }
 /* Chain icon next to anchored titles, shown on hover. Section titles sit on a cream
