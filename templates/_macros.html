@@ -29,10 +29,8 @@
     {% if c.images and not many %}<div class="thumbs">{{ thumbs }}</div>{% endif %}
   </div>
   <div class="body">
-    {# last word is kept together with the anchor icon so the icon never wraps alone #}
-    {% set head, _, last = c.title.rpartition(" ") %}
     {# titles with a long word (e.g. "Прототипировал") get a smaller font so the word fits #}
-    <h3{% if c.title.split()|map("length")|max > 10 %} class="long"{% endif %}><a href="#{{ c.id }}">{% if head %}{{ head }} {% endif %}<span class="last">{{ last }}</span></a></h3>
+    <h3{% if c.title.split()|map("length")|max > 10 %} class="long"{% endif %}><a href="#{{ c.id }}">{{ c.title }}</a></h3>
     {% if c.genre %}<div class="genre">{{ c.genre }}</div>{% endif %}
     {% if c.date %}<p class="date">{{ c.date }}</p>{% endif %}
     {% if c.notes %}
