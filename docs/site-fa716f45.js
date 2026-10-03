@@ -48,7 +48,9 @@ const hiresIO = new IntersectionObserver(
 );
 document.querySelectorAll("img.hires").forEach((img) => hiresIO.observe(img));
 
-const toSlide = (el, webp) => {
+// Slides use the original (interlaced / progressive) file: WebP can't render progressively,
+// so the picture would stay blank until it's fully downloaded.
+const toSlide = (el) => {
   const img = el.tagName === "IMG" ? el : el.querySelector("img");
   if (el.dataset.video) {
     const src = `https://www.youtube-nocookie.com/embed/${el.dataset.video}?autoplay=1`;
@@ -58,7 +60,7 @@ const toSlide = (el, webp) => {
     };
   }
   return {
-    src: fullUrl(el, webp),
+    src: el.dataset.full,
     width: +el.dataset.w || img?.naturalWidth || 1600,
     height: +el.dataset.h || img?.naturalHeight || 900,
     msrc: img?.currentSrc,
@@ -75,9 +77,9 @@ const openGallery = async (item) => {
     gallery.querySelector(".body h3, h1")?.textContent ||
     gallery.closest("section")?.querySelector("h2")?.textContent ||
     "";
-  const [{ default: PhotoSwipe }, webp] = await Promise.all([import(PHOTOSWIPE), webpSupport]);
+  const { default: PhotoSwipe } = await import(PHOTOSWIPE);
   const pswp = new PhotoSwipe({
-    dataSource: items.map((el) => toSlide(el, webp)),
+    dataSource: items.map(toSlide),
     index: items.indexOf(item),
     bgOpacity: 1,
     showHideAnimationType: "zoom",
