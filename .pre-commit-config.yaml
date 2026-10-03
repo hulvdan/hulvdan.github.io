@@ -71,3 +71,12 @@ repos:
         pass_filenames: false
         files: ^(pages/|templates/|docs/assets/|main\.py$|site\.(css|js)$|pygments\.css$)
         priority: 2
+
+      # Every image is interlaced and has an up-to-date WebP that is added to git.
+      - id: check-images
+        name: check images
+        entry: uv --offline run python main.py check-images
+        language: system
+        pass_filenames: false
+        files: ^(docs/assets/|main\.py$)
+        priority: 3

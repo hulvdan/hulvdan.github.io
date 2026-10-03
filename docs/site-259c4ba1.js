@@ -4,15 +4,51 @@ const PHOTOSWIPE = "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswip
 const GALLERY = ".card, .gifs, .article";
 const ITEM = "[data-full], [data-video]";
 
-// Plain markdown images in articles open in the gallery too.
-document.querySelectorAll(".article img:not([data-full] img)").forEach((img) => {
+// Other markdown images in articles open in the gallery too.
+document.querySelectorAll(".article img:not([data-full]):not([data-full] img)").forEach((img) => {
   img.dataset.full = img.src;
 });
 
 const icon = (shape) =>
   `<svg class="pswp__icn" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">${shape}</svg>`;
 
-const toSlide = (el) => {
+// Resolves to whether the browser decodes WebP (1x1 lossless probe).
+const webpSupport = new Promise((resolve) => {
+  const probe = new Image();
+  probe.onload = () => resolve(probe.width > 0);
+  probe.onerror = () => resolve(false);
+  probe.src = "data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==";
+});
+const fullUrl = (owner, webp) =>
+  owner.dataset.webp && webp ? `${owner.dataset.full}.webp` : owner.dataset.full;
+
+// ---------- thumbnails first ----------
+// `img.hires` starts as a small static thumbnail; the full image / animated gif is swapped
+// in once it's downloaded. Its url comes from the closest `[data-full]`.
+const upgrade = async (img) => {
+  const owner = img.closest("[data-full]");
+  if (!owner) return;
+  const url = fullUrl(owner, await webpSupport);
+  const full = new Image();
+  full.onload = () => {
+    img.parentElement.querySelectorAll("picture > source").forEach((s) => s.remove());
+    img.src = url;
+  };
+  full.src = url;
+};
+const hiresIO = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((en) => {
+      if (en.isIntersecting) {
+        hiresIO.unobserve(en.target);
+        upgrade(en.target);
+      }
+    }),
+  { rootMargin: "300px" },
+);
+document.querySelectorAll("img.hires").forEach((img) => hiresIO.observe(img));
+
+const toSlide = (el, webp) => {
   const img = el.tagName === "IMG" ? el : el.querySelector("img");
   if (el.dataset.video) {
     const src = `https://www.youtube-nocookie.com/embed/${el.dataset.video}?autoplay=1`;
@@ -22,7 +58,7 @@ const toSlide = (el) => {
     };
   }
   return {
-    src: el.dataset.full,
+    src: fullUrl(el, webp),
     width: +el.dataset.w || img?.naturalWidth || 1600,
     height: +el.dataset.h || img?.naturalHeight || 900,
     msrc: img?.currentSrc,
@@ -39,9 +75,9 @@ const openGallery = async (item) => {
     gallery.querySelector(".body h3, h1")?.textContent ||
     gallery.closest("section")?.querySelector("h2")?.textContent ||
     "";
-  const { default: PhotoSwipe } = await import(PHOTOSWIPE);
+  const [{ default: PhotoSwipe }, webp] = await Promise.all([import(PHOTOSWIPE), webpSupport]);
   const pswp = new PhotoSwipe({
-    dataSource: items.map(toSlide),
+    dataSource: items.map((el) => toSlide(el, webp)),
     index: items.indexOf(item),
     bgOpacity: 1,
     showHideAnimationType: "zoom",
@@ -83,6 +119,9 @@ const openGallery = async (item) => {
     });
   pswp.on("change", syncVideos);
   pswp.on("contentAppend", () => setTimeout(syncVideos));
+  // Arrows / keyboard slide like a swipe instead of jumping.
+  pswp.next = () => pswp.mainScroll.moveIndexBy(1, true);
+  pswp.prev = () => pswp.mainScroll.moveIndexBy(-1, true);
   pswp.init();
 };
 

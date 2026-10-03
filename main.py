@@ -1,6 +1,7 @@
 #
 ## Imports
 import hashlib
+import json
 import os
 import re
 import shutil
@@ -16,7 +17,7 @@ import png
 import typer
 from cogapp import Cog
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from markupsafe import Markup
+from markupsafe import Markup, escape
 from PIL import Image
 
 ##
@@ -49,7 +50,7 @@ def build():
 
     ## Making thumbnails
     for filepath in Path("docs/assets").iterdir():
-        if not filepath.name.endswith((".jpg", ".png")):
+        if not filepath.name.endswith((".jpg", ".jpeg", ".png", ".gif")):
             continue
         if "th__" in filepath.stem:
             continue
@@ -86,6 +87,8 @@ def build():
         img.save(th_filepath, progressive=True, optimize=True)
     ##
 
+    make_webps()
+
     for x in chain.from_iterable(
         Path("docs").glob(f"{Path(f).stem}-*{Path(f).suffix}") for f in HASHED_FILES
     ):
@@ -121,6 +124,8 @@ def build():
                 sections=sections,
                 ransom_letters=ransom_letters,
                 size_attrs=size_attrs,
+                picture=picture,
+                thumb_url=thumb_url,
             )
         else:
             title = next(
@@ -163,7 +168,7 @@ def process_line(line: str) -> str:
         return '<div class="gallery">{}</div>'.format(
             "".join(
                 f'<button data-full="/assets/{i}"{size_attrs(i)} aria-label="Открыть">'
-                f'<img loading="lazy" src="/assets/th__{Path(i).stem}.jpg" alt="" /></button>'
+                f"{picture('/' + thumb_url(i), hires=i.endswith('.gif'))}</button>"
                 for i in images
             )
         )
@@ -188,17 +193,26 @@ def process_line(line: str) -> str:
     return line
 
 
+def article_image(m: re.Match) -> str:
+    url, alt = m[1], m[2]
+    if not url.startswith("/assets/"):
+        return m[0]
+    name = url.removeprefix("/assets/")
+    tag = picture("/" + thumb_url(name), alt, lazy=False, hires=True)
+    return tag.replace("<img ", f'<img data-full="{url}"{size_attrs(name)} ', 1)
+
+
 def render_page_content(markdown_contents: str) -> Markup:
     markdown_contents = re.sub(r"#{[^}]*}#", "", markdown_contents)
     markdown_contents = "\n".join(
         process_line(line) for line in markdown_contents.split("\n")
     )
-    return Markup(
-        markdown2.markdown(
-            markdown_contents.replace(" - ", " — "),
-            extras=["markdown-in-html", "fenced-code-blocks"],
-        )
+    html = markdown2.markdown(
+        markdown_contents.replace(" - ", " — "),
+        extras=["markdown-in-html", "fenced-code-blocks"],
     )
+    html = re.sub(r'<img src="([^"]+)" alt="([^"]*)" />', article_image, html)
+    return Markup(html)
 
 
 ## Portfolio layout
@@ -324,6 +338,112 @@ def assign_ids(sections: list[Section]) -> None:
             card.id = unique(card.title)
 
 
+## WebP
+# Every image in docs/assets gets a `<name>.webp` next to it (`a.png` -> `a.png.webp`).
+# Pages serve it through `<picture>`, browsers without WebP fall back to the original.
+# WEBP_MANIFEST maps each source to its md5 and whether its WebP was kept (a WebP that
+# isn't smaller than the original is dropped). Hashes, not mtimes: git checkouts reset mtimes.
+
+WEBP_SOURCES = (".png", ".jpg", ".jpeg", ".gif")
+WEBP_MANIFEST = Path("docs/assets/.webp.json")
+
+
+def webp_path(source: Path) -> Path:
+    return source.with_name(source.name + ".webp")
+
+
+def webp_sources() -> list[Path]:
+    return sorted(
+        x for x in Path("docs/assets").iterdir() if x.suffix.lower() in WEBP_SOURCES
+    )
+
+
+def file_md5(path: Path) -> str:
+    return hashlib.md5(path.read_bytes()).hexdigest()
+
+
+def load_webp_manifest() -> dict[str, dict]:
+    if not WEBP_MANIFEST.exists():
+        return {}
+    return json.loads(WEBP_MANIFEST.read_text(encoding="utf-8"))
+
+
+def webp_is_fresh(source: Path, manifest: dict[str, dict]) -> bool:
+    entry = manifest.get(source.name)
+    return (
+        entry is not None
+        and entry["md5"] == file_md5(source)
+        and (not entry["webp"] or webp_path(source).exists())
+    )
+
+
+def convert_to_webp(source: Path) -> bool:
+    """Returns whether the WebP turned out smaller and was kept."""
+    out = webp_path(source)
+    with Image.open(source) as img:
+        if source.suffix == ".gif":
+            img.save(out, "WEBP", save_all=True, lossless=True, method=4)
+        elif source.suffix == ".png":
+            if img.mode not in ("RGB", "RGBA"):
+                img = img.convert("RGBA" if img.has_transparency_data else "RGB")
+            img.save(out, "WEBP", lossless=True, method=4)
+        else:
+            img.save(out, "WEBP", quality=82, method=4)
+
+    if out.stat().st_size < source.stat().st_size:
+        return True
+    out.unlink()
+    return False
+
+
+def make_webps() -> None:
+    manifest = load_webp_manifest()
+    sources = webp_sources()
+    todo = [x for x in sources if not webp_is_fresh(x, manifest)]
+    if todo:
+        print(f"Converting {len(todo)} images to WebP...")
+        with ProcessPoolExecutor(max_workers=6) as executor:
+            kept = list(executor.map(convert_to_webp, todo))
+        for x, k in zip(todo, kept, strict=True):
+            manifest[x.name] = {"md5": file_md5(x), "webp": k}
+
+    # Forget deleted sources and their WebPs.
+    names = {x.name for x in sources}
+    for name in [n for n in manifest if n not in names]:
+        del manifest[name]
+        webp_path(Path("docs/assets") / name).unlink(missing_ok=True)
+
+    text = json.dumps(dict(sorted(manifest.items())), indent=2) + "\n"
+    if not WEBP_MANIFEST.exists() or WEBP_MANIFEST.read_text(encoding="utf-8") != text:
+        WEBP_MANIFEST.write_text(text, encoding="utf-8", newline="\n")
+
+
+def thumb_url(name: str) -> str:
+    """Static thumbnail of an asset (gifs too), or the asset itself when there is none."""
+    th = f"th__{Path(name).stem}.jpg"
+    return f"assets/{th if (Path('docs/assets') / th).exists() else name}"
+
+
+def picture(url: str, alt: str = "", lazy: bool = True, hires: bool = False) -> Markup:
+    """`<img>` for an asset url, wrapped in `<picture>` with a WebP source when there is one.
+
+    `hires`: the url is a thumbnail, `site.js` swaps in the full image (from the closest
+    `[data-full]`) once it's downloaded.
+    """
+    url = str(url)
+    loading = ' loading="lazy"' if lazy else ""
+    cls = ' class="hires"' if hires else ""
+    img = f'<img{cls}{loading} src="{escape(url)}" alt="{escape(alt)}" />'
+    if not webp_path(Path("docs") / url.lstrip("/")).exists():
+        return Markup(img)
+    return Markup(
+        f'<picture><source type="image/webp" srcset="{escape(url)}.webp" />{img}</picture>'
+    )
+
+
+##
+
+
 @cache
 def image_size(name: str) -> tuple[int, int]:
     with Image.open(Path("docs/assets") / name) as img:
@@ -331,9 +451,12 @@ def image_size(name: str) -> tuple[int, int]:
 
 
 def size_attrs(name: str) -> Markup:
-    """`data-w` / `data-h` of an asset, the gallery needs them to lay slides out."""
+    """`data-w` / `data-h` (+ `data-webp`) of an asset, the gallery needs them for slides."""
     w, h = image_size(name)
-    return Markup(f' data-w="{w}" data-h="{h}"')
+    attrs = f' data-w="{w}" data-h="{h}"'
+    if webp_path(Path("docs/assets") / name).exists():
+        attrs += ' data-webp="1"'
+    return Markup(attrs)
 
 
 def md_inline(text: str) -> Markup:
@@ -545,11 +668,39 @@ def interlace(files: list[Path]):
 
 
 @app.command()
+def check_images():
+    """Fails unless every image is interlaced and has an up-to-date, tracked WebP."""
+    errors = []
+    manifest = load_webp_manifest()
+    for x in webp_sources():
+        if not webp_is_fresh(x, manifest):
+            errors.append(f"{x}: WebP is missing or stale")
+        if x.suffix.lower() in (".png", ".jpg", ".jpeg"):
+            with Image.open(x) as img:
+                if not is_interlaced(img):
+                    errors.append(f"{x}: not interlaced")
+
+    untracked = subprocess.run(
+        ["git", "ls-files", "--others", "--exclude-standard", "docs/assets"],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.split()
+    errors += [f"{x}: not added to git" for x in untracked]
+
+    if errors:
+        print("\n".join(errors))
+        print(
+            "\nRun `uv run python main.py interlace <files>`, "
+            "`uv run python main.py build` and `git add docs/assets`"
+        )
+        raise typer.Exit(1)
+
+
+@app.command()
 def cog():
-    """Regenerates `[[[cog ... ]]]` blocks in markdown files."""
-    files = [
-        x.as_posix() for x in chain(Path(".").glob("*.md"), Path("pages").rglob("*.md"))
-    ]
+    """Regenerates `[[[cog ... ]]]` blocks in the site pages."""
+    files = [x.as_posix() for x in Path("pages").rglob("*.md")]
     markers = "[[[cog cog]]] [[[end]]]"
     ret = Cog().main(
         ["cog", "-n", "utf-8", "-U", "-r", "-P", "--markers", markers, *files]

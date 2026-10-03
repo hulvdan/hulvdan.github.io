@@ -28,6 +28,8 @@ a { color: inherit; }
 /* iOS turns dates like 07/2025 into phone links despite format-detection */
 a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; pointer-events: none; }
 img { display: block; max-width: 100%; }
+/* <picture> wrappers are layout-transparent and pass clip-path down to their <img> */
+picture { display: contents; clip-path: inherit; }
 
 /* ---------- background: warm glows + hairlines + film grain ---------- */
 .bg {
@@ -250,7 +252,8 @@ img { display: block; max-width: 100%; }
 }
 .body h3 .last { position: relative; }
 .body h3 .last::after { position: absolute; left: 100%; top: 50%; translate: .22em -50%; width: .42em; height: .42em; }
-.sec-head .anchor { align-self: center; width: 34px; height: 34px; color: var(--accent); }
+.sec-head .anchor { align-self: center; width: 34px; height: 34px; }
+.body h3 .last::after, .sec-head .anchor { color: color-mix(in srgb, var(--accent) 55%, var(--white)); }
 .body h3 a:hover .last::after, .body h3 a:focus-visible .last::after,
 .sec-head:hover .anchor, .sec-head .anchor:focus-visible { opacity: .8; }
 @media (hover: none) {
