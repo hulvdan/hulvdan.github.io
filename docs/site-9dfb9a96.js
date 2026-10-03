@@ -2,6 +2,7 @@
 // Every card / image grid / article is its own gallery, so arrows never leave the project.
 const PHOTOSWIPE = "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js";
 const GALLERY = ".card, .gifs, .article";
+const FIRST_SCAN_BYTES = 30_000; // roughly the first progressive pass of a typical cover
 const ITEM = "[data-full], [data-video]";
 
 // Other markdown images in articles open in the gallery too.
@@ -120,6 +121,26 @@ const openGallery = async (item) => {
         if (!frame.getAttribute("src")) frame.src = frame.dataset.src;
       } else frame.removeAttribute("src");
     });
+  // The original stays hidden (the thumbnail shows through) until its first progressive scan
+  // is in: the browser can't tell us which scan is drawn, so count bytes of the same file.
+  pswp.on("contentLoad", ({ content }) => {
+    const img = content.element;
+    if (content.type !== "image" || !img || !content.src) return;
+    const reveal = () => (img.style.opacity = "");
+    img.style.opacity = "0";
+    img.addEventListener("load", reveal, { once: true });
+    fetch(content.src)
+      .then(async (res) => {
+        const reader = res.body.getReader();
+        for (let got = 0; got < FIRST_SCAN_BYTES; ) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          got += value.length;
+        }
+        reveal();
+      })
+      .catch(reveal);
+  });
   pswp.on("change", syncVideos);
   pswp.on("contentAppend", () => setTimeout(syncVideos));
   // Arrows / keyboard slide like a swipe instead of jumping.
