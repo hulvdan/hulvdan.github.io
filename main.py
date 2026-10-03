@@ -267,7 +267,7 @@ TAG_URLS = {
 RANSOM_STYLES = [
     ("Anton", "#f5eeb0", "#000"),
     ("Archivo Black", "#000", "#f5eeb0"),
-    ("Playfair Display", "#fabf61", "#000"),
+    ("Anton", "#f5eeb0", "#000"),
     ("Rubik Mono One", "#000", "#fabf61"),
     ("Anton", "#fabf61", "#000"),
     ("Archivo Black", "#f5eeb0", "#000"),
