@@ -198,7 +198,7 @@ def article_image(m: re.Match) -> str:
         return m[0]
     name = url.removeprefix("/assets/")
     tag = picture("/" + thumb_url(name), alt, lazy=False, hires=True)
-    return tag.replace("<img ", f'<img data-full="{url}"{size_attrs(name)} ', 1)
+    return str(tag).replace("<img ", f'<img data-full="{url}"{size_attrs(name)} ', 1)
 
 
 def render_page_content(markdown_contents: str) -> Markup:
