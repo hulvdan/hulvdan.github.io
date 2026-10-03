@@ -1,4 +1,9 @@
 // ---------- lightbox ----------
+// Plain markdown images in articles open in the lightbox too.
+document.querySelectorAll(".article img:not([data-full] img)").forEach((img) => {
+  img.dataset.full = img.src;
+});
+
 const items = [...document.querySelectorAll("[data-full], [data-video]")];
 const lb = document.getElementById("lb");
 const lbImg = document.getElementById("lbImg");

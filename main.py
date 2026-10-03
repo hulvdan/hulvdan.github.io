@@ -30,7 +30,7 @@ def hashed_name(path: str) -> str:
 
 
 # Files copied to `docs` under a content-hashed name.
-HASHED_FILES = ["style.css", "pygments.css", "portfolio.css", "portfolio.js"]
+HASHED_FILES = ["pygments.css", "site.css", "site.js"]
 
 
 @app.command()
@@ -123,16 +123,22 @@ def build():
                 ransom_letters=ransom_letters,
             )
         else:
+            title = next(
+                (
+                    line.removeprefix("# ").strip()
+                    for line in markdown_contents.split("\n")
+                    if line.startswith("# ")
+                ),
+                "",
+            )
             rendered = env.get_template("page.html").render(
                 hashed=hashed_urls,
+                title=title,
                 content=render_page_content(markdown_contents),
             )
         output_path.write_text(rendered, encoding="utf-8", newline="\n")
 
         print(f'Generated "{source_path}" - "{output_path}"!')
-
-
-next_nanogallery_id = 0
 
 
 def process_line(line: str) -> str:
@@ -144,45 +150,23 @@ def process_line(line: str) -> str:
     elif line.startswith("!SPOILER_END"):
         return "</details>"
     if line.startswith("!FLEX_WRAP_START"):
-        return """<div class="hulvdan_flex hulvdan_flex_wrap" ''>"""
+        return """<div class="hulvdan_flex hulvdan_flex_wrap">"""
     elif line.startswith("!FLEX_START"):
-        return (
-            """<div class="hulvdan_flex" style='display: flex; align-items="center"'>"""
-        )
+        return """<div class="hulvdan_flex">"""
     elif line.startswith("!FLEX_END"):
         return "</div>"
-
-    global next_nanogallery_id
 
     line = line.replace(" -> ", " ➜ ").replace(r" \-\> ", " -> ")
 
     if line.startswith("!IMAGES "):
         images = [i.strip() for i in line.removeprefix("!IMAGES ").split() if i]
-        line = """<div id="ng{}" data-nanogallery2='{{
-            "thumbnailWidth": "150",
-            "thumbnailHeight": "100",
-            "thumbnailAlignment": "left",
-            "thumbnailOpenImage": true,
-            "thumbnailHoverEffect2": "imageScale150",
-            "thumbnailSliderDelay": 0,
-            "thumbnailWaitImageLoaded": false,
-            "thumbnailBorderHorizontal": 0,
-            "thumbnailBorderVertical": 0,
-            "thumbnailGutterWidth": 4,
-            "thumbnailGutterHeight": 4,
-            "locationHash": false,
-            "viewerTools": {{ "topLeft":  "", "topRight": "closeButton" }}
-        }}'>{}</div>"""
-        line = line.format(
-            next_nanogallery_id,
+        return '<div class="gallery">{}</div>'.format(
             "".join(
-                '<a href="assets/{}" data-ngthumb="assets/th__{}.jpg"></a>'.format(
-                    i, Path(i).stem
-                )
+                f'<button data-full="/assets/{i}" aria-label="Открыть">'
+                f'<img loading="lazy" src="/assets/th__{Path(i).stem}.jpg" alt="" /></button>'
                 for i in images
-            ),
+            )
         )
-        next_nanogallery_id += 1
 
     if line.startswith("!YOUTUBE_"):
         video_id = line.split("_", 1)[-1].strip()
@@ -192,18 +176,10 @@ def process_line(line: str) -> str:
             video_id = video_id.split("_", 1)[-1].strip()
             loop = 1
 
-        # random_value = "".join(
-        #     random.choice(string.ascii_letters + string.digits) for _ in range(8)
-        # )
-        return f"""<p><iframe
-            allowfullscreen="true"
-            frameborder="0"
-            width="480"
-            rel=0
-            loop={loop}
-            style="max-width: 100%; aspect-ratio: 16 / 9;"
-            src="https://www.youtube.com/embed/{video_id}"
-            ></iframe></p>"""
+        return (
+            f'<div class="video"><iframe allowfullscreen loop={loop}'
+            f' src="https://www.youtube-nocookie.com/embed/{video_id}"></iframe></div>'
+        )
 
     if line.startswith("!PAGE "):
         page_number = line.strip().split(" ", 1)[-1].strip()
