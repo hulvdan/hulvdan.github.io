@@ -173,7 +173,3 @@ message Lib {
 - В IDE от JetBrains альтернативой «Run on Save» будут [File Watchers](https://www.jetbrains.com/help/idea/using-file-watchers.html#ws_file_watchers_before_you_start)
 
 - Раньше я использовал Neovim и прописывал ряд обработчиков с помощью плагина [conform](https://github.com/stevearc/conform.nvim)
-
-<hr>
-
-## <center>[Hulvdan](/)</center>

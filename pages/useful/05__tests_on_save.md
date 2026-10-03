@@ -114,7 +114,3 @@ def _test_neighbor_iter():
 ## Ссылки
 
 - [Исполнение команд при сохранении файлов в редакторах кода](/useful/02.html)
-
-<hr>
-
-## <center>[Hulvdan](/)</center>

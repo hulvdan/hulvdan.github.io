@@ -138,9 +138,3 @@ cog]]] -->
 - Это я решил затестить подход с разработкой в преимущественно одном файле, о котором говорили Shawn McGrath и Sean Barrett то ли в [On Game Programming #001](https://www.youtube.com/watch?v=lCtALewoFjc), то ли в [#002](https://www.youtube.com/watch?v=s4-wS9VRuvk)
 
 - **Безумие moment.** Ходят легенды, что я в одном файле писал геймплей + рендер клона Brotato. [14к+ строк](https://github.com/hulvdan/cookier/blob/492ed2d9269ccdd93f0c746df97852e737c98e1f/src/game/bf_game.cpp). И довел игру до конца. Хочу этим сказать, что у меня сложилось впечатление, что с помощью удобных fold-ов в голове удерживать более обширную картину кода становится проще
-
-<hr>
-
-## <center>[Hulvdan](/)</center>
-
-

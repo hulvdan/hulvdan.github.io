@@ -3,7 +3,3 @@
 <hr>
 
 ## Проблема
-
-<hr>
-
-## <center>[Hulvdan](/)</center>

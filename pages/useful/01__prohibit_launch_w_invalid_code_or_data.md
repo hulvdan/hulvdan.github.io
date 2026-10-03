@@ -70,7 +70,3 @@ for creature in glib["creatures"]:
 <br>
 
 Обобщая, команды можно прогонять для *валидации данных перед запуском*
-
-<hr>
-
-## <center>[Hulvdan](/)</center>

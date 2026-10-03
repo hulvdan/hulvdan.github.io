@@ -134,9 +134,12 @@ img { display: block; max-width: 100%; }
   transition: transform .12s, background .12s, color .12s;
   cursor: pointer; border: 0;
 }
-.btn::before { content: "▶"; font-size: 10px; width: 0; overflow: hidden; transition: width .12s; }
+.btn::before { content: ""; flex: none; width: 0; height: 10px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); transition: width .12s; }
 .btn:hover, .btn:focus-visible { --bg: var(--accent); --fg: var(--black); transform: rotate(-3deg) scale(1.07); outline: none; }
-.btn:hover::before, .btn:focus-visible::before { width: 12px; }
+.btn:hover::before, .btn:focus-visible::before { width: 9px; }
+/* drawn triangles: iOS renders ◀ / ▶ characters as emoji */
+.tri { display: inline-block; flex: none; width: 10px; height: 12px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.tri.left { clip-path: polygon(100% 0, 0 50%, 100% 100%); }
 .ico { width: 15px; height: 15px; flex: none; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; }
 .btn.accent { --bg: var(--accent); --fg: var(--black); }
 .btn.accent:hover, .btn.accent:focus-visible { --bg: var(--white); }
@@ -211,8 +214,9 @@ img { display: block; max-width: 100%; }
 .thumbs img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; clip-path: inherit; }
 .thumbs button.video { position: relative; }
 .thumbs button.video::after {
-  content: "▶"; position: absolute; inset: 0; display: grid; place-items: center;
-  font-size: 22px; color: var(--white); text-shadow: 0 0 8px #000;
+  content: ""; position: absolute; left: 50%; top: 50%; translate: -40% -50%;
+  width: 20px; height: 24px; background: var(--white);
+  clip-path: polygon(0 0, 100% 50%, 0 100%); filter: drop-shadow(0 0 6px #000);
 }
 .thumbs.grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); margin: 0; padding: 0; }
 .card:nth-child(even) .thumbs.grid { order: 3; }
@@ -331,6 +335,7 @@ dialog .lb-close { position: absolute; top: -18px; right: -10px; }
 
 /* ---------- articles (other pages) ---------- */
 .topbar { position: fixed; top: 16px; left: 16px; z-index: 50; }
+.topbar .btn::before { display: none; }
 .article {
   max-width: 880px; margin: 0 auto; padding: 110px 24px 40px;
   font-size: 18px; line-height: 1.65; color: var(--text);
