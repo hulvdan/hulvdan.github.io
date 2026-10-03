@@ -62,3 +62,21 @@ const io = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
 setTimeout(() => document.querySelector(".wipe")?.remove(), 1100);
+
+// ---------- anchors ----------
+// Web fonts and images load after the browser's initial jump to `#id` and can push the
+// target down. Repeat the jump once they're in, unless the visitor already scrolled.
+if (location.hash) {
+  let userScrolled = false;
+  for (const ev of ["wheel", "touchstart", "keydown"])
+    addEventListener(ev, () => (userScrolled = true), { once: true, passive: true });
+
+  const jumpToHash = () => {
+    if (userScrolled) return;
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    target?.scrollIntoView({ behavior: "instant", block: "start" });
+  };
+  jumpToHash();
+  document.fonts?.ready.then(jumpToHash);
+  addEventListener("load", jumpToHash);
+}

@@ -225,17 +225,22 @@ img { display: block; max-width: 100%; }
 .card:nth-child(even) .sticker { right: auto; left: -14px; transform: rotate(-12deg); }
 
 .sec-head h2 a, .body h3 a { color: inherit; text-decoration: none; }
-.sec-head h2 a::after, .body h3 a::after {
-  content: ""; display: inline-block; width: .42em; height: .42em; margin-left: .22em; vertical-align: middle;
+/* Chain icon next to anchored titles, shown on hover. Section titles sit on a cream
+   plaque, so their icon lives outside it, in the accent color. */
+.body h3 a::after, .sec-head .anchor {
+  --chain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/%3E%3C/svg%3E");
+  content: ""; display: inline-block; flex: none;
   background: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/%3E%3C/svg%3E") center / contain no-repeat;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/%3E%3C/svg%3E") center / contain no-repeat;
+  -webkit-mask: var(--chain) center / contain no-repeat;
+          mask: var(--chain) center / contain no-repeat;
   opacity: 0; transition: opacity .15s;
 }
-.sec-head h2 a:hover::after, .body h3 a:hover::after,
-.sec-head h2 a:focus-visible::after, .body h3 a:focus-visible::after { opacity: .6; }
+.body h3 a::after { width: .42em; height: .42em; margin-left: .22em; vertical-align: middle; }
+.sec-head .anchor { align-self: center; width: 34px; height: 34px; color: var(--accent); }
+.body h3 a:hover::after, .body h3 a:focus-visible::after,
+.sec-head:hover .anchor, .sec-head .anchor:focus-visible { opacity: .8; }
 @media (hover: none) {
-  .sec-head h2 a::after, .body h3 a::after { opacity: .35; }
+  .body h3 a::after, .sec-head .anchor { opacity: .4; }
 }
 section[id], .card[id] { scroll-margin-top: 40px; }
 
@@ -285,16 +290,15 @@ section[id], .card[id] { scroll-margin-top: 40px; }
 .requests { max-width: 960px; margin: 0 auto; padding: 0 6vw; list-style: none; counter-reset: req; }
 .requests li { counter-increment: req; margin-bottom: 8px; }
 .requests a {
-  display: grid; grid-template-columns: 64px 1fr auto; gap: 16px; align-items: center;
+  display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center;
   text-decoration: none; padding: 14px 20px;
   background: var(--panel); border-left: 6px solid var(--white);
   clip-path: polygon(0 0, 100% 0, 98.5% 100%, 0 100%);
   transition: background .1s, transform .15s, border-color .1s;
 }
 .requests a::before { content: counter(req, decimal-leading-zero); font: 400 28px/1 "Anton"; color: var(--accent); }
-.requests a::after { content: "ОТКРЫТЬ ▶"; font: 700 13px/1 var(--head); letter-spacing: .1em; color: var(--gray); }
 .requests a:hover, .requests a:focus-visible { color: var(--black); background: var(--accent); border-color: var(--black); transform: translateX(10px) rotate(-.6deg); outline: none; }
-.requests a:hover::before, .requests a:hover::after { color: var(--black); }
+.requests a:hover::before { color: var(--black); }
 .requests span { font: 500 18px/1.3 var(--body); }
 
 /* ---------- lightbox ---------- */
@@ -410,10 +414,9 @@ dialog .lb-close { position: absolute; top: -18px; right: -10px; }
   .card:nth-child(even) .media { order: 0; }
   .thumbs.grid { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 6px; }
   .gifs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  section[id], .card[id] { scroll-margin-top: 12px; }
   .sticker { width: 110px; height: 110px; font-size: 14px; padding: 0 24px; }
-  .sec-head { flex-direction: column; gap: 10px; }
   .requests a { grid-template-columns: 44px 1fr; }
-  .requests a::after { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
