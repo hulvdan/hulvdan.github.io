@@ -230,7 +230,7 @@ img { display: block; max-width: 100%; }
   clip-path: polygon(50% 0,61% 18%,80% 7%,79% 29%,100% 31%,86% 48%,100% 65%,79% 70%,82% 92%,61% 83%,50% 100%,39% 83%,18% 92%,21% 70%,0 65%,14% 48%,0 31%,21% 29%,20% 7%,39% 18%);
   transform: rotate(12deg);
   pointer-events: none; /* hover and clicks go to the cover under it */
-  transition: transform .15s cubic-bezier(.3,1.8,.5,1);
+  transition: transform .45s cubic-bezier(.25,.8,.25,1);
 }
 .card:nth-child(even) .sticker { right: auto; left: -14px; transform: rotate(-12deg); }
 /* the sticker follows the cover it sits on */
@@ -297,11 +297,14 @@ section[id], .card[id] { scroll-margin-top: 40px; }
 .gifs button {
   padding: 4px; border: 0; background: var(--white); cursor: zoom-in;
   clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  transition: transform .15s, background .15s;
 }
-.gifs button:nth-child(odd) { transform: rotate(-2deg); }
-.gifs button:nth-child(even) { transform: rotate(2deg); }
-.gifs button:hover { transform: scale(1.06) rotate(0); background: var(--accent); }
+/* `rotate` / `scale` instead of `transform`: the reveal-on-scroll animation owns `transform` */
+.gifs button, .js .gifs button {
+  transition: opacity .45s, transform .55s cubic-bezier(.2,1.3,.4,1), rotate .15s, scale .15s, background .15s;
+}
+.gifs button:nth-child(odd) { rotate: -2deg; }
+.gifs button:nth-child(even) { rotate: 2deg; }
+.gifs button:hover { rotate: 0deg; scale: 1.06; background: var(--accent); }
 .gifs img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; clip-path: inherit; }
 
 /* ---------- requests list (articles) ---------- */
@@ -319,24 +322,52 @@ section[id], .card[id] { scroll-margin-top: 40px; }
 .requests a:hover::before { color: var(--black); }
 .requests span { font: 500 18px/1.3 var(--body); }
 
-/* ---------- lightbox ---------- */
-dialog {
-  border: 0; padding: 0; background: transparent; max-width: 92vw; max-height: 92vh; overflow: visible;
+/* ---------- gallery (PhotoSwipe) ---------- */
+.pswp {
+  --pswp-bg: #000;
+  --pswp-icon-color: var(--black);
+  --pswp-icon-color-secondary: transparent;
+  --pswp-icon-stroke-color: transparent;
+  --pswp-icon-stroke-width: 0;
 }
-dialog::backdrop { background: rgba(0,0,0,.88); backdrop-filter: blur(3px); }
-dialog .lb-frame {
-  padding: 8px; background: var(--white);
-  clip-path: polygon(1.5% 0, 100% 0, 98.5% 100%, 0 100%);
-  filter: drop-shadow(16px 16px 0 var(--accent));
+.pswp__button { opacity: 1 !important; }
+/* buttons look like the "I maek gaems" plaque: black, cream frame, accent shadow */
+.pswp__button--arrow, .pswp__button--close {
+  color: var(--white); background: var(--black);
+  border: 3px solid var(--white); box-shadow: 6px 6px 0 var(--accent);
+  transform: skewX(-10deg);
+  transition: background .12s, color .12s, border-color .12s, box-shadow .12s, transform .12s;
 }
-dialog img { max-width: 88vw; max-height: 80vh; object-fit: contain; background: #000; }
-dialog iframe { display: block; width: min(88vw, 1100px); aspect-ratio: 16 / 9; border: 0; background: #000; }
-dialog [hidden] { display: none; }
-dialog .btn::before { display: none; }
-dialog .lb-nav { position: absolute; top: 50%; translate: 0 -50%; }
-dialog .lb-prev { left: -20px; }
-dialog .lb-next { right: -20px; }
-dialog .lb-close { position: absolute; top: -18px; right: -10px; }
+.pswp__button--arrow:hover, .pswp__button--close:hover {
+  color: var(--black); background: var(--accent); border-color: var(--black);
+  box-shadow: 6px 6px 0 var(--white); transform: skewX(-10deg) rotate(-3deg) scale(1.07);
+}
+.pswp .pswp__icn { color: inherit; fill: currentColor; stroke: currentColor; }
+/* arrows sit at fixed spots on the screen, whatever the image size */
+.pswp__button--arrow { top: 50%; width: 64px; height: 64px; margin-top: -32px; }
+.pswp__button--arrow--prev { left: 24px; }
+.pswp__button--arrow--next { right: 24px; }
+.pswp__button--arrow .pswp__icn,
+.pswp__button--arrow--next .pswp__icn,
+.pswp__button--close .pswp__icn {
+  position: absolute; top: 50%; left: 50%; right: auto; margin: 0;
+  width: 30px; height: 30px; translate: -50% -50%; transform: skewX(10deg);
+}
+.pswp__button--close { width: 56px; height: 56px; margin: 0; }
+.pswp__top-bar { padding: 16px 20px 0; gap: 8px; }
+.pswp__counter {
+  margin: 10px auto 0 0; opacity: 1;
+  font: 700 18px/1 var(--head); letter-spacing: .12em; color: var(--white); text-shadow: none;
+}
+.pswp__caption {
+  position: absolute; left: 50%; bottom: 24px; translate: -50% 0; max-width: calc(100vw - 40px);
+  font: 700 20px/1 var(--head); text-transform: uppercase; letter-spacing: .04em;
+  color: var(--black); background: var(--white); padding: 9px 24px 7px;
+  clip-path: var(--slant); pointer-events: none;
+}
+.pswp__caption:empty { display: none; }
+.pswp-video { position: absolute; inset: 0; display: grid; place-items: center; }
+.pswp-video iframe { width: min(92vw, calc((100vh - 180px) * 16 / 9)); aspect-ratio: 16 / 9; border: 0; background: #000; }
 
 @keyframes jitter { 0% { translate: -2px 1px; } 100% { translate: 2px -1px; } }
 @keyframes shake { 0%,100% { translate: 0 0; } 20% { translate: -6px 3px; } 40% { translate: 5px -4px; } 60% { translate: -4px -2px; } 80% { translate: 3px 4px; } }
@@ -434,6 +465,8 @@ dialog .lb-close { position: absolute; top: -18px; right: -10px; }
   .thumbs.grid { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 6px; }
   .gifs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   section[id], .card[id] { scroll-margin-top: 12px; }
+  .pswp__button--arrow { top: auto; bottom: 20px; margin-top: 0; }
+  .pswp__caption { bottom: 96px; font-size: 16px; }
   .sticker { width: 110px; height: 110px; font-size: 14px; padding: 0 24px; }
   .requests a { grid-template-columns: 44px 1fr; }
 }

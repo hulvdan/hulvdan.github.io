@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import ext, asset, contacts, card %}
+{% from "_macros.html" import ext, asset, contacts, card with context %}
 
 {% block title %}{{ hero.name }}{% endblock %}
 
@@ -27,7 +27,7 @@
       {% elif s.images %}
       <div class="gifs">
         {% for i in s.images %}
-        <button class="reveal" data-full="{{ asset(i) }}" aria-label="Открыть"><img loading="lazy" src="{{ asset(i) }}" alt="" /></button>
+        <button class="reveal" data-full="{{ asset(i) }}"{{ size_attrs(i) }} aria-label="Открыть"><img loading="lazy" src="{{ asset(i) }}" alt="" /></button>
         {% endfor %}
       </div>
       {% elif s.links %}

@@ -7,6 +7,7 @@ import shutil
 import subprocess
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass, field
+from functools import cache
 from itertools import chain
 from pathlib import Path
 
@@ -119,6 +120,7 @@ def build():
                 hero=hero,
                 sections=sections,
                 ransom_letters=ransom_letters,
+                size_attrs=size_attrs,
             )
         else:
             title = next(
@@ -160,7 +162,7 @@ def process_line(line: str) -> str:
         images = [i.strip() for i in line.removeprefix("!IMAGES ").split() if i]
         return '<div class="gallery">{}</div>'.format(
             "".join(
-                f'<button data-full="/assets/{i}" aria-label="Открыть">'
+                f'<button data-full="/assets/{i}"{size_attrs(i)} aria-label="Открыть">'
                 f'<img loading="lazy" src="/assets/th__{Path(i).stem}.jpg" alt="" /></button>'
                 for i in images
             )
@@ -320,6 +322,18 @@ def assign_ids(sections: list[Section]) -> None:
         section.id = unique(section.title)
         for card in section.cards:
             card.id = unique(card.title)
+
+
+@cache
+def image_size(name: str) -> tuple[int, int]:
+    with Image.open(Path("docs/assets") / name) as img:
+        return img.size
+
+
+def size_attrs(name: str) -> Markup:
+    """`data-w` / `data-h` of an asset, the gallery needs them to lay slides out."""
+    w, h = image_size(name)
+    return Markup(f' data-w="{w}" data-h="{h}"')
 
 
 def md_inline(text: str) -> Markup:

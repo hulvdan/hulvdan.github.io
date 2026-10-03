@@ -18,7 +18,7 @@
 {% set video_id = i.removeprefix("youtube:") %}
 <button class="video" data-video="{{ video_id }}" aria-label="Видео"><img loading="lazy" src="https://i.ytimg.com/vi/{{ video_id }}/maxresdefault.jpg" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" alt="" /></button>
 {% else %}
-<button data-full="{{ asset(i) }}" aria-label="Скриншот"><img loading="lazy" src="{{ thumb(i) }}" alt="" /></button>
+<button data-full="{{ asset(i) }}"{{ size_attrs(i) }} aria-label="Скриншот"><img loading="lazy" src="{{ thumb(i) }}" alt="" /></button>
 {% endif %}
 {% endfor %}
 {% endset %}
@@ -26,7 +26,7 @@
   <div class="frame"></div>
   <div class="media">
     {% if c.sticker %}<span class="sticker">{{ c.sticker }}</span>{% endif %}
-    <button class="cover" data-full="{{ asset(c.cover) }}" aria-label="Открыть {{ c.title }}"><img loading="lazy" src="{{ asset(c.cover) }}" alt="{{ c.title }}" /></button>
+    <button class="cover" data-full="{{ asset(c.cover) }}"{{ size_attrs(c.cover) }} aria-label="Открыть {{ c.title }}"><img loading="lazy" src="{{ asset(c.cover) }}" alt="{{ c.title }}" /></button>
     {% if c.images and not many %}<div class="thumbs">{{ thumbs }}</div>{% endif %}
   </div>
   <div class="body">
