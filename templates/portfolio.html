@@ -19,7 +19,7 @@
 
     {% for s in sections %}
     <section id="{{ s.id }}">
-      <div class="sec-head reveal"><h2><a href="#{{ s.id }}">{{ s.title }}</a></h2></div>
+      <div class="sec-head reveal"><h2><a href="#{{ s.id }}">{{ s.title }}</a></h2><a class="anchor" href="#{{ s.id }}" aria-label="Ссылка на раздел"></a></div>
       {% if s.cards %}
       <div class="cards">
         {% for c in s.cards %}{{ card(c, loop.index0) }}{% endfor %}

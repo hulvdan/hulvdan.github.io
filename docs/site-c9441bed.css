@@ -582,6 +582,52 @@ picture {
   color: inherit;
   text-decoration: none;
 }
+/* Anchor icon next to anchored titles, shown on hover. Section titles sit on a cream
+   plaque, so their icon lives outside it, in the accent color. */
+.body h3 .last::after,
+.sec-head .anchor {
+  --anchor-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='4.5' r='2.5'/%3E%3Cpath d='M12 7v14M7 10h10M4 14a8 8 0 0 0 16 0M2 16l2-2 2 2M18 16l2-2 2 2'/%3E%3C/svg%3E");
+  content: "";
+  display: inline-block;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: var(--anchor-icon) center / contain no-repeat;
+  mask: var(--anchor-icon) center / contain no-repeat;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.body h3 .last {
+  position: relative;
+}
+.body h3 .last::after {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  translate: 0.22em -50%;
+  width: 0.42em;
+  height: 0.42em;
+}
+.sec-head .anchor {
+  align-self: center;
+  width: 34px;
+  height: 34px;
+}
+.body h3 .last::after,
+.sec-head .anchor {
+  color: color-mix(in srgb, var(--accent) 55%, var(--white));
+}
+.body h3 a:hover .last::after,
+.body h3 a:focus-visible .last::after,
+.sec-head:hover .anchor,
+.sec-head .anchor:focus-visible {
+  opacity: 0.8;
+}
+@media (hover: none) {
+  .body h3 .last::after,
+  .sec-head .anchor {
+    opacity: 0.4;
+  }
+}
 section[id],
 .card[id] {
   scroll-margin-top: 40px;
