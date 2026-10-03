@@ -82,7 +82,7 @@ picture { display: contents; clip-path: inherit; }
   animation: wipe-text .5s .3s ease-in forwards;
 }
 .wipe span::after {
-  content: "."; display: inline-block; width: 1.4em; text-align: left;
+  content: "."; position: absolute; left: 100%; top: 0; text-align: left;
   animation: dots .8s steps(1) forwards; /* one pass, ~.27s per step; "..." shows during fade-out */
 }
 @keyframes dots { 0% { content: "."; } 33% { content: ".."; } 66%, 100% { content: "..."; } }
