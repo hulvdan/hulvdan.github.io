@@ -53,8 +53,11 @@ const openGallery = async (item) => {
         ? { top: 90, bottom: 90, left: 110, right: 110 }
         : { top: 80, bottom: 160, left: 0, right: 0 },
     zoom: false, // clicking the image zooms already
-    wheelToZoom: true, // mouse wheel zooms towards the cursor
-    maxZoomLevel: 4,
+    // Mouse wheel zooms towards the cursor, a click zooms into the clicked spot, drag pans.
+    // Levels are relative to "fit", so small gifs zoom as well as big screenshots.
+    wheelToZoom: true,
+    secondaryZoomLevel: (zoom) => zoom.fit * 2.5,
+    maxZoomLevel: (zoom) => zoom.fit * 6,
     arrowPrevTitle: "Назад",
     arrowNextTitle: "Вперёд",
     closeTitle: "Закрыть",
