@@ -63,7 +63,8 @@ const toSlide = (el) => {
     src: el.dataset.full,
     width: +el.dataset.w || img?.naturalWidth || 1600,
     height: +el.dataset.h || img?.naturalHeight || 900,
-    msrc: img?.currentSrc,
+    // Shown while the original is downloading. `currentSrc` is empty for images that haven't loaded yet (lazy).
+    msrc: img?.currentSrc || img?.src,
     element: img,
     thumbCropped: true,
     alt: img?.alt || "",
