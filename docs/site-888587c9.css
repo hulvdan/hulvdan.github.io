@@ -408,6 +408,7 @@ dialog .lb-close { position: absolute; top: -18px; right: -10px; }
   .card, .card:nth-child(even) { grid-template-columns: minmax(0, 1fr); padding: 30px 22px 30px; }
   .card:nth-child(even) .media { order: 0; }
   .thumbs.grid { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 6px; }
+  .gifs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .sticker { width: 110px; height: 110px; font-size: 14px; padding: 0 24px; }
   .sec-head { flex-direction: column; gap: 10px; }
   .requests a { grid-template-columns: 44px 1fr; }
