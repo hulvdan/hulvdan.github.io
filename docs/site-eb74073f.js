@@ -142,6 +142,8 @@ document.addEventListener("click", (e) => {
     title.classList.add("shake");
   }
 
+  if (title?.matches(".ransom") && location.hash)
+    history.replaceState(null, "", location.pathname + location.search);
   if (title?.matches(".ransom, .tagline")) curse(title, 1);
   if (title?.matches(".intro")) curse(title, 3 + Math.floor(Math.random() * 3));
 });
