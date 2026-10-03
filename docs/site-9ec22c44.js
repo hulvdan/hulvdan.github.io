@@ -43,7 +43,7 @@ const openGallery = async (item) => {
   const pswp = new PhotoSwipe({
     dataSource: items.map(toSlide),
     index: items.indexOf(item),
-    bgOpacity: 0.94,
+    bgOpacity: 1,
     showHideAnimationType: "zoom",
     imageClickAction: "zoom",
     tapAction: "toggle-controls",

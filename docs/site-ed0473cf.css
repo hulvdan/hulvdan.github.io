@@ -330,6 +330,8 @@ section[id], .card[id] { scroll-margin-top: 40px; }
   --pswp-icon-stroke-color: transparent;
   --pswp-icon-stroke-width: 0;
 }
+/* iOS: `100%` stops above the collapsing toolbar and the page shows through below */
+.pswp { height: 100vh; height: 100lvh; }
 .pswp__button { opacity: 1 !important; }
 /* buttons look like the "I maek gaems" plaque: black, cream frame, accent shadow */
 .pswp__button--arrow, .pswp__button--close {
