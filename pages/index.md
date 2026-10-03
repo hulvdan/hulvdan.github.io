@@ -38,6 +38,18 @@
 
 - Делаю с товарищами, а не в соло
 
+### 3 в ряд
+
+!GENRE Казуальная головоломка · C++
+!DATE 01/2026
+!IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
+!TAGS C++, SDL, bgfx, miniaudio, LDtk, Clip Studio, Reaper
+!VIDEO Геймплей I_3kDdkYqoA
+!LINK Яндекс Игры https://yandex.ru/games/app/509154?draft=true&lang=ru
+#{!LINK GitHub https://github.com/hulvdan/emberveil2}#
+
+- Увидел, что люди неплохо зарабатывали на дурацких играх в Яндекс Играх 2-3 года назад, и решил попробовать сам. Просчитался, но где?
+
 ### Молочник против печенек
 
 !GENRE Клон «Brotato» · C++
@@ -50,18 +62,6 @@
 
 - Первая игра, которую опубликовал
 - Минимально освоил Reaper для работы с аудио
-
-### 3 в ряд
-
-!GENRE Казуальная головоломка · C++
-!DATE 01/2026
-!IMAGES emberveil2_banner.png emberveil2_1.png emberveil2_2.png emberveil2_3.png emberveil2_4.png emberveil2_5.png emberveil2_6.png emberveil2_7.png
-!TAGS C++, SDL, bgfx, miniaudio, LDtk, Clip Studio, Reaper
-!VIDEO Геймплей I_3kDdkYqoA
-!LINK Яндекс Игры https://yandex.ru/games/app/509154?draft=true&lang=ru
-#{!LINK GitHub https://github.com/hulvdan/emberveil2}#
-
-- Увидел, что люди неплохо зарабатывали на дурацких играх в Яндекс Играх 2-3 года назад, и решил попробовать сам. Просчитался но где
 
 ### Cult Boy
 
