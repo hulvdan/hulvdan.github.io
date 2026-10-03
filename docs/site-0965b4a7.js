@@ -141,7 +141,34 @@ document.addEventListener("click", (e) => {
     void title.offsetWidth;
     title.classList.add("shake");
   }
+
+  if (title?.classList.contains("tagline")) curse(title);
 });
+
+// ---------- tagline curses on click ----------
+// Every click adds a comic-style swear symbol, never the same as its neighbour.
+// Once the line is full, clicks swap a random symbol instead, so it keeps cursing.
+const GRAWLIX = "#%$^&@*!?";
+const MAX_GRAWLIX = 8;
+const randomOf = (list) => list[Math.floor(Math.random() * list.length)];
+const curse = (tagline) => {
+  const text = tagline.querySelector("span");
+  const symbols = text.querySelectorAll(".grawlix");
+  const sym =
+    symbols.length < MAX_GRAWLIX
+      ? text.appendChild(document.createElement("b"))
+      : randomOf(symbols);
+  const neighbours = [sym.previousElementSibling, sym.nextElementSibling];
+  const taken = [sym.textContent, ...neighbours.map((el) => el?.textContent)];
+  let ch;
+  do ch = randomOf(GRAWLIX);
+  while (taken.includes(ch));
+  sym.className = "";
+  void sym.offsetWidth;
+  sym.className = "grawlix";
+  sym.textContent = ch;
+  sym.style.setProperty("--r", `${Math.round(Math.random() * 50 - 25)}deg`);
+};
 
 // ---------- reveal on scroll ----------
 const makeRevealObserver = (options) => {

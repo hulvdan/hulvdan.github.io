@@ -192,6 +192,18 @@ picture {
     border-color 0.12s,
     box-shadow 0.12s;
 }
+/* swear symbols added on click (site.js) */
+.grawlix {
+  display: inline-block;
+  rotate: var(--r);
+  animation: grawlix-pop 0.25s ease-out;
+}
+@keyframes grawlix-pop {
+  from {
+    scale: 2.4;
+    opacity: 0;
+  }
+}
 .tagline:hover {
   background: var(--accent);
   color: var(--black);
