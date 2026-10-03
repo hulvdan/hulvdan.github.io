@@ -211,10 +211,8 @@ img { display: block; max-width: 100%; }
   background: var(--white); color: var(--black);
   clip-path: polygon(50% 0,61% 18%,80% 7%,79% 29%,100% 31%,86% 48%,100% 65%,79% 70%,82% 92%,61% 83%,50% 100%,39% 83%,18% 92%,21% 70%,0 65%,14% 48%,0 31%,21% 29%,20% 7%,39% 18%);
   transform: rotate(12deg);
-  animation: pulse 2.4s ease-in-out infinite;
 }
 .card:nth-child(even) .sticker { right: auto; left: -14px; transform: rotate(-12deg); }
-@keyframes pulse { 50% { scale: 1.08; } }
 
 .body h3 {
   margin: 6px 0 4px;

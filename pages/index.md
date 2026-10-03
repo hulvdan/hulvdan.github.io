@@ -33,10 +33,10 @@
 !GENRE Инкременталка · Godot
 !DATE 04/2026 - н.в.
 !COVER game4_60.png
-!IMAGES game4_65.png game4_64.png game4_63.png game4_62.png game4_61.png game4_59.png game4_58.png game4_57.png game4_56.png game4_55.png game4_54.png game4_53.png game4_52.png game4_51.png game4_50.png game4_49.png game4_48.png game4_47.png game4_46.png game4_45.png game4_44.png game4_43.png game4_42.png game4_41.png game4_40.png game4_39.png game4_38.png game4_37.png game4_36.png game4_35.png game4_34.png game4_32.png game4_30.png game4_29.png game4_28.png game4_27.png game4_26.png game4_21.png game4_19.png game4_8.png game4_7.png game4_6.png game4_5.png game4_4.png game4_3.png game4_2.png game4_1.png
+!IMAGES game4_65.png game4_64.png game4_63.png game4_62.png game4_61.png game4_59.png game4_58.png game4_57.png game4_56.png game4_55.png game4_54.png game4_53.png game4_52.png game4_51.png game4_50.png game4_49.png game4_48.png game4_47.png game4_46.png game4_45.png game4_44.png game4_43.png game4_42.png game4_41.png game4_40.png game4_39.png game4_38.png game4_37.png game4_36.png game4_35.png game4_32.png game4_30.png game4_29.png game4_28.png game4_27.png game4_26.png game4_21.png game4_19.png game4_8.png game4_7.png game4_6.png game4_5.png game4_4.png game4_3.png game4_2.png game4_1.png
 !TAGS Godot, Python, LDtk, Clip Studio, Reaper, AutoHotkey
 
-### Cookier
+### Молочник против печенек
 
 !GENRE Клон «Brotato» · C++
 !DATE 09/2025 - 12/2025

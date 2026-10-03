@@ -1,0 +1,53 @@
+{% macro ext(url) %}{% if url.startswith("http") %} target="_blank" rel="noopener"{% endif %}{% endmacro %}
+{% macro asset(name) %}assets/{{ name }}{% endmacro %}
+{% macro thumb(name) %}assets/{% if name.endswith((".jpg", ".png")) %}th__{{ name.rsplit(".", 1)[0] }}.jpg{% else %}{{ name }}{% endif %}{% endmacro %}
+
+{% macro contacts(links) %}
+<div class="socials">
+  {% for c in links %}
+  <a class="btn icon-only" href="{{ c.url }}"{{ ext(c.url) }} aria-label="{{ c.label }}" title="{{ c.label }}"><span class="ico ico-{{ c.icon }}"></span></a>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro card(c, index) %}
+{% set many = c.images|length > 4 %}
+{% set thumbs %}
+{% for i in c.images %}
+<button data-full="{{ asset(i) }}" aria-label="Скриншот"><img loading="lazy" src="{{ thumb(i) }}" alt="" /></button>
+{% endfor %}
+{% endset %}
+<article class="card reveal{% if index is odd %} from-right{% endif %}">
+  <div class="frame"></div>
+  <div class="media">
+    {% if c.sticker %}<span class="sticker">{{ c.sticker }}</span>{% endif %}
+    <button class="cover" data-full="{{ asset(c.cover) }}" aria-label="Открыть {{ c.title }}"><img loading="lazy" src="{{ asset(c.cover) }}" alt="{{ c.title }}" /></button>
+    {% if c.images and not many %}<div class="thumbs">{{ thumbs }}</div>{% endif %}
+  </div>
+  <div class="body">
+    <h3>{{ c.title }}</h3>
+    {% if c.genre %}<div class="genre">{{ c.genre }}</div>{% endif %}
+    {% if c.date %}<p class="date">{{ c.date }}</p>{% endif %}
+    {% if c.notes %}
+    <ul class="notes">
+      {% for n in c.notes %}<li>{{ n }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if c.tags %}
+    <ul class="tags">
+      {% for t in c.tags %}
+      <li>{% if t.url %}<a href="{{ t.url }}"{{ ext(t.url) }}>{{ t.label }}</a>{% else %}<span>{{ t.label }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if c.actions %}
+    <div class="actions">
+      {% for a in c.actions %}
+      <a class="btn accent" href="{{ a.url }}"{{ ext(a.url) }}>{% if a.icon %}<span class="ico ico-{{ a.icon }}"></span>{% endif %}{{ a.label }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% if many %}<div class="thumbs grid">{{ thumbs }}</div>{% endif %}
+</article>
+{% endmacro %}

@@ -1,0 +1,67 @@
+{% from "_macros.html" import ext, asset, contacts, card %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ hero.name }}</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Google+Sans:wght@400;500;700&family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@1,900&family=Rubik+Mono+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ hashed["portfolio.css"] }}" />
+    <script>document.documentElement.classList.add("js")</script>
+    <script defer src="{{ hashed["portfolio.js"] }}"></script>
+  </head>
+
+  <body>
+    <div class="bg"></div>
+    <div class="wipe" aria-hidden="true"><span>LOADING</span></div>
+
+    <header class="hero">
+      <div>
+        <h1 class="ransom" aria-label="{{ hero.name }}">
+          {% for char, style in ransom_letters(hero.name) %}<b aria-hidden="true" style="{{ style }}">{{ char }}</b>{% endfor %}
+        </h1>
+        <div class="tagline"><span>{{ hero.tagline }}</span></div>
+        <div class="intro">{{ hero.intro }}</div>
+        {{ contacts(hero.contacts) }}
+      </div>
+    </header>
+
+    {% for s in sections %}
+    <section>
+      <div class="sec-head reveal"><h2>{{ s.title }}</h2></div>
+      {% if s.cards %}
+      <div class="cards">
+        {% for c in s.cards %}{{ card(c, loop.index0) }}{% endfor %}
+      </div>
+      {% elif s.images %}
+      <div class="gifs">
+        {% for i in s.images %}
+        <button class="reveal" data-full="{{ asset(i) }}" aria-label="Открыть"><img loading="lazy" src="{{ asset(i) }}" alt="" /></button>
+        {% endfor %}
+      </div>
+      {% elif s.links %}
+      <ol class="requests">
+        {% for l in s.links %}
+        <li class="reveal"><a href="{{ l.url }}"{{ ext(l.url) }}><span>{{ l.label }}</span></a></li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      {{ s.body }}
+      {% endif %}
+    </section>
+    {% endfor %}
+
+    <div class="outro reveal">{{ contacts(hero.contacts) }}</div>
+
+    <dialog id="lb">
+      <div class="lb-frame"><img id="lbImg" alt="" /></div>
+      <button class="btn lb-nav lb-prev" id="lbPrev" aria-label="Назад">◀</button>
+      <button class="btn lb-nav lb-next" id="lbNext" aria-label="Вперёд">▶</button>
+      <button class="btn lb-close" id="lbClose">Закрыть</button>
+    </dialog>
+  </body>
+</html>

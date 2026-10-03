@@ -1,18 +1,20 @@
 #
 ## Imports
 import hashlib
-import html
 import os
 import re
 import shutil
 import subprocess
 from concurrent.futures import ProcessPoolExecutor
+from dataclasses import dataclass, field
 from itertools import chain
 from pathlib import Path
 
 import markdown2
 import png
 import typer
+from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from markupsafe import Markup
 from PIL import Image
 
 ##
@@ -35,18 +37,15 @@ HASHED_FILES = ["style.css", "pygments.css", "portfolio.css", "portfolio.js"]
 def build():
     hashed = {x: hashed_name(x) for x in HASHED_FILES}
 
-    template_data = (
-        Path("index_template.html")
-        .read_text()
-        .replace("{{ STYLE_CSS }}", f"/{hashed['style.css']}")
-        .replace("{{ PYGMENTS_CSS }}", f"/{hashed['pygments.css']}")
+    env = Environment(
+        loader=FileSystemLoader("templates"),
+        autoescape=True,
+        undefined=StrictUndefined,
+        trim_blocks=True,
+        lstrip_blocks=True,
+        keep_trailing_newline=True,
     )
-    portfolio_template_data = (
-        Path("portfolio_template.html")
-        .read_text(encoding="utf-8")
-        .replace("{{ PORTFOLIO_CSS }}", f"/{hashed['portfolio.css']}")
-        .replace("{{ PORTFOLIO_JS }}", f"/{hashed['portfolio.js']}")
-    )
+    hashed_urls = {k: f"/{v}" for k, v in hashed.items()}
 
     ## Making thumbnails
     for filepath in Path("docs/assets").iterdir():
@@ -116,20 +115,19 @@ def build():
 
         os.makedirs(output_path.parent, exist_ok=True)
         if markdown_contents.startswith(PORTFOLIO_LAYOUT):
-            output_path.write_text(
-                portfolio_template_data.replace(
-                    "{content}", render_portfolio(markdown_contents)
-                ),
-                encoding="utf-8",
+            hero, sections = parse_portfolio(markdown_contents)
+            rendered = env.get_template("portfolio.html").render(
+                hashed=hashed_urls,
+                hero=hero,
+                sections=sections,
+                ransom_letters=ransom_letters,
             )
-            print(f'Generated "{source_path}" - "{output_path}"!')
-            continue
-
-        write_file(
-            template_data=template_data,
-            markdown_contents=markdown_contents,
-            output_file_path=output_path,
-        )
+        else:
+            rendered = env.get_template("page.html").render(
+                hashed=hashed_urls,
+                content=render_page_content(markdown_contents),
+            )
+        output_path.write_text(rendered, encoding="utf-8", newline="\n")
 
         print(f'Generated "{source_path}" - "{output_path}"!')
 
@@ -214,24 +212,21 @@ def process_line(line: str) -> str:
     return line
 
 
-def write_file(*, template_data: str, markdown_contents: str, output_file_path):
+def render_page_content(markdown_contents: str) -> Markup:
     markdown_contents = re.sub(r"#{[^}]*}#", "", markdown_contents)
     markdown_contents = "\n".join(
         process_line(line) for line in markdown_contents.split("\n")
     )
-
-    content = markdown2.markdown(
-        markdown_contents.replace(" - ", " — "),
-        extras=["markdown-in-html", "fenced-code-blocks"],
+    return Markup(
+        markdown2.markdown(
+            markdown_contents.replace(" - ", " — "),
+            extras=["markdown-in-html", "fenced-code-blocks"],
+        )
     )
-    rendered_html = template_data.format(content=content)
-
-    with open(output_file_path, "w", encoding="utf-8") as out_file:
-        out_file.write(rendered_html)
 
 
 ## Portfolio layout
-# Pages starting with `!LAYOUT portfolio` are rendered with `portfolio_template.html`.
+# Pages starting with `!LAYOUT portfolio` are rendered with `templates/portfolio.html`.
 #
 # `# Name` + `!TAGLINE` + text + `!CONTACT <kind> <url>` before the first `##` form the hero.
 # Each `## Section` becomes a block:
@@ -253,6 +248,7 @@ LINK_ICONS = {
     "Steam": "steam",
     "itch.io": "itch",
     "Reddit": "reddit",
+    "GitHub": "github",
 }
 
 TAG_URLS = {
@@ -289,26 +285,47 @@ RANSOM_STYLES = [
 ]
 RANSOM_ROTATIONS = [-7, 4, -3, 6, -5, 3, -8]
 
-MANY_THUMBS = 4
+
+@dataclass
+class Link:
+    label: str
+    url: str
+    icon: str = ""
 
 
-def md_inline(text: str) -> str:
+@dataclass
+class Hero:
+    name: str = ""
+    tagline: str = ""
+    intro: Markup = field(default_factory=Markup)
+    contacts: list[Link] = field(default_factory=list)
+
+
+@dataclass
+class Card:
+    title: str
+    sticker: str = ""
+    genre: str = ""
+    date: str = ""
+    cover: str = ""
+    images: list[str] = field(default_factory=list)
+    tags: list[Link] = field(default_factory=list)
+    actions: list[Link] = field(default_factory=list)
+    notes: list[Markup] = field(default_factory=list)
+
+
+@dataclass
+class Section:
+    title: str
+    cards: list[Card] = field(default_factory=list)
+    images: list[str] = field(default_factory=list)
+    links: list[Link] = field(default_factory=list)
+    body: Markup = field(default_factory=Markup)
+
+
+def md_inline(text: str) -> Markup:
     rendered = markdown2.markdown(text).strip()
-    return re.sub(r"^<p>(.*)</p>$", r"\1", rendered, flags=re.S)
-
-
-def asset(name: str) -> str:
-    return f"assets/{name}"
-
-
-def thumb(name: str) -> str:
-    if name.endswith((".jpg", ".png")):
-        return asset(f"th__{Path(name).stem}.jpg")
-    return asset(name)
-
-
-def external(url: str) -> str:
-    return ' target="_blank" rel="noopener"' if url.startswith("http") else ""
+    return Markup(re.sub(r"^<p>(.*)</p>$", r"\1", rendered, flags=re.S))
 
 
 def directive(line: str, name: str) -> str | None:
@@ -321,7 +338,8 @@ def split_label_value(text: str) -> tuple[str, str]:
     return label.strip(), value.strip()
 
 
-def render_ransom(name: str) -> str:
+def ransom_letters(name: str) -> list[tuple[str, str]]:
+    """Returns (letter, inline style) pairs for the hero title."""
     letters = []
     for i, ch in enumerate(name.upper()):
         font, bg, fg = RANSOM_STYLES[i % len(RANSOM_STYLES)]
@@ -332,174 +350,85 @@ def render_ransom(name: str) -> str:
         )
         if font == "Playfair Display":
             style += "font-style:italic;font-weight:900;"
-        letters.append(f'<b aria-hidden="true" style="{style}">{html.escape(ch)}</b>')
-    return '<h1 class="ransom" aria-label="{}">{}</h1>'.format(
-        html.escape(name), "".join(letters)
-    )
+        letters.append((ch, style))
+    return letters
 
 
-def render_contacts(contacts: list[tuple[str, str]]) -> str:
-    buttons = "".join(
-        '<a class="btn icon-only" href="{url}"{ext} aria-label="{label}" title="{label}">'
-        '<span class="ico ico-{kind}"></span></a>'.format(
-            url=html.escape(url), ext=external(url), label=CONTACTS[kind], kind=kind
-        )
-        for kind, url in contacts
-    )
-    return f'<div class="socials">{buttons}</div>'
-
-
-def render_hero(lines: list[str]) -> tuple[str, list[tuple[str, str]]]:
-    name, tagline, contacts, text = "", "", [], []
+def parse_hero(lines: list[str]) -> Hero:
+    hero, text = Hero(), []
     for line in lines:
         if line.startswith("# "):
-            name = line.removeprefix("# ").strip()
+            hero.name = line.removeprefix("# ").strip()
         elif (v := directive(line, "TAGLINE")) is not None:
-            tagline = v
+            hero.tagline = v
         elif (v := directive(line, "CONTACT")) is not None:
             kind, url = v.split(" ", 1)
-            contacts.append((kind, url.strip()))
+            hero.contacts.append(Link(CONTACTS[kind], url.strip(), kind))
         else:
             text.append(line)
-
-    intro = markdown2.markdown("\n".join(text)).strip()
-    hero = (
-        '<header class="hero"><div>'
-        f"{render_ransom(name)}"
-        f'<div class="tagline"><span>{html.escape(tagline)}</span></div>'
-        f'<div class="intro">{intro}</div>'
-        f"{render_contacts(contacts)}"
-        "</div></header>"
-    )
-    return hero, contacts
+    hero.intro = Markup(markdown2.markdown("\n".join(text)).strip())
+    return hero
 
 
-def render_card(index: int, title: str, lines: list[str]) -> str:
-    sticker, genre, date, cover = "", "", "", ""
-    images: list[str] = []
-    tags: list[str] = []
-    actions: list[str] = []
-    notes: list[str] = []
+def parse_card(title: str, lines: list[str]) -> Card:
+    card = Card(title)
     for line in lines:
         if (v := directive(line, "STICKER")) is not None:
-            sticker = v
+            card.sticker = v
         elif (v := directive(line, "GENRE")) is not None:
-            genre = v
+            card.genre = v
         elif (v := directive(line, "DATE")) is not None:
-            date = v
+            card.date = v
         elif (v := directive(line, "COVER")) is not None:
-            cover = v
+            card.cover = v
         elif (v := directive(line, "IMAGES")) is not None:
-            images += v.split()
+            card.images += v.split()
         elif (v := directive(line, "TAGS")) is not None:
-            tags += [t.strip() for t in v.split(",") if t.strip()]
+            tags = [t.strip() for t in v.split(",") if t.strip()]
+            card.tags += [Link(t, TAG_URLS.get(t, "")) for t in tags]
         elif (v := directive(line, "VIDEO")) is not None:
             label, video_id = split_label_value(v)
-            url = f"https://youtu.be/{video_id}"
-            actions.append(
-                f'<a class="btn accent" href="{url}"{external(url)}>'
-                f'<span class="ico ico-youtube"></span>{html.escape(label)}</a>'
-            )
+            card.actions.append(Link(label, f"https://youtu.be/{video_id}", "youtube"))
         elif (v := directive(line, "LINK")) is not None:
             label, url = split_label_value(v)
-            icon = LINK_ICONS.get(label.split(" ")[0])
-            icon_html = f'<span class="ico ico-{icon}"></span>' if icon else ""
-            actions.append(
-                f'<a class="btn accent" href="{html.escape(url)}"{external(url)}>'
-                f"{icon_html}{html.escape(label)}</a>"
-            )
+            icon = LINK_ICONS.get(label.split(" ")[0], "")
+            card.actions.append(Link(label, url, icon))
         elif line.startswith("- "):
-            notes.append(line.removeprefix("- ").strip())
+            card.notes.append(md_inline(line.removeprefix("- ").strip()))
         elif line.strip():
-            notes.append(line.strip())
+            card.notes.append(md_inline(line.strip()))
 
-    if not cover:
-        cover, images = images[0], images[1:]
-
-    thumbs = "".join(
-        f'<button data-full="{asset(i)}" aria-label="Скриншот">'
-        f'<img loading="lazy" src="{thumb(i)}" alt="" /></button>'
-        for i in images
-    )
-    many = len(images) > MANY_THUMBS
-    tags_html = "".join(
-        "<li>{}</li>".format(
-            f'<a href="{TAG_URLS[t]}"{external(TAG_URLS[t])}>{html.escape(t)}</a>'
-            if t in TAG_URLS
-            else f"<span>{html.escape(t)}</span>"
-        )
-        for t in tags
-    )
-
-    parts = [
-        f'<article class="card reveal{" from-right" if index % 2 else ""}">',
-        '<div class="frame"></div>',
-        '<div class="media">',
-        f'<span class="sticker">{html.escape(sticker)}</span>' if sticker else "",
-        f'<button class="cover" data-full="{asset(cover)}" aria-label="Открыть {html.escape(title)}">'
-        f'<img loading="lazy" src="{asset(cover)}" alt="{html.escape(title)}" /></button>',
-        f'<div class="thumbs">{thumbs}</div>' if thumbs and not many else "",
-        "</div>",
-        '<div class="body">',
-        f"<h3>{html.escape(title)}</h3>",
-        f'<div class="genre">{html.escape(genre)}</div>' if genre else "",
-        f'<p class="date">{html.escape(date)}</p>' if date else "",
-        '<ul class="notes">{}</ul>'.format(
-            "".join(f"<li>{md_inline(n)}</li>" for n in notes)
-        )
-        if notes
-        else "",
-        f'<ul class="tags">{tags_html}</ul>' if tags else "",
-        f'<div class="actions">{"".join(actions)}</div>' if actions else "",
-        "</div>",
-        f'<div class="thumbs grid">{thumbs}</div>' if many else "",
-        "</article>",
-    ]
-    return "\n".join(p for p in parts if p)
+    if not card.cover:
+        card.cover, card.images = card.images[0], card.images[1:]
+    return card
 
 
-def render_section(title: str, lines: list[str]) -> str:
-    head = f'<div class="sec-head reveal"><h2>{html.escape(title)}</h2></div>'
+def parse_section(title: str, lines: list[str]) -> Section:
+    section = Section(title)
 
     if any(line.startswith("### ") for line in lines):
-        cards, card_title, card_lines = [], "", []
+        card_title, card_lines = "", []
         for line in lines + ["### "]:
             if line.startswith("### "):
                 if card_title:
-                    cards.append(render_card(len(cards), card_title, card_lines))
+                    section.cards.append(parse_card(card_title, card_lines))
                 card_title, card_lines = line.removeprefix("### ").strip(), []
             else:
                 card_lines.append(line)
-        body = '<div class="cards">{}</div>'.format("\n".join(cards))
-    elif images := [
+        return section
+
+    section.images = [
         i for line in lines for i in (directive(line, "IMAGES") or "").split()
-    ]:
-        body = '<div class="gifs">{}</div>'.format(
-            "".join(
-                f'<button class="reveal" data-full="{asset(i)}" aria-label="Открыть">'
-                f'<img loading="lazy" src="{asset(i)}" alt="" /></button>'
-                for i in images
-            )
-        )
-    elif links := [
-        m.groups()
-        for line in lines
-        if (m := re.fullmatch(r"- \[(.+)\]\((.+)\)", line.strip()))
-    ]:
-        body = '<ol class="requests">{}</ol>'.format(
-            "".join(
-                f'<li class="reveal"><a href="{html.escape(url)}"{external(url)}>'
-                f"<span>{md_inline(text)}</span></a></li>"
-                for text, url in links
-            )
-        )
-    else:
-        body = markdown2.markdown("\n".join(lines))
-
-    return f"<section>\n{head}\n{body}\n</section>"
+    ]
+    for line in lines:
+        if m := re.fullmatch(r"- \[(.+)\]\((.+)\)", line.strip()):
+            section.links.append(Link(md_inline(m[1]), m[2]))
+    if not section.images and not section.links:
+        section.body = Markup(markdown2.markdown("\n".join(lines)))
+    return section
 
 
-def render_portfolio(markdown_contents: str) -> str:
+def parse_portfolio(markdown_contents: str) -> tuple[Hero, list[Section]]:
     text = re.sub(r"<!--.*?-->", "", markdown_contents, flags=re.S)
     text = re.sub(r"#{[^}]*}#", "", text)
     text = text.replace(" -> ", " ➜ ").replace(" - ", " — ")
@@ -512,20 +441,16 @@ def render_portfolio(markdown_contents: str) -> str:
     first_section = next(
         (i for i, line in enumerate(lines) if line.startswith("## ")), len(lines)
     )
-    hero, contacts = render_hero(lines[:first_section])
-    parts = [hero]
-
-    title, section_lines = "", []
+    sections, title, section_lines = [], "", []
     for line in lines[first_section:] + ["## "]:
         if line.startswith("## "):
             if title:
-                parts.append(render_section(title, section_lines))
+                sections.append(parse_section(title, section_lines))
             title, section_lines = line.removeprefix("## ").strip(), []
         else:
             section_lines.append(line)
 
-    parts.append(f'<div class="outro reveal">{render_contacts(contacts)}</div>')
-    return "\n\n".join(parts)
+    return parse_hero(lines[:first_section]), sections
 
 
 ##
